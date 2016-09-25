@@ -79,7 +79,7 @@ Object.prototype.toString.call(null);
 
 ```js
 if ( !('a' in window) ) {
-var a = 1;
+  var a = 1;
 }
 alert(a);
 ```
@@ -135,7 +135,7 @@ n(123).x();
 ```
 
 ```js
-{ a: { b:2 } };
+{ a: { b: 2 } };
 ```
 
 ```js
@@ -439,4 +439,5 @@ setTimeout( function() { 'no Error:)'}, 1000);
 }).apply(typeof pewpew, [,,2]);
 ```
 
+**ES6 quiz (by @kangax)**
 http://perfectionkills.com/javascript-quiz-es6/
