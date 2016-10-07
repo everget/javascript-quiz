@@ -53,34 +53,27 @@ foo === foo;
 
 ```js
 function foo() {
-  return 'Как правило, на этом срезаются новички';
-}
+  return 'Какая-то строка';
+};
 
 function bar() {
   return
-      'Как правило, на этом срезаются новички';
-}
+      'Какая-то строка';
+};
 
-foo();
-bar();
+foo() == bar();
 ```
 
 ```js
 new String('foo') === 'foo';
-new Number(10) === 10;
 ```
 
 ```js
 typeof (null && false);
-typeof (null && []);
 ```
 
 ```js
 10 > 9 > 8 === true;
-```
-
-```js
-setTimeout(function() {'no Error:)'}, 1000);
 ```
 
 ```js
@@ -93,16 +86,13 @@ new Array([], null, undefined, null) == ',,,'; // ..?
 
 ```js
 Object.prototype.toString.call();
-Object.prototype.toString.call([]);
-Object.prototype.toString.call({});
-Object.prototype.toString.call(true);
-Object.prototype.toString.call(null);
 ```
 
 ```js
 if ( !('a' in window) ) {
   var a = 1;
-}
+};
+
 alert(a); // ..?
 ```
 
@@ -123,7 +113,6 @@ alert(a); // ..?
 ```
 
 ```js
-'\t' == 0
 ' \t\r\n' == 0
 ```
 
@@ -159,7 +148,7 @@ Number(123).x();
 ```
 
 ```js
-(function(){}());
+(function(){})();
 ```
 
 ```js
@@ -191,11 +180,11 @@ alert(date == '1999/12/31'); // ..?
 function isEven(arg) {
   if (arg % 2 == 0) return !!1;
   return;
-}
+};
 
 if (isEven(3) == false) {
   alert('Odd number!');
-}
+};
 ```
 
 ```js
@@ -209,7 +198,7 @@ if (isEven(3) == false) {
 ```js
 if ( new Boolean (false) ) {
   alert('true') // ..?
-}
+};
 ```
 
 ```js
@@ -222,14 +211,7 @@ Array.isArray({__proto__: Array.prototype });
 ```
 
 ```js
-var s = new String('hello');
-typeof 'hello';
-typeof s;
-```
-
-```js
-'Hello'[-1];
-'Hello'.charAt(-1);
+'Hello'[-1] == 'Hello'.charAt(-1);
 ```
 
 ```js
@@ -246,14 +228,13 @@ for(var i = 0; i < 10; i++) {
   setTimeout(function() {
        alert(i);
   }, 100);
-}
+};
 ```
 
 ```js
 var s1 = new String('hello');
 var s2 = new String('hello');
 alert(s1 == s2);
-alert(s1 === s2);
 ```
 
 ```js
@@ -266,7 +247,8 @@ x = 1; (function() {
 ```js
 function a(x) {
   return x * 2;
-}
+};
+
 var a;
 alert(a);
 ```
@@ -282,7 +264,7 @@ function foo() {
   x++;
   this.x = x;
   return foo;
-}
+};
 
 var bar = new new foo;
 alert(bar.x);
@@ -293,10 +275,11 @@ alert(bar.x);
 ```
 
 ```js
-var a = 1,
-    b = function a(x) {
-      x && a(--x);
-    };
+var a = 1;
+var b = function a(x) {
+  x && a(--x);
+};
+
 alert(a);
 ```
 
@@ -304,7 +287,8 @@ alert(a);
 function foo(a, b) {
   arguments[1] = 2;
   alert(b);
-}
+};
+
 foo(1);
 ```
 
@@ -312,7 +296,8 @@ foo(1);
 function b(x, y, a) {
   arguments[2] = 10;
   alert(a);
-}
+};
+
 b(1, 2, 3);
 ```
 
@@ -323,7 +308,8 @@ null == 0;
 ```js
 function a() {
   alert(this);
-}
+};
+
 a.call(null);
 ```
 
@@ -362,13 +348,9 @@ x;
 
 ```js
 var foo = {
-  bar: function() { return this.baz; }
+  bar: function() { return this.baz; },
   baz: 1
 };
-
-```js
-true == 1;
-```
 
 (function() {
   return typeof arguments[0]();
@@ -377,7 +359,7 @@ true == 1;
 
 ```js
 var foo = {
-  bar: function() { return this.baz; }
+  bar: function() { return this.baz; },
   baz: 1
 };
 typeof  (f = foo.bar);
@@ -426,62 +408,63 @@ new f() instanceof f;
 
 ```js
 var x = 5,
-    o = { x: 10,
-          doIt: function doIt() {
-                  var x = 20;
-                  setTimeout(function() {
-                      alert(this.x);
-                  }, 10);
-          }
-     };
+var o = {
+  x: 10,
+  doIt: function doIt() {
+    var x = 20;
+    setTimeout(function() {
+        alert(this.x);
+    }, 10);
+  }
+};
 
 o.doIt();
 ```
 
 ```js
 var o = {
-          x: 8,
-          valueOf: function() {
-            return this.x + 2;
-          },
-          toString: function() {
-            return this.x.toString();
-          }
-        },
-        result = o < '9';
+  x: 8,
+  valueOf: function() {
+    return this.x + 2;
+  },
+  toString: function() {
+    return this.x.toString();
+  }
+},
+result = o < '9';
         
 alert(o); // ..?
 ```
 
 ```js
 var o = {
-          b: function() {
-              alert(this === o);
-          }
-        };
+  b: function() {
+      alert(this === o);
+  }
+};
 
 o['b'](); // ..?
 ```
 
 ```js
 var obj = {
-            toString: function() {
-              return '[object MyObject]';
-            },
-            valueOf: function() {
-              return 17;
-            }
-          };
+  toString: function() {
+    return '[object MyObject]';
+  },
+  valueOf: function() {
+    return 17;
+  }
+};
 
 alert('object: ' + obj); // ..?
 ```
 
 ```js
 var x1 = /[/ + 'javascript'[0] + '///';
-// :) Answer: /[\/ + 'javascript'[0] + '/
+x1; // ..?
 
 var x2 = /\[/ + 'javascript'[0] + '///';
-// :) Answer: /\[/j///
+x2; // ..?
 ```
 
 ```js
@@ -495,10 +478,6 @@ with ({a: 1}) {
 
 ```js
 with (function (x, undefined) {}) length;
-```
-
-```js
-new Promise(function() {}).then(function() { throw 'error' }); // ..?
 ```
 
 ```js
