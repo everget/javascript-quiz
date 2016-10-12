@@ -22,6 +22,7 @@ var x = 1;
 {
   var x = 2;
 }
+
 alert(x);
 ```
 
@@ -30,7 +31,21 @@ alert(x);
 ```
 
 ```js
+delete delete window.document;
+```
+
+```js
 '3' - 2 === 1;
+```
+
+```js
+[] + {};
+
+[] * {};
+```
+
+```js
+if (9, 0) alert('ok');
 ```
 
 ```js
@@ -47,8 +62,11 @@ var a = []
 ```
 
 ```js
-var foo = {};
-foo === foo;
+1 && 3;
+```
+
+```js
+{} + [];
 ```
 
 ```js
@@ -65,11 +83,34 @@ foo() == bar();
 ```
 
 ```js
+typeof (null && false);
+```
+
+```js
 new String('foo') === 'foo';
 ```
 
 ```js
-typeof (null && false);
+'5'+ +'6';
+```
+
+```js
+var foo = {};
+foo === foo;
+```
+
+```js
+alert('2',
+  foo = function (arg) {
+    alert(arg)
+  },
+  foo('1')
+)
+foo('3'); // alerts 1, 2 and 3
+```
+
+```js
+[3 + NaN + true] + [10 / (8 * null) - 1];
 ```
 
 ```js
@@ -77,7 +118,15 @@ typeof (null && false);
 ```
 
 ```js
-new Array([], null, undefined, null) == ',,,'; // ..?
+Math.max({}, 2);
+```
+
+```js
+new Array([], null, undefined, null) == ',,,';
+```
+
+```js
+(1, function(){})();
 ```
 
 ```js
@@ -93,7 +142,7 @@ if ( !('a' in window) ) {
   var a = 1;
 };
 
-alert(a); // ..?
+alert(a);
 ```
 
 ```js
@@ -109,17 +158,17 @@ alert(a); // ..?
 ```
 
 ```js
-{ break; 4; } // ..?
+{ break; 4; };
 ```
 
 ```js
-' \t\r\n' == 0
+' \t\r\n' == 0;
 ```
 
 ```js
 RegExp.prototype.toString = function() { return this.source };
 
-/3/-/2/; // ..?
+/3/-/2/;
 ```
 
 ```js
@@ -148,7 +197,9 @@ Number(123).x();
 ```
 
 ```js
-(function(){})();
+1 || 'foo' && 0;
+
+1 && 'foo' || 0;
 ```
 
 ```js
@@ -156,11 +207,23 @@ Number(123).x();
 ```
 
 ```js
+[4] * [4];
+```
+
+```js
 { a: 1, b: 2 }[['b']];
 ```
 
 ```js
+1 + 2 + '3' == 1 + '2' + 3;
+```
+
+```js
 a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
+```
+
+```js
+01-+-02-+-03;
 ```
 
 ```js
@@ -169,7 +232,7 @@ a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
 
 ```js
 var date = new Date('1999/12/31');
-alert(date == '1999/12/31'); // ..?
+alert(date == '1999/12/31');
 ```
 
 ```js
@@ -192,13 +255,21 @@ if (isEven(3) == false) {
 ```
 
 ```js
+0.1 + (0.2 + 0.3) == (0.1 + 0.2) + 0.3;
+```
+
+```js
 (1, 2, 3);
 ```
 
 ```js
-if ( new Boolean (false) ) {
-  alert('true') // ..?
+if ( new Boolean(false) ) {
+  alert('true')
 };
+```
+
+```js
+[] + [];
 ```
 
 ```js
@@ -208,6 +279,12 @@ if ( new Boolean (false) ) {
 
 ```js
 Array.isArray({__proto__: Array.prototype });
+```
+
+```js
+var s = new String('hello');
+typeof 'hello';
+typeof s;
 ```
 
 ```js
@@ -224,7 +301,11 @@ Array.isArray({__proto__: Array.prototype });
 ```
 
 ```js
-for(var i = 0; i < 10; i++) {
+Math.max(2, []);
+```
+
+```js
+for (var i = 0; i < 10; i++) {
   setTimeout(function() {
        alert(i);
   }, 100);
@@ -235,6 +316,7 @@ for(var i = 0; i < 10; i++) {
 var s1 = new String('hello');
 var s2 = new String('hello');
 alert(s1 == s2);
+alert(s1 === s2);
 ```
 
 ```js
@@ -242,6 +324,25 @@ x = 1; (function() {
   return x;
   var x = 2;
 }());
+```
+
+```js
+[4, 4] * [4, 4];
+```
+
+```js
+var num1 = 5;
+var num2 = 10;
+
+num1+++num2;
+```
+
+```js
+var x = function() {
+  return arguments;
+};
+
+x() == x();
 ```
 
 ```js
@@ -275,12 +376,16 @@ alert(bar.x);
 ```
 
 ```js
-var a = 1;
+var a = 1,
 var b = function a(x) {
   x && a(--x);
 };
 
 alert(a);
+```
+
+```js
+var smth = (45,87) > (195,3) ? 'bar' : (54,65) > (1,0) ? '' : 'baz';
 ```
 
 ```js
@@ -290,6 +395,10 @@ function foo(a, b) {
 };
 
 foo(1);
+```
+
+```js
+(0.2 + 0.4) / 1 == 0.1 + 0.2;
 ```
 
 ```js
@@ -348,7 +457,7 @@ x;
 
 ```js
 var foo = {
-  bar: function() { return this.baz; },
+  bar: function() { return this.baz; }
   baz: 1
 };
 
@@ -359,10 +468,10 @@ var foo = {
 
 ```js
 var foo = {
-  bar: function() { return this.baz; },
+  bar: function() { return this.baz; }
   baz: 1
 };
-typeof  (f = foo.bar);
+typeof (f = foo.bar);
 ```
 
 ```js
@@ -371,10 +480,15 @@ typeof f;
 ```
 
 ```js
+alert('1', alert('2', alert('3')));
+```
+
+```js
 var x = 1;
 if ( function f() {} ) {
   x += typeof f;
-}
+};
+
 x;
 ```
 
@@ -385,6 +499,10 @@ x;
 ```js
 var x = [typeof x, typeof y][1];
 typeof typeof x;
+```
+
+```js
+[3, 4, 5, 6][1, 2]
 ```
 
 ```js
@@ -432,18 +550,29 @@ var o = {
   }
 },
 result = o < '9';
-        
-alert(o); // ..?
+
+alert(o);
 ```
 
 ```js
 var o = {
   b: function() {
-      alert(this === o);
+    alert(this === o);
   }
 };
 
-o['b'](); // ..?
+o['b']();
+```
+
+```js
+(function tada(printTwo) {
+  printing: {
+      console.log('one');
+      if (!printTwo) break printing;
+      console.log('two');
+  }
+  console.log('three');
+})(true);
 ```
 
 ```js
@@ -456,15 +585,15 @@ var obj = {
   }
 };
 
-alert('object: ' + obj); // ..?
+alert('object: ' + obj);
 ```
 
 ```js
 var x1 = /[/ + 'javascript'[0] + '///';
-x1; // ..?
+x1;
 
 var x2 = /\[/ + 'javascript'[0] + '///';
-x2; // ..?
+x2;
 ```
 
 ```js
@@ -473,7 +602,7 @@ with ({a: 1}) {
   b = 3
 };
 
-[window.a, window.b]; // ..?
+[window.a, window.b];
 ```
 
 ```js
@@ -481,10 +610,11 @@ with (function (x, undefined) {}) length;
 ```
 
 ```js
-(function pewpew(Infinity, length, __proto__) {
-  return [,,~0.[0|0]][pewpew.__proto__.length && Infinity, -~String(this).length >> __proto__] << (0. === .0) + Infinity;
-}).apply(typeof pewpew, [,,2]); // ..?
+(![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]];
 ```
 
-**ES6 quiz (by @kangax)**
-http://perfectionkills.com/javascript-quiz-es6/
+```js
+(function pewpew(Infinity, length, __proto__) {
+  return [,,~0.[0|0]][pewpew.__proto__.length && Infinity, -~String(this).length >> __proto__] << (0. === .0) + Infinity;
+}).apply(typeof pewpew, [,,2]);
+```
