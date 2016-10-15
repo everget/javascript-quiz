@@ -105,7 +105,7 @@ alert('2',
     alert(arg)
   },
   foo('1')
-)
+),
 foo('3');
 ```
 
@@ -263,7 +263,7 @@ if (isEven(3) == false) {
 ```
 
 ```js
-if ( new Boolean(false) ) {
+if (new Boolean(false)) {
   alert('true')
 };
 ```
@@ -398,7 +398,7 @@ foo(1);
 ```
 
 ```js
-(0.2 + 0.4) / 1 == 0.1 + 0.2;
+(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
 ```
 
 ```js
@@ -502,7 +502,7 @@ typeof typeof x;
 ```
 
 ```js
-[3, 4, 5, 6][1, 2]
+[3, 4, 5, 6][1, 2];
 ```
 
 ```js
@@ -557,7 +557,7 @@ alert(o);
 ```js
 var o = {
   b: function() {
-    alert(this === o);
+      alert(this === o);
   }
 };
 
