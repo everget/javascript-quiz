@@ -1,4 +1,4 @@
-# javascript-quiz
+# JavaScript Quiz
 **A simple test for js developers:)**
 
 ```js
