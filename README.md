@@ -203,6 +203,7 @@ Number(123).x();
 ```
 
 ```js
+// TODO: remove
 { a: { b: 2 } };
 ```
 
@@ -240,6 +241,7 @@ alert(date == '1999/12/31');
 ```
 
 ```js
+// TODO: remove
 function isEven(arg) {
   if (arg % 2 == 0) return !!1;
   return;
@@ -264,7 +266,7 @@ if (isEven(3) == false) {
 
 ```js
 if (new Boolean(false)) {
-  alert('true')
+  alert('true');
 };
 ```
 
