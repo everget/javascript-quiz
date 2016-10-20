@@ -1,16 +1,37 @@
 ## JavaScript Quiz
 The simple test for JavaScript developers:)
 
+### Assignments & Labels & Blocks
 ```js
-{ foo: 'bar' }; // ..?
+{ foo = 123 };
+```
 
-{ 'foo': 'bar' }; // ..?
+```js
+var x = 8 | 1;
+```
+
+```js
+a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
+```
+
+```js
+var num1 = 5;
+var num2 = 10;
+
+num1+++num2;
+```
+
+```js
+{ foo: 'bar' };     // ..?
+
+{ 'foo': 'bar' };   // ..?
 
 ({ 'foo': 'bar' }); // ..?
 ```
 
 ```js
-{ foo = 123 };
+var y = 1, x = y = typeof x;
+x;
 ```
 
 ```js
@@ -18,55 +39,41 @@ vars: var vars = vars;
 ```
 
 ```js
-var x = 1;
-{
-  var x = 2;
-}
-
-alert(x);
+var x = [typeof x, typeof y][1];
+typeof typeof x;
 ```
 
 ```js
-'1' - - '1';
+var bar = 1,
+    foo = {};
+
+foo: {
+    bar: 2;
+    baz: ++bar;
+};
+
+foo.baz + foo.bar + bar;
 ```
 
 ```js
-delete delete window.document;
+{ break; 4; };
 ```
 
 ```js
-'3' - 2 === 1;
+(function tada(printTwo) {
+  printing: {
+      alert('one');
+      if (!printTwo) break printing;
+      alert('two');
+  }
+  alert('three');
+})(true);
 ```
 
-```js
-[] + {};
-
-[] * {};
-```
-
-```js
-if (9, 0) alert('ok');
-```
-
+### Semicolon
 ```js
 var a = []
 (new Date).getTime();
-```
-
-```js
-{} === {};
-```
-
-```js
-[1] == true;
-```
-
-```js
-1 && 3;
-```
-
-```js
-{} + [];
 ```
 
 ```js
@@ -82,12 +89,37 @@ function bar() {
 foo() == bar();
 ```
 
+### Coercions & Comparisons
 ```js
-typeof (null && false);
+!!~1;
 ```
 
 ```js
-new String('foo') === 'foo';
+0 === -0;
+```
+
+```js
+~~(-5.5);
+```
+
+```js
+'3' - 2 === 1;
+```
+
+```js
+'00' == 0;
+```
+
+```js
+[2] == true;
+```
+
+```js
+(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
+```
+
+```js
+'1' - - '1';
 ```
 
 ```js
@@ -95,18 +127,7 @@ new String('foo') === 'foo';
 ```
 
 ```js
-var foo = {};
-foo === foo;
-```
-
-```js
-alert('2',
-  foo = function (arg) {
-    alert(arg)
-  },
-  foo('1')
-),
-foo('3');
+1 + 2 + '3' == 1 + '2' + 3;
 ```
 
 ```js
@@ -118,15 +139,15 @@ foo('3');
 ```
 
 ```js
-Math.max({}, 2);
+typeof (null && false);
 ```
 
 ```js
-new Array([], null, undefined, null) == ',,,';
+'1' + 2 + '3' + 4;
 ```
 
 ```js
-(1, function(){})();
+[1] == true;
 ```
 
 ```js
@@ -134,66 +155,19 @@ new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
-Object.prototype.toString.call();
+[4] * [4];
 ```
 
 ```js
-if ( !('a' in window) ) {
-  var a = 1;
-};
-
-alert(a);
+4 + 3 + 2 + '1';
 ```
 
 ```js
-'00' == 0;
+1 && 3;
 ```
 
 ```js
-'foo'.split('') + [];
-```
-
-```js
-'foo' == new function() { return String('foo'); };
-```
-
-```js
-{ break; 4; };
-```
-
-```js
-' \t\r\n' == 0;
-```
-
-```js
-RegExp.prototype.toString = function() { return this.source };
-
-/3/-/2/;
-```
-
-```js
-delete [].length;
-```
-
-```js
-[2] == true;
-```
-
-```js
-Array(2).join();
-```
-
-```js
-Number.prototype.x = function() { return this === 123; };
-Number(123).x();
-```
-
-```js
-({} + 'b' > {} + 'a');
-```
-
-```js
-[1, 2, 3, 4, 5][0..toString.length];
+01-+-02-+-03;
 ```
 
 ```js
@@ -203,57 +177,28 @@ Number(123).x();
 ```
 
 ```js
-// TODO: remove
-{ a: { b: 2 } };
+[true] == true;
 ```
 
 ```js
-[4] * [4];
+parseInt(null, 24) === 23;
 ```
 
 ```js
-{ a: 1, b: 2 }[['b']];
+1/0 === 1/-0;
 ```
 
 ```js
-1 + 2 + '3' == 1 + '2' + 3;
+null == 0;
 ```
 
 ```js
-a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
+[1, 2, 3, 4, 5][0..toString.length];
 ```
 
 ```js
-01-+-02-+-03;
-```
-
-```js
-++'52'.split('')[0];
-```
-
-```js
-var date = new Date('1999/12/31');
-alert(date == '1999/12/31');
-```
-
-```js
-[true, false][+true, +false];
-```
-
-```js
-// TODO: remove
-function isEven(arg) {
-  if (arg % 2 == 0) return !!1;
-  return;
-};
-
-if (isEven(3) == false) {
-  alert('Odd number!');
-};
-```
-
-```js
-{ foo: 1 }[0];
+[1 , 1] == true;
+[[1], [1]] == true;
 ```
 
 ```js
@@ -261,13 +206,33 @@ if (isEven(3) == false) {
 ```
 
 ```js
-(1, 2, 3);
+' \t\r\n' == 0;
 ```
 
 ```js
-if (new Boolean(false)) {
-  alert('true');
-};
+'foo'.split('') + [];
+```
+
+```js
+({} + 'b' > {} + 'a');
+```
+
+```js
+[] + [] + 'foo'.split('');
+```
+
+```js
+[[[[1]]]] == true;
+```
+
+```js
+[] + {};
+
+[] * {};
+```
+
+```js
+{} + [];
 ```
 
 ```js
@@ -275,76 +240,35 @@ if (new Boolean(false)) {
 ```
 
 ```js
-'hello'.someProperty = 17;
-'hello'.someProperty;
-```
-
-```js
-Array.isArray({__proto__: Array.prototype });
-```
-
-```js
-var s = new String('hello');
-typeof 'hello';
-typeof s;
-```
-
-```js
-'Hello'[-1] == 'Hello'.charAt(-1);
-```
-
-```js
-0 === -0;
-```
-
-```js
-/^.$/.test('');
-/^..$/.test('');
-```
-
-```js
-Math.max(2, []);
-```
-
-```js
-for (var i = 0; i < 10; i++) {
-  setTimeout(function() {
-       alert(i);
-  }, 100);
-};
-```
-
-```js
-var s1 = new String('hello');
-var s2 = new String('hello');
-alert(s1 == s2);
-alert(s1 === s2);
-```
-
-```js
-x = 1; (function() {
-  return x;
-  var x = 2;
-}());
-```
-
-```js
 [4, 4] * [4, 4];
 ```
 
 ```js
-var num1 = 5;
-var num2 = 10;
-
-num1+++num2;
+{} === {};
 ```
 
 ```js
-var x = function() {
-  return arguments;
+var foo = {};
+foo === foo;
+```
+
+### Scopes & Closures & Hoisting
+
+```js
+var x = 1;
+{
+  var x = 2;
+}
+
+alert(x);
+```
+
+```js
+if ( !('a' in window) ) {
+  var a = 1;
 };
 
-x() == x();
+alert(a);
 ```
 
 ```js
@@ -357,63 +281,18 @@ alert(a);
 ```
 
 ```js
-[1 , 1] == true;
-[[1], [1]] == true;
-```
-
-```js
-var x = 0;
-function foo() {
-  x++;
-  this.x = x;
-  return foo;
+var x = 5,
+var o = {
+  x: 10,
+  doIt: function doIt() {
+    var x = 20;
+    setTimeout(function() {
+        alert(this.x);
+    }, 10);
+  }
 };
 
-var bar = new new foo;
-alert(bar.x);
-```
-
-```js
-1/0 === 1/-0;
-```
-
-```js
-var a = 1,
-var b = function a(x) {
-  x && a(--x);
-};
-
-alert(a);
-```
-
-```js
-var smth = (45, 87) > (195, 3) ? 'bar' : (54, 65) > (1, 0) ? '' : 'baz';
-```
-
-```js
-function foo(a, b) {
-  arguments[1] = 2;
-  alert(b);
-};
-
-foo(1);
-```
-
-```js
-(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
-```
-
-```js
-function b(x, y, a) {
-  arguments[2] = 10;
-  alert(a);
-};
-
-b(1, 2, 3);
-```
-
-```js
-null == 0;
+o.doIt();
 ```
 
 ```js
@@ -425,36 +304,114 @@ a.call(null);
 ```
 
 ```js
-(function() {
-  return typeof arguments;
-})();
+for (var i = 0; i < 10; i++) {
+  setTimeout(function() {
+       alert(i);
+  }, 100);
+};
 ```
 
 ```js
-var f = function g() { return 23; }
-typeof g();
+var a = 1,
+var b = function a(x) {
+  x && a(--x);
+};
+
+alert(a);
+```
+
+### Comma operator
+```js
+(1, 2, 3);
 ```
 
 ```js
-[[[[1]]]] == true;
+(1, function(){})();
 ```
 
 ```js
-(function (x) {
-  delete x;
-  return x;
-})(1);
+if (9, 0) alert('ok');
 ```
 
 ```js
-var y = 1, x = y = typeof x;
-x;
+[true, false][+true, +false];
 ```
 
 ```js
-(function f(f) {
-   return typeof f();
-})(function() { return 1; });
+var smth = (45, 87) > (195, 3) ? 'bar' : (54, 65) > (1, 0) ? '' : 'baz';
+```
+
+```js
+alert('1', alert('2', alert('3')));
+```
+
+```js
+[3, 4, 5, 6][1, 2];
+```
+
+```js
+alert('2',
+  foo = function (arg) {
+    alert(arg)
+  },
+  foo('1')
+),
+foo('3');
+```
+
+### Properties
+```js
+{ foo: 1 }[0];
+```
+
+```js
+Number.prototype.x = function() { return this === 123; };
+Number(123).x();
+```
+
+```js
+delete delete window.document;
+```
+
+```js
+{ a: 1, b: 2 }[['b']];
+```
+
+```js
+var obj = {
+  toString: function() {
+    return '[object MyObject]';
+  },
+  valueOf: function() {
+    return 17;
+  }
+};
+
+alert('object: ' + obj);
+```
+
+```js
+Object.prototype.toString.call();
+```
+
+```js
+var o = {
+  x: 8,
+  valueOf: function() {
+    return this.x + 2;
+  },
+  toString: function() {
+    return this.x.toString();
+  }
+},
+result = o < '9';
+
+alert(o);
+```
+
+```js
+'hello'.someProperty = 17;
+'hello'.someProperty;
 ```
 
 ```js
@@ -477,40 +434,201 @@ typeof (f = foo.bar);
 ```
 
 ```js
-var f = (function f() { return '1'; }, function g() {return 2; })();
-typeof f;
+'Hello'[-1] == 'Hello'.charAt(-1);
 ```
 
 ```js
-alert('1', alert('2', alert('3')));
-```
-
-```js
-var x = 1;
-if ( function f() {} ) {
-  x += typeof f;
-};
-
-x;
-```
-
-```js
-[true] == true;
-```
-
-```js
-var x = [typeof x, typeof y][1];
-typeof typeof x;
-```
-
-```js
-[3, 4, 5, 6][1, 2];
+delete [].length;
 ```
 
 ```js
 (function (foo) {
   return typeof foo.bar;
 })({ foo: { bar: 1 } });
+```
+
+```js
+var o = {
+  b: function() {
+      alert(this === o);
+  }
+};
+
+o['b']();
+```
+
+### Host objects & Constructors
+```js
+new String('foo') === 'foo';
+```
+
+```js
+Math.max(2, []);
+```
+
+```js
+(function() {
+  return typeof arguments;
+})();
+```
+
+```js
+new Array([], null, undefined, null) == ',,,';
+```
+
+```js
+function foo(a, b) {
+  arguments[1] = 2;
+  alert(b);
+};
+
+foo(1);
+```
+
+```js
+'foo' == new function() { return String('foo'); };
+```
+
+```js
+RegExp.prototype.toString = function() { return this.source };
+
+/3/-/2/;
+```
+
+```js
+function b(x, y, a) {
+  arguments[2] = 10;
+  alert(a);
+};
+
+b(1, 2, 3);
+```
+
+```js
+Array(2).join();
+```
+
+```js
+var x = 0;
+function foo() {
+  x++;
+  this.x = x;
+  return foo;
+};
+
+var bar = new new foo;
+alert(bar.x);
+```
+
+```js
+if (new Boolean(false)) {
+  alert('true');
+};
+```
+
+```js
+var x = function() {
+  return arguments;
+};
+
+x() == x();
+```
+
+```js
+function whatDoesItDo(num) {
+  return Math.max(0, Math.min(10, num));
+};
+```
+
+```js
+Array.isArray({__proto__: Array.prototype });
+```
+
+```js
+var s = new String('hello');
+typeof 'hello';
+typeof s;
+```
+
+```js
+var date = new Date('1999/12/31');
+alert(date == '1999/12/31');
+```
+
+```js
+Math.max({}, 2);
+```
+
+```js
+var s1 = new String('hello');
+var s2 = new String('hello');
+alert(s1 == s2);
+alert(s1 === s2);
+```
+
+### Miscellaneous
+```js
+alert(parseInt(1/0, 19));
+```
+
+```js
+++'52'.split('')[0];
+```
+
+```js
+(1.22e-10).toFixed(2);
+```
+
+```js
+alert(typeof typeof(typeof(undefined));
+```
+
+```js
+/^.$/.test('');
+/^..$/.test('');
+```
+
+```js
+Array(4).join('lol' - 2) + 'Batman!';
+```
+
+```js
+x = 1; (function() {
+  return x;
+  var x = 2;
+}());
+```
+
+```js
+var f = function g() { return 23; }
+typeof g();
+```
+
+```js
+(function (x) {
+  delete x;
+  return x;
+})(1);
+```
+
+```js
+(function f(f) {
+   return typeof f();
+})(function() { return 1; });
+```
+
+```js
+var f = (function f() { return '1'; }, function g() {return 2; })();
+typeof f;
+```
+
+```js
+var x = 1;
+if (function f() {}) {
+  x += typeof f;
+};
+
+x;
 ```
 
 ```js
@@ -524,70 +642,6 @@ typeof typeof x;
 ```js
 function f() { return f; }
 new f() instanceof f;
-```
-
-```js
-var x = 5,
-var o = {
-  x: 10,
-  doIt: function doIt() {
-    var x = 20;
-    setTimeout(function() {
-        alert(this.x);
-    }, 10);
-  }
-};
-
-o.doIt();
-```
-
-```js
-var o = {
-  x: 8,
-  valueOf: function() {
-    return this.x + 2;
-  },
-  toString: function() {
-    return this.x.toString();
-  }
-},
-result = o < '9';
-
-alert(o);
-```
-
-```js
-var o = {
-  b: function() {
-      alert(this === o);
-  }
-};
-
-o['b']();
-```
-
-```js
-(function tada(printTwo) {
-  printing: {
-      console.log('one');
-      if (!printTwo) break printing;
-      console.log('two');
-  }
-  console.log('three');
-})(true);
-```
-
-```js
-var obj = {
-  toString: function() {
-    return '[object MyObject]';
-  },
-  valueOf: function() {
-    return 17;
-  }
-};
-
-alert('object: ' + obj);
 ```
 
 ```js
