@@ -1,5 +1,5 @@
-# JavaScript Quiz
-**A simple test for js developers:)**
+## JavaScript Quiz
+####A simple test for js developers:)
 
 ```js
 { foo: 'bar' }; // ..?
