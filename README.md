@@ -1,14 +1,7 @@
 ## JavaScript Quiz
 The simple test for JavaScript developers:)
 
-```js
-{ foo: 'bar' }; // ..?
-
-{ 'foo': 'bar' }; // ..?
-
-({ 'foo': 'bar' }); // ..?
-```
-
+### Assignments
 ```js
 { foo = 123 };
 ```
@@ -17,56 +10,10 @@ The simple test for JavaScript developers:)
 vars: var vars = vars;
 ```
 
-```js
-var x = 1;
-{
-  var x = 2;
-}
-
-alert(x);
-```
-
-```js
-'1' - - '1';
-```
-
-```js
-delete delete window.document;
-```
-
-```js
-'3' - 2 === 1;
-```
-
-```js
-[] + {};
-
-[] * {};
-```
-
-```js
-if (9, 0) alert('ok');
-```
-
+### Semicolon
 ```js
 var a = []
 (new Date).getTime();
-```
-
-```js
-{} === {};
-```
-
-```js
-[1] == true;
-```
-
-```js
-1 && 3;
-```
-
-```js
-{} + [];
 ```
 
 ```js
@@ -82,31 +29,17 @@ function bar() {
 foo() == bar();
 ```
 
+### Coercions & Comparisons
 ```js
-typeof (null && false);
+'3' - 2 === 1;
 ```
 
 ```js
-new String('foo') === 'foo';
+'1' - - '1';
 ```
 
 ```js
 '5'+ +'6';
-```
-
-```js
-var foo = {};
-foo === foo;
-```
-
-```js
-alert('2',
-  foo = function (arg) {
-    alert(arg)
-  },
-  foo('1')
-),
-foo('3');
 ```
 
 ```js
@@ -118,15 +51,93 @@ foo('3');
 ```
 
 ```js
+[1] == true;
+```
+
+```js
+[] + {};
+
+[] * {};
+```
+
+```js
+{} + [];
+```
+
+```js
+{} === {};
+```
+
+```js
 Math.max({}, 2);
+```
+
+### Hoisting
+
+### Scopes
+
+```js
+var x = 1;
+{
+  var x = 2;
+}
+
+alert(x);
+```
+
+### Comma operator
+```js
+(1, function(){})();
+```
+
+```js
+if (9, 0) alert('ok');
+```
+
+```js
+alert('2',
+  foo = function (arg) {
+    alert(arg)
+  },
+  foo('1')
+),
+foo('3');
+```
+### Constructors
+
+### Miscellaneous
+
+```js
+{ foo: 'bar' }; // ..?
+
+{ 'foo': 'bar' }; // ..?
+
+({ 'foo': 'bar' }); // ..?
+```
+
+```js
+delete delete window.document;
+```
+
+```js
+1 && 3;
+```
+
+```js
+typeof (null && false);
+```
+
+```js
+new String('foo') === 'foo';
+```
+
+```js
+var foo = {};
+foo === foo;
 ```
 
 ```js
 new Array([], null, undefined, null) == ',,,';
-```
-
-```js
-(1, function(){})();
 ```
 
 ```js
