@@ -1,15 +1,19 @@
-# JavaScript Quiz (splited by divisions)
-## Assignments
+## JavaScript Quiz (splited by divisions)
+### Assignments
 
-## Coercions & Comparisons
+### Semicolon
 
-## Scopes & Hoisting
+### Coercions
 
-## Comma operator
+### Hoisting
 
-## Classes & Constructors
+### Scopes
 
-## Miscellaneous
+### Comma operator
+
+### Constructors
+
+### Miscellaneous
 ```js
 var x1 = /[/ + 'javascript'[0] + '///';
 x1;
