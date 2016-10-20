@@ -55,6 +55,10 @@ foo() == bar();
 ```
 
 ```js
+1 + 2 + '3' == 1 + '2' + 3;
+```
+
+```js
 [3 + NaN + true] + [10 / (8 * null) - 1];
 ```
 
@@ -71,7 +75,23 @@ foo() == bar();
 ```
 
 ```js
+[4] * [4];
+```
+
+```js
+01-+-02-+-03;
+```
+
+```js
+[true] == true;
+```
+
+```js
 1/0 === 1/-0;
+```
+
+```js
+' \t\r\n' == 0;
 ```
 
 ```js
@@ -86,6 +106,10 @@ foo() == bar();
 
 ```js
 [] + [];
+```
+
+```js
+[4, 4] * [4, 4];
 ```
 
 ```js
@@ -148,7 +172,45 @@ foo('3');
 Number.prototype.x = function() { return this === 123; };
 Number(123).x();
 ```
-### Constructors
+
+```js
+var obj = {
+  toString: function() {
+    return '[object MyObject]';
+  },
+  valueOf: function() {
+    return 17;
+  }
+};
+
+alert('object: ' + obj);
+```
+
+```js
+var o = {
+  x: 8,
+  valueOf: function() {
+    return this.x + 2;
+  },
+  toString: function() {
+    return this.x.toString();
+  }
+},
+result = o < '9';
+
+alert(o);
+```
+
+```js
+var o = {
+  b: function() {
+      alert(this === o);
+  }
+};
+
+o['b']();
+```
+### Host objects & Constructors
 ```js
 new String('foo') === 'foo';
 ```
@@ -160,6 +222,13 @@ new Array([], null, undefined, null) == ',,,';
 ```js
 var date = new Date('1999/12/31');
 alert(date == '1999/12/31');
+```
+
+```js
+var s1 = new String('hello');
+var s2 = new String('hello');
+alert(s1 == s2);
+alert(s1 === s2);
 ```
 
 ### Miscellaneous
@@ -188,8 +257,6 @@ typeof (null && false);
 Object.prototype.toString.call();
 ```
 
-
-
 ```js
 'foo'.split('') + [];
 ```
@@ -202,9 +269,6 @@ Object.prototype.toString.call();
 { break; 4; };
 ```
 
-```js
-' \t\r\n' == 0;
-```
 
 ```js
 RegExp.prototype.toString = function() { return this.source };
@@ -240,30 +304,18 @@ Array(2).join();
 1 && 'foo' || 0;
 ```
 
-```js
-// TODO: remove
-{ a: { b: 2 } };
-```
 
-```js
-[4] * [4];
-```
+
 
 ```js
 { a: 1, b: 2 }[['b']];
 ```
 
-```js
-1 + 2 + '3' == 1 + '2' + 3;
-```
 
 ```js
 a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
 ```
 
-```js
-01-+-02-+-03;
-```
 
 ```js
 ++'52'.split('')[0];
@@ -328,22 +380,13 @@ for (var i = 0; i < 10; i++) {
 ```
 
 ```js
-var s1 = new String('hello');
-var s2 = new String('hello');
-alert(s1 == s2);
-alert(s1 === s2);
-```
-
-```js
 x = 1; (function() {
   return x;
   var x = 2;
 }());
 ```
 
-```js
-[4, 4] * [4, 4];
-```
+
 
 ```js
 var num1 = 5;
@@ -503,10 +546,6 @@ x;
 ```
 
 ```js
-[true] == true;
-```
-
-```js
 var x = [typeof x, typeof y][1];
 typeof typeof x;
 ```
@@ -549,30 +588,7 @@ var o = {
 o.doIt();
 ```
 
-```js
-var o = {
-  x: 8,
-  valueOf: function() {
-    return this.x + 2;
-  },
-  toString: function() {
-    return this.x.toString();
-  }
-},
-result = o < '9';
 
-alert(o);
-```
-
-```js
-var o = {
-  b: function() {
-      alert(this === o);
-  }
-};
-
-o['b']();
-```
 
 ```js
 (function tada(printTwo) {
@@ -583,19 +599,6 @@ o['b']();
   }
   console.log('three');
 })(true);
-```
-
-```js
-var obj = {
-  toString: function() {
-    return '[object MyObject]';
-  },
-  valueOf: function() {
-    return 17;
-  }
-};
-
-alert('object: ' + obj);
 ```
 
 ```js
