@@ -31,7 +31,19 @@ foo() == bar();
 
 ### Coercions & Comparisons
 ```js
+0 === -0;
+```
+
+```js
 '3' - 2 === 1;
+```
+
+```js
+'00' == 0;
+```
+
+```js
+(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
 ```
 
 ```js
@@ -55,6 +67,14 @@ foo() == bar();
 ```
 
 ```js
+'1.0e0' == { valueOf: function() { return true; } };
+```
+
+```js
+1/0 === 1/-0;
+```
+
+```js
 [] + {};
 
 [] * {};
@@ -65,7 +85,16 @@ foo() == bar();
 ```
 
 ```js
+[] + [];
+```
+
+```js
 {} === {};
+```
+
+```js
+var foo = {};
+foo === foo;
 ```
 
 ```js
@@ -85,7 +114,18 @@ var x = 1;
 alert(x);
 ```
 
+```js
+if ( !('a' in window) ) {
+  var a = 1;
+};
+
+alert(a);
+```
 ### Comma operator
+```js
+(1, 2, 3);
+```
+
 ```js
 (1, function(){})();
 ```
@@ -103,7 +143,24 @@ alert('2',
 ),
 foo('3');
 ```
+### Properties
+```js
+Number.prototype.x = function() { return this === 123; };
+Number(123).x();
+```
 ### Constructors
+```js
+new String('foo') === 'foo';
+```
+
+```js
+new Array([], null, undefined, null) == ',,,';
+```
+
+```js
+var date = new Date('1999/12/31');
+alert(date == '1999/12/31');
+```
 
 ### Miscellaneous
 
@@ -128,37 +185,10 @@ typeof (null && false);
 ```
 
 ```js
-new String('foo') === 'foo';
-```
-
-```js
-var foo = {};
-foo === foo;
-```
-
-```js
-new Array([], null, undefined, null) == ',,,';
-```
-
-```js
-'1.0e0' == { valueOf: function() { return true; } };
-```
-
-```js
 Object.prototype.toString.call();
 ```
 
-```js
-if ( !('a' in window) ) {
-  var a = 1;
-};
 
-alert(a);
-```
-
-```js
-'00' == 0;
-```
 
 ```js
 'foo'.split('') + [];
@@ -194,10 +224,7 @@ delete [].length;
 Array(2).join();
 ```
 
-```js
-Number.prototype.x = function() { return this === 123; };
-Number(123).x();
-```
+
 
 ```js
 ({} + 'b' > {} + 'a');
@@ -242,25 +269,10 @@ a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
 ++'52'.split('')[0];
 ```
 
-```js
-var date = new Date('1999/12/31');
-alert(date == '1999/12/31');
-```
+
 
 ```js
 [true, false][+true, +false];
-```
-
-```js
-// TODO: remove
-function isEven(arg) {
-  if (arg % 2 == 0) return !!1;
-  return;
-};
-
-if (isEven(3) == false) {
-  alert('Odd number!');
-};
 ```
 
 ```js
@@ -271,18 +283,11 @@ if (isEven(3) == false) {
 0.1 + (0.2 + 0.3) == (0.1 + 0.2) + 0.3;
 ```
 
-```js
-(1, 2, 3);
-```
 
 ```js
 if (new Boolean(false)) {
   alert('true');
 };
-```
-
-```js
-[] + [];
 ```
 
 ```js
@@ -304,9 +309,6 @@ typeof s;
 'Hello'[-1] == 'Hello'.charAt(-1);
 ```
 
-```js
-0 === -0;
-```
 
 ```js
 /^.$/.test('');
@@ -384,9 +386,6 @@ var bar = new new foo;
 alert(bar.x);
 ```
 
-```js
-1/0 === 1/-0;
-```
 
 ```js
 var a = 1,
@@ -410,9 +409,7 @@ function foo(a, b) {
 foo(1);
 ```
 
-```js
-(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
-```
+
 
 ```js
 function b(x, y, a) {
