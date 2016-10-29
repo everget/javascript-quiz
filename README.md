@@ -2,6 +2,7 @@
 The simple test for JavaScript developers:)
 
 ### Assignments & Labels & Blocks
+
 ```js
 { foo = 123 };
 ```
@@ -97,6 +98,7 @@ typeof typeof x;
 ```
 
 ### Semicolon
+
 ```js
 var a = []
 (new Date).getTime();
@@ -116,6 +118,7 @@ foo() == bar();
 ```
 
 ### Coercions & Comparisons
+
 ```js
 !!~1;
 ```
@@ -271,6 +274,10 @@ null == 0;
 ```
 
 ```js
+parseInt(1/0, 19);
+```
+
+```js
 ({} + 'b' > {} + 'a');
 ```
 
@@ -422,6 +429,7 @@ alert(a);
 ```
 
 ### Comma operator
+
 ```js
 (1, 2, 3);
 ```
@@ -470,6 +478,7 @@ foo('3');
 ```
 
 ### Properties
+
 ```js
 { foo: 1 }[0];
 ```
@@ -535,6 +544,7 @@ var foo = {
   bar: function() { return this.baz },
   baz: 1
 };
+```
 
 ```js
 var a = 1;
@@ -543,11 +553,6 @@ b = 1;
 (function() {
   return (delete window.a) === (delete window.b);
 })();
-```
-
-(function() {
-  return typeof arguments[0]();
-})(foo.bar);
 ```
 
 ```js
@@ -588,7 +593,21 @@ var o = {
 o['b']();
 ```
 
+```js
+with ({a: 1}) {
+  a = 2,
+  b = 3
+};
+
+[window.a, window.b];
+```
+
+```js
+with (function (x, undefined) {}) length;
+```
+
 ### Host objects & Constructors
+
 ```js
 new String('foo') === 'foo';
 ```
@@ -737,9 +756,6 @@ alert(s1 === s2);
 ```
 
 ### Miscellaneous
-```js
-alert(parseInt(1/0, 19));
-```
 
 ```js
 (1.22e-10).toFixed(2);
@@ -792,19 +808,6 @@ x1;
 
 var x2 = /\[/ + 'javascript'[0] + '///';
 x2;
-```
-
-```js
-with ({a: 1}) {
-  a = 2,
-  b = 3
-};
-
-[window.a, window.b];
-```
-
-```js
-with (function (x, undefined) {}) length;
 ```
 
 ```js
