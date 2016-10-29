@@ -56,6 +56,19 @@ foo.baz + foo.bar + bar;
 ```
 
 ```js
+xxx: {
+  console.log(111);
+  break xxx;
+  console.log(222)
+}
+```
+
+```js
+var foo = function bar() { return 23; }
+typeof bar();
+```
+
+```js
 { break; 4; };
 ```
 
@@ -68,6 +81,19 @@ foo.baz + foo.bar + bar;
   }
   alert('three');
 })(true);
+```
+
+```js
+var obj = {
+  1: 'I love this wonderful language'
+};
+
+obj[1] == obj[[1]] == obj['1'];
+```
+
+```js
+var x = [typeof 5, typeof null][1];
+typeof typeof x;
 ```
 
 ### Semicolon
@@ -139,6 +165,10 @@ foo() == bar();
 ```
 
 ```js
+1 + - + + + - + 1;
+```
+
+```js
 typeof (null && false);
 ```
 
@@ -155,7 +185,15 @@ typeof (null && false);
 ```
 
 ```js
+'a' + + 'b';
+```
+
+```js
 [4] * [4];
+```
+
+```js
+++'52'.split('')[0];
 ```
 
 ```js
@@ -164,6 +202,15 @@ typeof (null && false);
 
 ```js
 1 && 3;
+```
+
+```js
+var x = 1;
+if (function f() {}) {
+  x += typeof f;
+};
+
+alert(x);
 ```
 
 ```js
@@ -202,6 +249,10 @@ null == 0;
 ```
 
 ```js
+'3' > '12' === '03' > '12';
+```
+
+```js
 0.1 + (0.2 + 0.3) == (0.1 + 0.2) + 0.3;
 ```
 
@@ -211,6 +262,12 @@ null == 0;
 
 ```js
 'foo'.split('') + [];
+```
+
+```js
+(function(n) {
+  return ~~n;
+})(-1.5);
 ```
 
 ```js
@@ -240,6 +297,10 @@ null == 0;
 ```
 
 ```js
+[][[]];
+```
+
+```js
 [4, 4] * [4, 4];
 ```
 
@@ -264,7 +325,7 @@ alert(x);
 ```
 
 ```js
-if ( !('a' in window) ) {
+if (!('a' in window)) {
   var a = 1;
 };
 
@@ -278,6 +339,24 @@ function a(x) {
 
 var a;
 alert(a);
+```
+
+```js
+var foo = 1;
+function bar() {
+  foo = 10;
+  return;
+  function foo() {};
+};
+bar();
+alert(foo);
+```
+
+```js
+x = 1; (function() {
+  return x;
+  var x = 2;
+}());
 ```
 
 ```js
@@ -320,6 +399,16 @@ var b = function a(x) {
 alert(a);
 ```
 
+```js
+(function() {
+    var foo = 'a';
+    (function(foo) {
+        foo = 'b';
+    })(foo);
+    return foo;
+})();
+```
+
 ### Comma operator
 ```js
 (1, 2, 3);
@@ -350,6 +439,11 @@ alert('1', alert('2', alert('3')));
 ```
 
 ```js
+var f = (function f() { return '1'; }, function g() {return 2; })();
+typeof f;
+```
+
+```js
 [3, 4, 5, 6][1, 2];
 ```
 
@@ -362,6 +456,20 @@ alert('2',
 ),
 foo('3');
 ```
+
+```js
+var foo = 11;
+function bar() {
+  return foo;
+  foo = 10;
+  function foo() {};
+  var foo = '12';
+};
+
+alert(typeof bar());
+```
+
+
 
 ### Properties
 ```js
@@ -399,6 +507,12 @@ Object.prototype.toString.call();
 ```
 
 ```js
+function foo() {};
+delete foo.length;
+alert(typeof foo.length);
+```
+
+```js
 var o = {
   x: 8,
   valueOf: function() {
@@ -420,9 +534,18 @@ alert(o);
 
 ```js
 var foo = {
-  bar: function() { return this.baz; }
+  bar: function() { return this.baz },
   baz: 1
 };
+
+```js
+var a = 1;
+b = 1;
+
+(function() {
+  return (delete window.a) === (delete window.b);
+})();
+```
 
 (function() {
   return typeof arguments[0]();
@@ -431,10 +554,16 @@ var foo = {
 
 ```js
 var foo = {
-  bar: function() { return this.baz; }
+  bar: function() { return this.baz },
   baz: 1
 };
 typeof (f = foo.bar);
+```
+
+```js
+(function() {
+  return (function (a, b) {}).length;
+})();
 ```
 
 ```js
@@ -494,6 +623,12 @@ foo(1);
 ```
 
 ```js
+(function() {
+  return arguments.toString();
+})();
+```
+
+```js
 RegExp.prototype.toString = function() { return this.source };
 
 /3/-/2/;
@@ -506,6 +641,19 @@ function b(x, y, a) {
 };
 
 b(1, 2, 3);
+```
+
+```js
+(function() {
+    var foo = new Object();
+    var bar = new Object();
+    var map = new Object();
+
+    map[foo] = 'foo';
+    map[bar] = 'bar';
+
+    return map[foo];
+})();
 ```
 
 ```js
@@ -525,9 +673,23 @@ alert(bar.x);
 ```
 
 ```js
+Math.pow(2, 53) === (Math.pow(2, 53) + 1);
+```
+
+```js
+Array(4).join('lol' - 2) + 'Batman!';
+```
+
+```js
 if (new Boolean(false)) {
   alert('true');
 };
+```
+
+```js
+(function() {
+  return Array(5).join(',').length;
+})();
 ```
 
 ```js
@@ -560,6 +722,12 @@ alert(date == '1999/12/31');
 ```
 
 ```js
+(function() {
+  return Array(3).map(function (item) { return 'a' });
+})();
+```
+
+```js
 Math.max({}, 2);
 ```
 
@@ -576,10 +744,6 @@ alert(parseInt(1/0, 19));
 ```
 
 ```js
-++'52'.split('')[0];
-```
-
-```js
 (1.22e-10).toFixed(2);
 ```
 
@@ -590,22 +754,6 @@ alert(typeof typeof(typeof(undefined));
 ```js
 /^.$/.test('');
 /^..$/.test('');
-```
-
-```js
-Array(4).join('lol' - 2) + 'Batman!';
-```
-
-```js
-x = 1; (function() {
-  return x;
-  var x = 2;
-}());
-```
-
-```js
-var f = function g() { return 23; }
-typeof g();
 ```
 
 ```js
@@ -622,20 +770,6 @@ typeof g();
 ```
 
 ```js
-var f = (function f() { return '1'; }, function g() {return 2; })();
-typeof f;
-```
-
-```js
-var x = 1;
-if (function f() {}) {
-  x += typeof f;
-};
-
-x;
-```
-
-```js
 (function f() {
   function f() { return 1; }
   return f();
@@ -646,6 +780,12 @@ x;
 ```js
 function f() { return f; }
 new f() instanceof f;
+```
+
+```js
+(function() {
+  return void (1 + 1);
+})();
 ```
 
 ```js
