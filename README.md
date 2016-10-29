@@ -23,11 +23,11 @@ num1+++num2;
 ```
 
 ```js
-{ foo: 'bar' };     // ..?
+{ foo: 'bar' };
 
-{ 'foo': 'bar' };   // ..?
+{ 'foo': 'bar' };
 
-({ 'foo': 'bar' }); // ..?
+({ 'foo': 'bar' });
 ```
 
 ```js
@@ -60,12 +60,12 @@ foo.baz + foo.bar + bar;
 xxx: {
   console.log(111);
   break xxx;
-  console.log(222)
-}
+  console.log(222);
+};
 ```
 
 ```js
-var foo = function bar() { return 23; }
+var foo = function bar() { return 23 };
 typeof bar();
 ```
 
@@ -76,10 +76,10 @@ typeof bar();
 ```js
 (function tada(printTwo) {
   printing: {
-      alert('one');
-      if (!printTwo) break printing;
-      alert('two');
-  }
+     alert('one');
+     if (!printTwo) break printing;
+     alert('two');
+  };
   alert('three');
 })(true);
 ```
@@ -106,12 +106,12 @@ var a = []
 
 ```js
 function foo() {
-  return 'Какая-то строка';
+  return 'Some string';
 };
 
 function bar() {
   return
-      'Какая-то строка';
+      'Some string';
 };
 
 foo() == bar();
@@ -152,7 +152,7 @@ foo() == bar();
 ```
 
 ```js
-'5'+ +'6';
+'5' + + '6';
 ```
 
 ```js
@@ -184,7 +184,7 @@ typeof (null && false);
 ```
 
 ```js
-'1.0e0' == { valueOf: function() { return true; } };
+'1.0e0' == { valueOf: function() { return true } };
 ```
 
 ```js
@@ -217,7 +217,7 @@ alert(x);
 ```
 
 ```js
-01-+-02-+-03;
+01 - + - 02 - + - 03;
 ```
 
 ```js
@@ -265,12 +265,6 @@ null == 0;
 
 ```js
 'foo'.split('') + [];
-```
-
-```js
-(function(n) {
-  return ~~n;
-})(-1.5);
 ```
 
 ```js
@@ -355,15 +349,17 @@ function bar() {
   return;
   function foo() {};
 };
+
 bar();
 alert(foo);
 ```
 
 ```js
-x = 1; (function() {
+x = 1;
+(function() {
   return x;
   var x = 2;
-}());
+})();
 ```
 
 ```js
@@ -392,7 +388,7 @@ a.call(null);
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(function() {
-       alert(i);
+      alert(i);
   }, 100);
 };
 ```
@@ -420,11 +416,11 @@ alert(a);
 
 ```js
 (function() {
-    var foo = 'a';
-    (function(foo) {
-        foo = 'b';
-    })(foo);
-    return foo;
+  var foo = 'a';
+  (function(foo) {
+      foo = 'b';
+  })(foo);
+  return foo;
 })();
 ```
 
@@ -435,7 +431,8 @@ alert(a);
 ```
 
 ```js
-var a = 0; var b = (a++, 99);
+var a = 0; 
+var b = (a++, 99);
 ```
 
 ```js
@@ -459,7 +456,7 @@ alert('1', alert('2', alert('3')));
 ```
 
 ```js
-var f = (function f() { return '1'; }, function g() {return 2; })();
+var f = (function f() { return '1' }, function g() { return 2 })();
 typeof f;
 ```
 
@@ -484,7 +481,7 @@ foo('3');
 ```
 
 ```js
-Number.prototype.x = function() { return this === 123; };
+Number.prototype.x = function() { return this === 123 };
 Number(123).x();
 ```
 
@@ -516,6 +513,7 @@ Object.prototype.toString.call();
 ```js
 function foo() {};
 delete foo.length;
+
 alert(typeof foo.length);
 ```
 
@@ -528,8 +526,9 @@ var o = {
   toString: function() {
     return this.x.toString();
   }
-},
-result = o < '9';
+};
+
+var result = o < '9';
 
 alert(o);
 ```
@@ -636,7 +635,7 @@ foo(1);
 ```
 
 ```js
-'foo' == new function() { return String('foo'); };
+'foo' == new function() { return String('foo') };
 ```
 
 ```js
