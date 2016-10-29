@@ -391,6 +391,18 @@ for (var i = 0; i < 10; i++) {
 ```
 
 ```js
+var foo = 11;
+function bar() {
+  return foo;
+  foo = 10;
+  function foo() {};
+  var foo = '12';
+};
+
+alert(typeof bar());
+```
+
+```js
 var a = 1,
 var b = function a(x) {
   x && a(--x);
@@ -456,20 +468,6 @@ alert('2',
 ),
 foo('3');
 ```
-
-```js
-var foo = 11;
-function bar() {
-  return foo;
-  foo = 10;
-  function foo() {};
-  var foo = '12';
-};
-
-alert(typeof bar());
-```
-
-
 
 ### Properties
 ```js
