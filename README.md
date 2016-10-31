@@ -386,6 +386,14 @@ a.call(null);
 ```
 
 ```js
+(function f() {
+  function f() { return 1; }
+  return f();
+  function f() { return 2; }
+})();
+```
+
+```js
 for (var i = 0; i < 10; i++) {
   setTimeout(function() {
       alert(i);
@@ -422,6 +430,12 @@ alert(a);
   })(foo);
   return foo;
 })();
+```
+
+```js
+(function f(f) {
+   return typeof f();
+})(function() { return 1; });
 ```
 
 ### Comma operator
@@ -709,6 +723,11 @@ if (new Boolean(false)) {
 ```
 
 ```js
+function f() { return f; }
+new f() instanceof f;
+```
+
+```js
 var x = function() {
   return arguments;
 };
@@ -774,25 +793,6 @@ alert(typeof typeof(typeof(undefined));
   delete x;
   return x;
 })(1);
-```
-
-```js
-(function f(f) {
-   return typeof f();
-})(function() { return 1; });
-```
-
-```js
-(function f() {
-  function f() { return 1; }
-  return f();
-  function f() { return 2; }
-})();
-```
-
-```js
-function f() { return f; }
-new f() instanceof f;
 ```
 
 ```js
