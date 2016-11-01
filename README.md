@@ -735,6 +735,10 @@ if (new Boolean(false)) {
 ```
 
 ```js
+Number(undefined);
+```
+
+```js
 function f() { return f; }
 new f() instanceof f;
 ```
@@ -789,6 +793,10 @@ alert(s1 === s2);
 
 ```js
 (1.22e-10).toFixed(2);
+```
+
+```js
+parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
