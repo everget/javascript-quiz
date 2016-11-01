@@ -260,6 +260,10 @@ null == 0;
 ```
 
 ```js
+parseFloat('\t\v\r12.34\n ');
+```
+
+```js
 ' \t\r\n' == 0;
 ```
 
@@ -796,10 +800,6 @@ alert(s1 === s2);
 
 ```js
 (1.22e-10).toFixed(2);
-```
-
-```js
-parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
