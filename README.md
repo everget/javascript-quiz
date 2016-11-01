@@ -790,6 +790,9 @@ alert(s1 === s2);
 ```
 
 ### Miscellaneous
+```js
+-9 % 7;
+```
 
 ```js
 (1.22e-10).toFixed(2);
