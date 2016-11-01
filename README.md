@@ -653,6 +653,10 @@ foo(1);
 ```
 
 ```js
+Math.pow(-0, -1);
+```
+
+```js
 'foo' == new function() { return String('foo') };
 ```
 
@@ -675,6 +679,10 @@ function b(x, y, a) {
 };
 
 b(1, 2, 3);
+```
+
+```js
+Math.pow(+0, -1);
 ```
 
 ```js
