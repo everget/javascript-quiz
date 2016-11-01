@@ -619,7 +619,7 @@ with ({a: 1}) {
 with (function (x, undefined) {}) length;
 ```
 
-### Host objects & Constructors
+### Host objects & Constructors & Methods
 
 ```js
 new String('foo') === 'foo';
@@ -637,6 +637,10 @@ Math.max(2, []);
 
 ```js
 new Array([], null, undefined, null) == ',,,';
+```
+
+```js
+[NaN].indexOf(NaN);
 ```
 
 ```js
