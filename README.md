@@ -322,6 +322,56 @@ var foo = {};
 foo === foo;
 ```
 
+### Comma operator
+
+```js
+(1, 2, 3);
+```
+
+```js
+var a = 0; 
+var b = (a++, 99);
+```
+
+```js
+(1, function(){})();
+```
+
+```js
+if (9, 0) alert('ok');
+```
+
+```js
+[true, false][+true, +false];
+```
+
+```js
+var smth = (45, 87) > (195, 3) ? 'bar' : (54, 65) > (1, 0) ? '' : 'baz';
+```
+
+```js
+alert('1', alert('2', alert('3')));
+```
+
+```js
+var f = (function f() { return '1' }, function g() { return 2 })();
+typeof f;
+```
+
+```js
+[3, 4, 5, 6][1, 2];
+```
+
+```js
+alert('2',
+  foo = function (arg) {
+    alert(arg)
+  },
+  foo('1')
+),
+foo('3');
+```
+
 ### Scopes & Closures & Hoisting
 
 ```js
@@ -431,6 +481,13 @@ alert(a);
 ```
 
 ```js
+(function (x) {
+  delete x;
+  return x;
+})(1);
+```
+
+```js
 (function() {
   var foo = 'a';
   (function(foo) {
@@ -444,56 +501,6 @@ alert(a);
 (function f(f) {
    return typeof f();
 })(function() { return 1; });
-```
-
-### Comma operator
-
-```js
-(1, 2, 3);
-```
-
-```js
-var a = 0; 
-var b = (a++, 99);
-```
-
-```js
-(1, function(){})();
-```
-
-```js
-if (9, 0) alert('ok');
-```
-
-```js
-[true, false][+true, +false];
-```
-
-```js
-var smth = (45, 87) > (195, 3) ? 'bar' : (54, 65) > (1, 0) ? '' : 'baz';
-```
-
-```js
-alert('1', alert('2', alert('3')));
-```
-
-```js
-var f = (function f() { return '1' }, function g() { return 2 })();
-typeof f;
-```
-
-```js
-[3, 4, 5, 6][1, 2];
-```
-
-```js
-alert('2',
-  foo = function (arg) {
-    alert(arg)
-  },
-  foo('1')
-),
-foo('3');
 ```
 
 ### Properties
@@ -776,6 +783,10 @@ typeof s;
 ```
 
 ```js
+(1.22e-10).toFixed(2);
+```
+
+```js
 var date = new Date('1999/12/31');
 alert(date == '1999/12/31');
 ```
@@ -803,23 +814,12 @@ alert(s1 === s2);
 ```
 
 ```js
-(1.22e-10).toFixed(2);
-```
-
-```js
 alert(typeof typeof(typeof(undefined));
 ```
 
 ```js
 /^.$/.test('');
 /^..$/.test('');
-```
-
-```js
-(function (x) {
-  delete x;
-  return x;
-})(1);
 ```
 
 ```js
