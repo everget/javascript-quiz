@@ -823,6 +823,15 @@ alert(typeof typeof(typeof(undefined));
 ```
 
 ```js
+var x = 1;
+if (function f() {}) {
+  x += typeof f;
+};
+
+alert(x);
+```
+
+```js
 (function() {
   return void (1 + 1);
 })();
