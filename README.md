@@ -634,7 +634,7 @@ with ({a: 1}) {
 with (function (x, undefined) {}) length;
 ```
 
-### Host objects & Constructors & Methods
+### Built-in objects & Constructors & Methods
 
 ```js
 new String('foo') === 'foo';
