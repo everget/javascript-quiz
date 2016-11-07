@@ -702,9 +702,9 @@ Math.pow(+0, -1);
 
 ```js
 (function() {
-    var foo = new Object();
-    var bar = new Object();
-    var map = new Object();
+    var foo = {};
+    var bar = {};
+    var map = {};
 
     map[foo] = 'foo';
     map[bar] = 'bar';
@@ -734,7 +734,7 @@ Math.pow(2, 53) === (Math.pow(2, 53) + 1);
 ```
 
 ```js
-Array(4).join('lol' - 2) + 'Batman!';
+Array(4).join('lol' - 2);
 ```
 
 ```js
@@ -788,7 +788,7 @@ typeof s;
 
 ```js
 var date = new Date('1999/12/31');
-alert(date == '1999/12/31');
+date == '1999/12/31';
 ```
 
 ```js
