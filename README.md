@@ -5,7 +5,8 @@ The simple test for JavaScript developers:)
 1. [Assignments](#assignments)
 1. [Labels & Blocks](#labels--blocks)
 1. [Semicolons](#semicolons)
-
+1. [Coercions & Comparisons](#coercions--comparisons)
+1. [Comma operator](#comma-operator)
 
 ### Assignments
 
