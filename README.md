@@ -1,6 +1,11 @@
 ## JavaScript Quiz
 The simple test for JavaScript developers:)
 
+## Table of Contents
+1. [Assignments](#assignments&labels&blocks)
+1. [Semicolon](#semicolon)
+
+
 ### Assignments & Labels & Blocks
 
 ```js
@@ -97,6 +102,8 @@ var x = [typeof 5, typeof null][1];
 typeof typeof x;
 ```
 
+**[Back to top](#table-of-contents)**
+
 ### Semicolon
 
 ```js
@@ -116,6 +123,8 @@ function bar() {
 
 foo() == bar();
 ```
+
+**[Back to top](#table-of-contents)**
 
 ### Coercions & Comparisons
 
@@ -322,6 +331,8 @@ var foo = {};
 foo === foo;
 ```
 
+**[Back to top](#table-of-contents)**
+
 ### Comma operator
 
 ```js
@@ -371,6 +382,8 @@ alert('2',
 ),
 foo('3');
 ```
+
+**[Back to top](#table-of-contents)**
 
 ### Scopes & Closures & Hoisting
 
@@ -503,6 +516,8 @@ alert(a);
 })(function() { return 1; });
 ```
 
+**[Back to top](#table-of-contents)**
+
 ### Properties
 
 ```js
@@ -633,6 +648,8 @@ with ({a: 1}) {
 ```js
 with (function (x, undefined) {}) length;
 ```
+
+**[Back to top](#table-of-contents)**
 
 ### Built-in objects & Constructors & Methods
 
@@ -808,7 +825,10 @@ alert(s1 == s2);
 alert(s1 === s2);
 ```
 
+**[Back to top](#table-of-contents)**
+
 ### Miscellaneous
+
 ```js
 -9 % 7;
 ```
