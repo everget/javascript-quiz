@@ -36,11 +36,6 @@ typeof typeof x;
 ```
 
 ```js
-var foo = function bar() { return 23 };
-typeof bar();
-```
-
-```js
 var obj = {
   1: 'I love this wonderful language'
 };
@@ -835,6 +830,11 @@ alert(s1 === s2);
 
 ```js
 -9 % 7;
+```
+
+```js
+var foo = function bar() { return 23 };
+typeof bar();
 ```
 
 ```js
