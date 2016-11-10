@@ -7,6 +7,10 @@ The simple test for JavaScript developers:)
 1. [Semicolons](#semicolons)
 1. [Coercions & Comparisons](#coercions--comparisons)
 1. [Comma operator](#comma-operator)
+1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
+1. [Properties](#properties)
+1. [Constructors & Methods](#constructors--methods)
+1. [Miscellaneous](#miscellaneous)
 
 ### Assignments
 
@@ -650,7 +654,7 @@ with (function (x, undefined) {}) length;
 
 **[Back to top](#table-of-contents)**
 
-### Built-in objects & Constructors & Methods
+### Constructors & Methods
 
 ```js
 new String('foo') === 'foo';
