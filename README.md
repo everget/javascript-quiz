@@ -2,11 +2,12 @@
 The simple test for JavaScript developers:)
 
 ## Table of Contents
-1. [Assignments](#assignments&labels&blocks)
-1. [Semicolon](#semicolon)
+1. [Assignments](#assignments)
+1. [Labels & Blocks](#labels--blocks)
+1. [Semicolons](#semicolons)
 
 
-### Assignments & Labels & Blocks
+### Assignments
 
 ```js
 { foo = 123 };
@@ -17,22 +18,10 @@ var x = 8 | 1;
 ```
 
 ```js
-a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
-```
-
-```js
 var num1 = 5;
 var num2 = 10;
 
 num1+++num2;
-```
-
-```js
-{ foo: 'bar' };
-
-{ 'foo': 'bar' };
-
-({ 'foo': 'bar' });
 ```
 
 ```js
@@ -41,52 +30,13 @@ x;
 ```
 
 ```js
-vars: var vars = vars;
-```
-
-```js
 var x = [typeof x, typeof y][1];
 typeof typeof x;
 ```
 
 ```js
-var bar = 1,
-    foo = {};
-
-foo: {
-    bar: 2;
-    baz: ++bar;
-};
-
-foo.baz + foo.bar + bar;
-```
-
-```js
-xxx: {
-  console.log(111);
-  break xxx;
-  console.log(222);
-};
-```
-
-```js
 var foo = function bar() { return 23 };
 typeof bar();
-```
-
-```js
-{ break; 4; };
-```
-
-```js
-(function tada(printTwo) {
-  printing: {
-     alert('one');
-     if (!printTwo) break printing;
-     alert('two');
-  };
-  alert('three');
-})(true);
 ```
 
 ```js
@@ -104,7 +54,60 @@ typeof typeof x;
 
 **[Back to top](#table-of-contents)**
 
-### Semicolon
+### Labels & Blocks
+```js
+{ foo: 'bar' };
+
+{ 'foo': 'bar' };
+
+({ 'foo': 'bar' });
+```
+
+```js
+{ break; 4; };
+```
+
+```js
+vars: var vars = vars;
+```
+
+```js
+var bar = 1,
+    foo = {};
+
+foo: {
+    bar: 2;
+    baz: ++bar;
+};
+
+foo.baz + foo.bar + bar;
+```
+
+```js
+a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
+```
+
+```js
+xxx: {
+  console.log(111);
+  break xxx;
+  console.log(222);
+};
+```
+
+```js
+(function tada(printTwo) {
+  printing: {
+     alert('one');
+     if (!printTwo) break printing;
+     alert('two');
+  };
+  alert('three');
+})(true);
+```
+**[Back to top](#table-of-contents)**
+
+### Semicolons
 
 ```js
 var a = []
