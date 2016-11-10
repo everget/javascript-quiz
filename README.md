@@ -874,3 +874,5 @@ x2;
   return [,,~0.[0|0]][pewpew.__proto__.length && Infinity, -~String(this).length >> __proto__] << (0. === .0) + Infinity;
 }).apply(typeof pewpew, [,,2]);
 ```
+
+**[Back to top](#table-of-contents)**
