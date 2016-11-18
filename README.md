@@ -232,15 +232,6 @@ typeof (null && false);
 ```
 
 ```js
-var x = 1;
-if (function f() {}) {
-  x += typeof f;
-};
-
-alert(x);
-```
-
-```js
 01 - + - 02 - + - 03;
 ```
 
@@ -301,6 +292,10 @@ parseInt(1/0, 19);
 
 ```js
 ({} + 'b' > {} + 'a');
+```
+
+```js
+[NaN].indexOf(NaN);
 ```
 
 ```js
@@ -477,6 +472,15 @@ a.call(null);
 ```
 
 ```js
+var x = 1;
+if (function f() {}) {
+  x += typeof f;
+};
+
+alert(x);
+```
+
+```js
 var foo = {
   bar: function() { return this.baz },
   baz: 1
@@ -541,11 +545,6 @@ alert(a);
 **[Back to top](#table-of-contents)**
 
 ### Properties
-
-```js
-Number.prototype.x = function() { return this === 123 };
-Number(123).x();
-```
 
 ```js
 var obj = {
@@ -657,7 +656,7 @@ b = 1;
 
 **[Back to top](#table-of-contents)**
 
-### Native Constructors & Methods
+### Native[Custom] Constructors & Methods
 
 ```js
 new String('foo') === 'foo';
@@ -668,7 +667,8 @@ new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
-[NaN].indexOf(NaN);
+Number.prototype.x = function() { return this === 123 };
+Number(123).x();
 ```
 
 ```js
@@ -744,9 +744,26 @@ date == '1999/12/31';
 ```js
 var s1 = new String('hello');
 var s2 = new String('hello');
-alert(s1 == s2);
-alert(s1 === s2);
+
+s1 == s2;
+s1 === s2;
 ```
+
+**[Back to top](#table-of-contents)**
+
+### Object
+
+**[Back to top](#table-of-contents)**
+
+### Array
+
+**[Back to top](#table-of-contents)**
+
+### Number
+
+**[Back to top](#table-of-contents)**
+
+### String
 
 **[Back to top](#table-of-contents)**
 
@@ -849,6 +866,10 @@ x2;
 
 **[Back to top](#table-of-contents)**
 
+### Prototypes
+
+**[Back to top](#table-of-contents)**
+
 ### Miscellaneous
 
 ```js
@@ -857,15 +878,6 @@ x2;
 
 ```js
 alert(typeof typeof(typeof(undefined));
-```
-
-```js
-var x = 1;
-if (function f() {}) {
-  x += typeof f;
-};
-
-alert(x);
 ```
 
 ```js
