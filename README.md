@@ -9,6 +9,7 @@ The simple test for JavaScript developers:)
 1. [Comma operator](#comma-operator)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
+1. [Delete operator](#delete-operator)
 1. [Native Constructors & Methods](#native-constructors--methods)
 1. [Arguments](#arguments)
 1. [Math](#math)
@@ -440,6 +441,11 @@ alert(foo);
 ```
 
 ```js
+var foo = function bar() { return 23 };
+typeof bar();
+```
+
+```js
 x = 1;
 (function() {
   return x;
@@ -471,6 +477,15 @@ a.call(null);
 ```
 
 ```js
+var foo = {
+  bar: function() { return this.baz },
+  baz: 1
+};
+
+typeof (f = foo.bar);
+```
+
+```js
 (function f() {
   function f() { return 1; }
   return f();
@@ -481,7 +496,7 @@ a.call(null);
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(function() {
-      alert(i);
+    alert(i);
   }, 100);
 };
 ```
@@ -505,13 +520,6 @@ var b = function a(x) {
 };
 
 alert(a);
-```
-
-```js
-(function (x) {
-  delete x;
-  return x;
-})(1);
 ```
 
 ```js
@@ -540,10 +548,6 @@ Number(123).x();
 ```
 
 ```js
-delete delete window.document;
-```
-
-```js
 var obj = {
   toString: function() {
     return '[object MyObject]';
@@ -554,13 +558,6 @@ var obj = {
 };
 
 alert('object: ' + obj);
-```
-
-```js
-function foo() {};
-delete foo.length;
-
-alert(typeof foo.length);
 ```
 
 ```js
@@ -585,41 +582,26 @@ alert(o);
 ```
 
 ```js
-var foo = {
-  bar: function() { return this.baz },
-  baz: 1
-};
-```
-
-```js
-var a = 1;
-b = 1;
-
-(function() {
-  return (delete window.a) === (delete window.b);
-})();
-```
-
-```js
-var foo = {
-  bar: function() { return this.baz },
-  baz: 1
-};
-typeof (f = foo.bar);
-```
-
-```js
 (function() {
   return (function (a, b) {}).length;
 })();
 ```
 
 ```js
-'Hello'[-1] == 'Hello'.charAt(-1);
+(function() {
+  var foo = {};
+  var bar = {};
+  var map = {};
+
+  map[foo] = 'foo';
+  map[bar] = 'bar';
+
+  return map[foo];
+})();
 ```
 
 ```js
-delete [].length;
+'Hello'[-1] == 'Hello'.charAt(-1);
 ```
 
 ```js
@@ -636,6 +618,41 @@ var o = {
 };
 
 o['b']();
+```
+
+**[Back to top](#table-of-contents)**
+
+### Delete operator
+
+```js
+delete [].length;
+```
+
+```js
+function foo() {};
+delete foo.length;
+
+alert(typeof foo.length);
+```
+
+```js
+delete delete window.document;
+```
+
+```js
+(function (x) {
+  delete x;
+  return x;
+})(1);
+```
+
+```js
+var a = 1;
+b = 1;
+
+(function() {
+  return (delete window.a) === (delete window.b);
+})();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -660,19 +677,6 @@ Object.prototype.toString.call();
 
 ```js
 'foo' == new function() { return String('foo') };
-```
-
-```js
-(function() {
-  var foo = {};
-  var bar = {};
-  var map = {};
-
-  map[foo] = 'foo';
-  map[bar] = 'bar';
-
-  return map[foo];
-})();
 ```
 
 ```js
@@ -852,15 +856,8 @@ x2;
 ```
 
 ```js
-var foo = function bar() { return 23 };
-typeof bar();
-```
-
-```js
 alert(typeof typeof(typeof(undefined));
 ```
-
-
 
 ```js
 var x = 1;
