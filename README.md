@@ -9,7 +9,7 @@ The simple test for JavaScript developers:)
 1. [Comma operator](#comma-operator)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
-1. [Constructors & Methods](#constructors--methods)
+1. [Native Constructors & Methods](#native-constructors--methods)
 1. [Miscellaneous](#miscellaneous)
 
 ### Assignments
@@ -84,6 +84,10 @@ foo.baz + foo.bar + bar;
 ```
 
 ```js
+{ foo: 1 }[0];
+```
+
+```js
 a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
 ```
 
@@ -93,6 +97,10 @@ xxx: {
   break xxx;
   console.log(222);
 };
+```
+
+```js
+{ a: 1, b: 2 }[['b']];
 ```
 
 ```js
@@ -524,20 +532,12 @@ alert(a);
 ### Properties
 
 ```js
-{ foo: 1 }[0];
-```
-
-```js
 Number.prototype.x = function() { return this === 123 };
 Number(123).x();
 ```
 
 ```js
 delete delete window.document;
-```
-
-```js
-{ a: 1, b: 2 }[['b']];
 ```
 
 ```js
@@ -551,10 +551,6 @@ var obj = {
 };
 
 alert('object: ' + obj);
-```
-
-```js
-Object.prototype.toString.call();
 ```
 
 ```js
@@ -639,22 +635,9 @@ var o = {
 o['b']();
 ```
 
-```js
-with ({a: 1}) {
-  a = 2,
-  b = 3
-};
-
-[window.a, window.b];
-```
-
-```js
-with (function (x, undefined) {}) length;
-```
-
 **[Back to top](#table-of-contents)**
 
-### Constructors & Methods
+### Native Constructors & Methods
 
 ```js
 new String('foo') === 'foo';
@@ -685,6 +668,10 @@ function foo(a, b) {
 };
 
 foo(1);
+```
+
+```js
+Object.prototype.toString.call();
 ```
 
 ```js
@@ -871,6 +858,19 @@ x1;
 
 var x2 = /\[/ + 'javascript'[0] + '///';
 x2;
+```
+
+```js
+with ({a: 1}) {
+  a = 2,
+  b = 3
+};
+
+[window.a, window.b];
+```
+
+```js
+with (function (x, undefined) {}) length;
 ```
 
 ```js
