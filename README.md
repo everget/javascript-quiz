@@ -255,7 +255,7 @@ null == 0;
 ```
 
 ```js
-[1, 2, 3, 4, 5][0..toString.length];
+[1, 2, 3, 4, 5][0..toString().length];
 ```
 
 ```js
