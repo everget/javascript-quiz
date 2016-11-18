@@ -10,7 +10,7 @@ The simple test for JavaScript developers:)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
 1. [Delete operator](#delete-operator)
-1. [Native Constructors & Methods](#native-constructors--methods)
+1. [Native(Custom) Constructors & Methods](#nativecustom-constructors--methods)
 1. [Arguments](#arguments)
 1. [Math](#math)
 1. [RegExp](#regexp)
@@ -696,7 +696,7 @@ alert(bar.x);
 ```
 
 ```js
-Array(4).join('lol' - 2);
+Array(4).join('tada' - 4);
 ```
 
 ```js
