@@ -44,14 +44,6 @@ typeof typeof x;
 ```
 
 ```js
-var obj = {
-  1: 'I love this awesome language'
-};
-
-obj[1] == obj[[1]] == obj['1'];
-```
-
-```js
 var x = [typeof 5, typeof null][1];
 typeof typeof x;
 ```
@@ -573,6 +565,15 @@ var o = {
 var result = o < '9';
 
 alert(o);
+```
+
+```js
+var obj = {
+  1: 'I love this awesome language'
+};
+
+obj[1] == obj[[1]];
+obj[[1]] == obj['1'];
 ```
 
 ```js
