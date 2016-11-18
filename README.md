@@ -656,7 +656,7 @@ b = 1;
 
 **[Back to top](#table-of-contents)**
 
-### Native[Custom] Constructors & Methods
+### Native(Custom) Constructors & Methods
 
 ```js
 new String('foo') === 'foo';
@@ -751,6 +751,7 @@ s1 === s2;
 
 **[Back to top](#table-of-contents)**
 
+<!--
 ### Object
 
 **[Back to top](#table-of-contents)**
@@ -766,6 +767,7 @@ s1 === s2;
 ### String
 
 **[Back to top](#table-of-contents)**
+-->
 
 ### Arguments
 
@@ -866,9 +868,11 @@ x2;
 
 **[Back to top](#table-of-contents)**
 
+<!--
 ### Prototypes
 
 **[Back to top](#table-of-contents)**
+-->
 
 ### Miscellaneous
 
