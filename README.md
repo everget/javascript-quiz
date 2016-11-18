@@ -10,6 +10,9 @@ The simple test for JavaScript developers:)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
 1. [Native Constructors & Methods](#native-constructors--methods)
+1. [Arguments](#arguments)
+1. [Math](#math)
+1. [RegExp](#regexp)
 1. [Miscellaneous](#miscellaneous)
 
 ### Assignments
@@ -41,7 +44,7 @@ typeof typeof x;
 
 ```js
 var obj = {
-  1: 'I love this wonderful language'
+  1: 'I love this awesome language'
 };
 
 obj[1] == obj[[1]] == obj['1'];
@@ -644,16 +647,6 @@ new String('foo') === 'foo';
 ```
 
 ```js
-Math.max(2, []);
-```
-
-```js
-(function() {
-  return typeof arguments;
-})();
-```
-
-```js
 new Array([], null, undefined, null) == ',,,';
 ```
 
@@ -662,20 +655,7 @@ new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
-function foo(a, b) {
-  arguments[1] = 2;
-  alert(b);
-};
-
-foo(1);
-```
-
-```js
 Object.prototype.toString.call();
-```
-
-```js
-Math.pow(-0, -1);
 ```
 
 ```js
@@ -684,39 +664,14 @@ Math.pow(-0, -1);
 
 ```js
 (function() {
-  return arguments.toString();
-})();
-```
+  var foo = {};
+  var bar = {};
+  var map = {};
 
-```js
-RegExp.prototype.toString = function() { return this.source };
+  map[foo] = 'foo';
+  map[bar] = 'bar';
 
-/3/-/2/;
-```
-
-```js
-function b(x, y, a) {
-  arguments[2] = 10;
-  alert(a);
-};
-
-b(1, 2, 3);
-```
-
-```js
-Math.pow(+0, -1);
-```
-
-```js
-(function() {
-    var foo = {};
-    var bar = {};
-    var map = {};
-
-    map[foo] = 'foo';
-    map[bar] = 'bar';
-
-    return map[foo];
+  return map[foo];
 })();
 ```
 
@@ -734,10 +689,6 @@ function foo() {
 
 var bar = new new foo;
 alert(bar.x);
-```
-
-```js
-Math.pow(2, 53) === (Math.pow(2, 53) + 1);
 ```
 
 ```js
@@ -766,20 +717,6 @@ new f() instanceof f;
 ```
 
 ```js
-var x = function() {
-  return arguments;
-};
-
-x() == x();
-```
-
-```js
-function whatDoesItDo(num) {
-  return Math.max(0, Math.min(10, num));
-};
-```
-
-```js
 Array.isArray({__proto__: Array.prototype });
 ```
 
@@ -787,10 +724,6 @@ Array.isArray({__proto__: Array.prototype });
 var s = new String('hello');
 typeof 'hello';
 typeof s;
-```
-
-```js
-(1.22e-10).toFixed(2);
 ```
 
 ```js
@@ -805,14 +738,109 @@ date == '1999/12/31';
 ```
 
 ```js
-Math.max({}, 2);
-```
-
-```js
 var s1 = new String('hello');
 var s2 = new String('hello');
 alert(s1 == s2);
 alert(s1 === s2);
+```
+
+**[Back to top](#table-of-contents)**
+
+### Arguments
+
+```js
+(function() {
+  return typeof arguments;
+})();
+```
+
+```js
+function bar(x, y, z) {
+  arguments[2] = 10;
+  alert(z);
+};
+
+bar(1, 2, 3);
+```
+
+```js
+(function() {
+  return arguments.toString();
+})();
+```
+
+```js
+function foo(a, b) {
+  arguments[2] = 5;
+  alert(b);
+};
+
+foo(1);
+```
+
+```js
+var baz = function() {
+  return arguments;
+};
+
+baz() == baz();
+```
+
+**[Back to top](#table-of-contents)**
+
+### Math
+
+```js
+(1.22e-10).toFixed(2);
+```
+
+```js
+Math.max(2, []);
+```
+
+```js
+Math.pow(+0, -1);
+```
+
+```js
+Math.pow(2, 53) === (Math.pow(2, 53) + 1);
+```
+
+```js
+Math.max({}, 2);
+```
+
+```js
+Math.pow(-0, -1);
+```
+
+```js
+function whatDoesItDo(num) {
+  return Math.max(0, Math.min(10, num));
+};
+```
+
+**[Back to top](#table-of-contents)**
+
+### RegExp
+
+```js
+/^.$/.test('');
+/^..$/.test('');
+```
+
+```js
+RegExp.prototype.toString = function() { return this.source };
+
+/3/-/2/;
+```
+
+```js
+var x1 = /[/ + 'javascript'[0] + '///';
+x1;
+
+var x2 = /\[/ + 'javascript'[0] + '///';
+x2;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -832,10 +860,7 @@ typeof bar();
 alert(typeof typeof(typeof(undefined));
 ```
 
-```js
-/^.$/.test('');
-/^..$/.test('');
-```
+
 
 ```js
 var x = 1;
@@ -850,14 +875,6 @@ alert(x);
 (function() {
   return void (1 + 1);
 })();
-```
-
-```js
-var x1 = /[/ + 'javascript'[0] + '///';
-x1;
-
-var x2 = /\[/ + 'javascript'[0] + '///';
-x2;
 ```
 
 ```js
