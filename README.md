@@ -24,6 +24,7 @@ The simple test for JavaScript developers:)
 
 ```js
 var x = 8 | 1;
+x;
 ```
 
 ```js
@@ -31,6 +32,8 @@ var num1 = 5;
 var num2 = 10;
 
 num1+++num2;
+num1;
+num2;
 ```
 
 ```js
