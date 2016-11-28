@@ -30,10 +30,11 @@ x;
 ```js
 var num1 = 5;
 var num2 = 10;
+var num3 = num1+++num2;
 
-num1+++num2;
 num1;
 num2;
+num3;
 ```
 
 ```js
@@ -43,11 +44,6 @@ x;
 
 ```js
 var x = [typeof x, typeof y][1];
-typeof typeof x;
-```
-
-```js
-var x = [typeof 5, typeof null][1];
 typeof typeof x;
 ```
 
@@ -379,6 +375,12 @@ typeof f;
 ```
 
 ```js
+if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
+  alert('awesome js');
+};
+```
+
+```js
 alert('2',
   foo = function (arg) {
     alert(arg)
@@ -639,6 +641,16 @@ alert(typeof foo.length);
 ```
 
 ```js
+var Person = function() {};
+Person.prototype.type = 'person';
+
+var cody = new Person();
+
+delete cody.type;
+cody.type;
+```
+
+```js
 delete delete window.document;
 ```
 
@@ -707,6 +719,10 @@ Array(4).join('tada' - 4);
 if (new Boolean(false)) {
   alert('true');
 };
+```
+
+```js
+3 instanceof Number;
 ```
 
 ```js
