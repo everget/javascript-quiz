@@ -187,6 +187,10 @@ foo() == bar();
 ```
 
 ```js
+[1,2,3].toString();
+```
+
+```js
 typeof (null && false);
 ```
 
@@ -224,6 +228,10 @@ typeof (null && false);
 
 ```js
 01 - + - 02 - + - 03;
+```
+
+```js
+4 - '5' + 0xf - '1e1';
 ```
 
 ```js
@@ -290,7 +298,19 @@ parseInt(1/0, 19);
 ```
 
 ```js
+var a = 1;
+var b = { toString:function() {return '1'} };
+var c = 1;
+
+a + b + c;
+```
+
+```js
 ~~+'2.9'-1 == ('2.9' >> 0) - 1;
+```
+
+```js
+(123).toString();
 ```
 
 ```js
@@ -363,6 +383,10 @@ var smth = (45, 87) > (195, 3) ? 'bar' : (54, 65) > (1, 0) ? '' : 'baz';
 
 ```js
 alert('1', alert('2', alert('3')));
+```
+
+```js
+typeof ('a', 3);
 ```
 
 ```js
@@ -515,12 +539,29 @@ alert(typeof bar());
 ```
 
 ```js
+function f() {
+  var a = 5;
+  return new Function('b', 'return a + b');
+};
+
+f()(1);
+```
+
+```js
 var a = 1,
 var b = function a(x) {
   x && a(--x);
 };
 
 alert(a);
+```
+
+```js
+f.call(f);
+
+function f() {
+  alert(this);
+}
 ```
 
 ```js
@@ -858,6 +899,10 @@ Math.pow(-0, -1);
 ```
 
 ```js
+Math instanceof Math;
+```
+
+```js
 function whatDoesItDo(num) {
   return Math.max(0, Math.min(10, num));
 };
@@ -866,6 +911,10 @@ function whatDoesItDo(num) {
 **[Back to top](#table-of-contents)**
 
 ### RegExp
+
+```js
+var smth = /()/;
+```
 
 ```js
 /^.$/.test('');
@@ -890,7 +939,14 @@ x2;
 
 <!--
 ### Prototypes
+var proto = {
+  x: function() { return 'x' }
+}
 
+var o1 = new Object( proto );
+var o2 = new Object( proto );
+
+o1 == o2
 **[Back to top](#table-of-contents)**
 -->
 
@@ -898,6 +954,14 @@ x2;
 
 ```js
 -9 % 7;
+```
+
+```js
+('foo');
+```
+
+```js
+if (true) function foo() { alert(1) };
 ```
 
 ```js
