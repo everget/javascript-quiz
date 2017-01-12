@@ -283,11 +283,19 @@ var
 ```
 
 ```js
+(0.00008).toFixed(3) === 0;
+```
+
+```js
 parseInt(null, 24) === 23;
 ```
 
 ```js
 01 - + - 02 - + - 03;
+```
+
+```js
+12..toFixed(1);
 ```
 
 ```js
@@ -308,6 +316,10 @@ parseInt(null, 24) === 23;
 
 ```js
 4 - '5' + 0xf - '1e1';
+```
+
+```js
+(0.9).toFixed(0);
 ```
 
 ```js
@@ -1003,10 +1015,6 @@ s1 === s2;
 ```
 
 ```js
-12..toFixed(1);
-```
-
-```js
 (123).toString();
 ```
 
@@ -1015,19 +1023,11 @@ Number(5) === 5 || new Number(5) === Number(5);
 ```
 
 ```js
-(0.00008).toFixed(3) === 0;
-```
-
-```js
 Number(undefined);
 ```
 
 ```js
 new Number() instanceof Object;
-```
-
-```js
-(0.9).toFixed(0);
 ```
 
 ```js
