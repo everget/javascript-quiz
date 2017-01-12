@@ -37,7 +37,7 @@ The simple test for JavaScript developers:)
 ```
 
 ```js
-{ break; 4; };
+{ break; 4; }; // => ?
 ```
 
 ```js
@@ -90,6 +90,7 @@ xxx: {
   console.log('three');
 })(true);
 ```
+
 **[Back to top](#table-of-contents)**
 
 ### Semicolons
@@ -149,10 +150,6 @@ foo() == bar();
 ```
 
 ```js
-'1.0e0' == { valueOf: () => true };
-```
-
-```js
 'a' + + 'b';
 ```
 
@@ -187,6 +184,10 @@ null == 0;
 
 ```js
 'foo'.split('') + [];
+```
+
+```js
+'1.0e0' == { valueOf: () => true };
 ```
 
 ```js
@@ -340,7 +341,7 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
-if (true) function foo() { alert(1) }; // => ?
+if (true) function foo() { console.log(1) }; // => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -366,11 +367,11 @@ typeof (null && false);
 ```
 
 ```js
-typeof new ReferenceError;
+typeof new ReferenceError; // => ?
 ```
 
 ```js
-typeof typeof(typeof(undefined); // => ?
+typeof typeof(typeof(undefined)); // => ?
 ```
 
 ```js
@@ -435,9 +436,7 @@ if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
 
 ```js
 alert('2',
-  foo = function (arg) {
-    alert(arg)
-  },
+  foo = (arg) => alert(arg),
   foo('1')
 ),
 foo('3');
@@ -492,7 +491,7 @@ typeof bar();
 
 ```js
 x = 1;
-(function() {
+(() => {
   return x;
   var x = 2;
 })();
@@ -566,9 +565,7 @@ go() === foo.baz.bar();
 
 ```js
 for (var i = 0; i < 10; i++) {
-  setTimeout(function() {
-    alert(i);
-  }, 100);
+  setTimeout(() => alert(i), 100);
 };
 ```
 
@@ -646,15 +643,10 @@ var obj = {
 ```js
 var o = {
   x: 8,
-  valueOf: function() {
-    return this.x + 2;
-  },
-  toString: function() {
-    return this.x.toString();
-  }
+  toString: () => this.x.toString()
 };
 
-o < '9'; // => ?
+o.toString(); // => ?
 ```
 
 ```js
@@ -760,23 +752,23 @@ b = 1;
 ### Object
 
 ```js
+Object.prototype.toString.call();
+```
+
+```js
 Object.is(NaN, NaN);
 Object.is(-0, +0);
 ```
 
 ```js
 var proto = {
-  x: function() { return 'x' }
+  x: () => 'x'
 }
 
 var o1 = new Object(proto);
 var o2 = new Object(proto);
 
 o1 === o2;
-```
-
-```js
-Object.prototype.toString.call();
 ```
 
 ```js
@@ -937,7 +929,7 @@ var smth = /()/;
 ```
 
 ```js
-RegExp.prototype.toString = function() { return this.source };
+RegExp.prototype.toString = () => this.source;
 
 /3/-/2/;
 ```
@@ -1003,8 +995,6 @@ s1 === s2;
 ```
 
 **[Back to top](#table-of-contents)**
-
-
 
 ### Number
 
@@ -1078,8 +1068,6 @@ if (new Boolean(false)) {
 
 **[Back to top](#table-of-contents)**
 
-
-
 ### Arguments
 
 ```js
@@ -1098,6 +1086,10 @@ myArray; // => ?
 (function() {
   return typeof arguments;
 })();
+```
+
+```js
+(() => arguments.toString())();
 ```
 
 ```js
@@ -1190,9 +1182,7 @@ function whatDoesItDo(num) {
 ```
 
 ```js
-(function() {
-  return void (1 + 1);
-})();
+(() => void (1 + 1))();
 ```
 
 ```js
