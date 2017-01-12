@@ -267,6 +267,12 @@ var
 ```
 
 ```js
+var c = 0;
+
+c+++c++; // => ?
+```
+
+```js
 ~~(-5.5);
 ```
 
@@ -353,7 +359,25 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
+var x = NaN;
+switch(x) {
+    case NaN: console.log('Hello, NaN!');
+  break;
+};
+// => ?
+```
+
+```js
 if (true) function foo() { console.log(1) }; // => ?
+```
+
+```js
+var x = {};
+switch(x) {
+  case {}: console.log('Hello, hash!');
+  break;
+};
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1196,6 +1220,11 @@ with ({a: 1}) {
 
 ```js
 with (function (x, undefined) {}) length;
+```
+
+```js
+var foo = { bar: 'baz' && 'foobarbaz' }; with (foo) var bar = eval('bar, 24');
+foo;
 ```
 
 ```js
