@@ -372,6 +372,11 @@ if (true) function foo() { console.log(1) }; // => ?
 ```
 
 ```js
+var a, b;
+a = (b = 0) && (b = 1); // => ?
+```
+
+```js
 var x = {};
 switch(x) {
   case {}: console.log('Hello, hash!');
