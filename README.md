@@ -1215,6 +1215,13 @@ function whatDoesItDo(num) {
 ```
 
 ```js
+(function() {
+  'use strict';
+  return this || (1, eval)('this');
+})();
+```
+
+```js
 with ({a: 1}) {
   a = 2,
   b = 3
