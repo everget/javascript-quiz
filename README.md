@@ -970,7 +970,7 @@ var smth = /()/;
 ```
 
 ```js
-RegExp.prototype.toString = () => this.source;
+RegExp.prototype.toString = function() { return this.source };
 
 /3/-/2/;
 ```
@@ -1118,7 +1118,9 @@ myArray; // => ?
 ```
 
 ```js
-(() => arguments.toString())();
+(function() {
+  return arguments.toString();
+})();
 ```
 
 ```js
@@ -1131,9 +1133,7 @@ bar(1, 2, 3);
 ```
 
 ```js
-(function() {
-  return arguments.toString();
-})();
+(() => arguments.toString())();
 ```
 
 ```js
@@ -1180,7 +1180,7 @@ Math.round(true + .501);
 ```
 
 ```js
-Math.pow(2, 53) === (Math.pow(2, 53) + 1);
+Math.pow(2, 53) === Math.pow(2, 53) + 1;
 ```
 
 ```js
