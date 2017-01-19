@@ -126,7 +126,7 @@ foo() == bar();
 ```
 
 ```js
-[2] == true;
+[1] == true;
 ```
 
 ```js
@@ -146,7 +146,7 @@ foo() == bar();
 ```
 
 ```js
-[1] == true;
+[2] == true;
 ```
 
 ```js
@@ -175,7 +175,6 @@ null == 0;
 
 ```js
 [1 , 1] == true;
-[[1], [1]] == true;
 ```
 
 ```js
@@ -187,23 +186,11 @@ null == 0;
 ```
 
 ```js
-'1.0e0' == { valueOf: () => true };
+[[1], [1]] == true;
 ```
 
 ```js
 ({} + 'b' > {} + 'a');
-```
-
-```js
-var a = 1;
-var b = { toString: () => '1' };
-var c = 1;
-
-a + b + c;
-```
-
-```js
-[3 + NaN + true] + [10 / (8 * null) - 1];
 ```
 
 ```js
@@ -326,6 +313,10 @@ parseInt(null, 24) === 23;
 
 ```js
 (0.9).toFixed(0);
+```
+
+```js
+[3 + NaN + true] + [10 / (8 * null) - 1];
 ```
 
 ```js
@@ -734,6 +725,18 @@ var o = {
 };
 
 o.a() === o.b();
+```
+
+```js
+'1.0e0' == { valueOf: () => true };
+```
+
+```js
+var a = 1;
+var b = { toString: () => '1' };
+var c = 1;
+
+a + b + c;
 ```
 
 **[Back to top](#table-of-contents)**
