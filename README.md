@@ -841,6 +841,14 @@ const plus1 = add.bind(undefined, 1);
 plus1(); // => ?
 ```
 
+```js
+let a = () => this;
+
+let b = function() {return this}.bind(this);
+
+a() === b();
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Custom constructors
