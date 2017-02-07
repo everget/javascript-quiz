@@ -818,6 +818,18 @@ Function instanceof Function;
 ```
 
 ```js
+Function.prototype.prototype; // => ?
+```
+
+```js
+function x() {};
+
+let y = x.bind();
+
+y.prototype; // => ?
+```
+
+```js
 function add(x, y) {
   return x + y;
 };
@@ -830,7 +842,7 @@ plus1(); // => ?
 ```js
 let a = () => this;
 
-let b = function() {return this}.bind(this);
+let b = function() { return this }.bind(this);
 
 a() === b(); // => ?
 ```
@@ -838,7 +850,7 @@ a() === b(); // => ?
 ```js
 function one() {};
 
-let two = one.bind(window);
+let two = one.bind(this);
 
 two.name; // => ?
 ```
@@ -877,6 +889,16 @@ new f() instanceof f; // => ?
 
 ```js
 typeof Symbol;
+```
+
+```js
+class MySymbol extends Symbol {
+  constructor() {
+    super()
+  }
+}
+
+let symbol = new MySymbol(); // => ?
 ```
 
 **[Back to top](#table-of-contents)**
