@@ -41,7 +41,7 @@ The simple test for JavaScript developers:)
 ```
 
 ```js
-vars: var vars = vars;
+vars: var vars = vars; // => ?
 ```
 
 ```js
@@ -110,7 +110,7 @@ function bar() {
       'Some string';
 };
 
-foo() == bar();
+foo() == bar(); // => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -354,28 +354,26 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
-var x = NaN;
-switch(x) {
-    case NaN: console.log('Hello, NaN!');
-  break;
+let x = NaN;
+switch (x) {
+  case NaN: console.log('Hello, NaN!');
+            break;
+  default: console.log('Hello, default!');
 };
 // => ?
 ```
 
 ```js
-if (true) function foo() { console.log(1) }; // => ?
-```
-
-```js
-var a, b;
+let a, b;
 a = (b = 0) && (b = 1); // => ?
 ```
 
 ```js
-var x = {};
-switch(x) {
-  case {}: console.log('Hello, hash!');
-  break;
+let x = {};
+switch (x) {
+  case {}: console.log('Hello, object!');
+           break;
+  default: console.log('Hello, default!');
 };
 // => ?
 ```
@@ -846,7 +844,15 @@ let a = () => this;
 
 let b = function() {return this}.bind(this);
 
-a() === b();
+a() === b(); // => ?
+```
+
+```js
+function one() {};
+
+let two = one.bind(window);
+
+two.name; // => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -862,17 +868,19 @@ function foo() {
 };
 
 var bar = new new foo;
-bar.x;
+bar.x; // => ?
 ```
 
 ```js
 function CustomType() {};
-new CustomType instanceof CustomType;
+
+new CustomType instanceof CustomType; // => ?
 ```
 
 ```js
 function f() { return f; }
-new f() instanceof f;
+
+new f() instanceof f; // => ?
 ```
 
 **[Back to top](#table-of-contents)**
