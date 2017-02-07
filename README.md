@@ -29,14 +29,6 @@ The simple test for JavaScript developers:)
 ### Labels & Blocks
 
 ```js
-{ foo: 'bar' }; // => ?
-
-{ 'foo': 'bar' }; // => ?
-
-({ 'foo': 'bar' }); // => ?
-```
-
-```js
 { break; 4; }; // => ?
 ```
 
@@ -46,10 +38,6 @@ vars: var vars = vars; // => ?
 
 ```js
 { foo = 123 };
-```
-
-```js
-{} === {};
 ```
 
 ```js
