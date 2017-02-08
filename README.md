@@ -1009,7 +1009,15 @@ RegExp.prototype.toString = function() { return this.source };
 ```
 
 ```js
+'ab'.split(/a*?/);
+```
+
+```js
 'ab'.split(/(?:ab)*/);
+```
+
+```js
+'ab'.split(/a*/);
 ```
 
 ```js
@@ -1066,6 +1074,10 @@ var s2 = new String('hello');
 
 s1 == s2;
 s1 === s2;
+```
+
+```js
+'Hello'.charAt(1) === 'Hello'.substring(1, 2);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1226,6 +1238,10 @@ Math.round(-5.5);
 
 ```js
 Math.pow(-0, -1);
+```
+
+```js
+Math.ceil(5.01) === -Math.floor(-5.01); // => ?
 ```
 
 ```js
