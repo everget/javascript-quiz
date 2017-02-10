@@ -477,10 +477,16 @@ foo('3');
 
 ```js
 try {
- throw(new Error('tada'));
-} catch (err) {
- throw(err);
-}
+ throw new Error();
+} catch (err) {}
+```
+
+```js
+try {
+  setTimeout(function() {
+   throw new Error()
+  }, 1000);
+} catch (err) {}
 ```
 
 **[Back to top](#table-of-contents)**
