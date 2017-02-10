@@ -55,6 +55,10 @@ foo.baz + foo.bar + bar;
 ```
 
 ```js
+{ 1; 2; } 3
+```
+
+```js
 { foo: 1 }[0];
 ```
 
@@ -88,6 +92,15 @@ xxx: {
 ```js
 var a = []
 (new Date).getTime();
+```
+
+```js
+let [a, b, c] = [1, 2, 3];
+
+a = b
+++c
+
+[a, b, c]; // => ?
 ```
 
 ```js
