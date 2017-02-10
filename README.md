@@ -9,6 +9,7 @@ The simple test for JavaScript developers:)
 1. [Conditional statements](#conditional-statements)
 1. [Typeof operator](#typeof-operator)
 1. [Comma operator](#comma-operator)
+1. [Try Catch Statement](#try-catch-statement)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
 1. [Delete operator](#delete-operator)
@@ -472,6 +473,18 @@ foo('3');
 
 **[Back to top](#table-of-contents)**
 
+### Try Catch Statement
+
+```js
+try {
+ throw(new Error('tada'));
+} catch (err) {
+ throw(err);
+}
+```
+
+**[Back to top](#table-of-contents)**
+
 ### Scopes & Closures & Hoisting
 
 ```js
@@ -657,6 +670,14 @@ function f() {
 
 ```js
 { a: 1, b: 2 }['b'];
+```
+
+```js
+let obj = {
+ '': ''
+};
+
+obj['']; // => ?
 ```
 
 ```js
