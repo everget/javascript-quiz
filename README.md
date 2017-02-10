@@ -15,6 +15,7 @@ The simple test for JavaScript developers:)
 1. [Object](#object)
 1. [Function](#function)
 1. [Custom constructors](#custom-constructors)
+1. [Promise](#promise)
 1. [Symbol](#symbol)
 1. [Array](#array)
 1. [Date](#date)
@@ -99,6 +100,11 @@ function bar() {
 };
 
 foo() == bar(); // => ?
+```
+
+```js
+a = b
+/hi/g.exec(c).map(d);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -881,6 +887,14 @@ new CustomType instanceof CustomType; // => ?
 function f() { return f; }
 
 new f() instanceof f; // => ?
+```
+
+**[Back to top](#table-of-contents)**
+
+### Promise
+
+```js
+let promise = Promise(() => {}, () => {});
 ```
 
 **[Back to top](#table-of-contents)**
