@@ -836,6 +836,10 @@ Object.prototype.toString.call();
 ```
 
 ```js
+Object.prototype.toString.call(Object);
+```
+
+```js
 Object.is(NaN, NaN);
 Object.is(-0, +0);
 ```
@@ -901,6 +905,12 @@ let two = one.bind(this);
 two.name; // => ?
 ```
 
+```js
+async myFunc() {};
+
+Object.prototype.toString.call(myFunc);
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Custom constructors
@@ -932,6 +942,10 @@ new f() instanceof f; // => ?
 **[Back to top](#table-of-contents)**
 
 ### Promise
+
+```js
+typeof Promise;
+```
 
 ```js
 let promise = Promise(() => {}, () => {});
