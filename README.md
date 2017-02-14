@@ -373,7 +373,9 @@ switch (x) {
 
 ```js
 let a, b;
-a = (b = 0) && (b = 1); // => ?
+a = (b = 0) && (b = 1);
+
+[a, b]; // => ?
 ```
 
 ```js
@@ -435,6 +437,8 @@ typeof new Number(4);
 ```js
 var a = 0;
 var b = (a++, 99);
+
+[a, b]; // => ?
 ```
 
 ```js
@@ -670,9 +674,11 @@ function f() {
 ```js
 (function() {
   var foo = 'a';
+
   (function (foo) {
     foo = 'b';
   })(foo);
+
   return foo;
 })();
 ```
