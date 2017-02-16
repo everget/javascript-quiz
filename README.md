@@ -142,6 +142,13 @@ a = b
 ```
 
 ```js
+let a = true;
+let b = false;
+
+a != b === !(a == b); // => ?
+```
+
+```js
 '5' + + '6';
 ```
 
@@ -1067,8 +1074,7 @@ Array.isArray({__proto__: Array.prototype });
 ### Date
 
 ```js
-var date = new Date('2016/12/31');
-date == '2016/12/31';
+'2016/12/31' == new Date('2016/12/31');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1135,7 +1141,7 @@ x2;
 ### String
 
 ```js
-'' instanceof String == '';
+'' == '' instanceof String;
 ```
 
 ```js
@@ -1151,11 +1157,10 @@ new String('foo') === 'foo';
 ```
 
 ```js
-var s1 = new String('hello');
-var s2 = new String('hello');
+let s1 = new String('hello');
+let s2 = new String('hello');
 
-s1 == s2;
-s1 === s2;
+s1 == s2; // => ?
 ```
 
 ```js
