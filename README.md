@@ -866,6 +866,10 @@ Object.is(-0, +0);
 ```
 
 ```js
+Object.assign({}) == Object.assign({});
+```
+
+```js
 var proto = {
   x: () => 'x'
 }
