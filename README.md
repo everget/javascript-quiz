@@ -7,7 +7,7 @@ The simple test for JavaScript developers:)
 1. [Coercions & Comparisons](#coercions--comparisons)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
-1. [Destructuring](#destructuring)
+1. [Destructuring assignment](#destructuring-assignment)
 1. [Typeof operator](#typeof-operator)
 1. [Comma operator](#comma-operator)
 1. [Try Catch Statement](#try-catch-statement)
@@ -406,7 +406,7 @@ switch (x) {
 
 **[Back to top](#table-of-contents)**
 
-### Destructuring assingment
+### Destructuring assignment
 
 ```js
 let [a] = [];
