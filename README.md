@@ -511,6 +511,7 @@ foo('3');
 try {
  throw new Error();
 } catch (err) {}
+// => ?
 ```
 
 ```js
@@ -519,6 +520,7 @@ try {
    throw new Error()
   }, 1000);
 } catch (err) {}
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
