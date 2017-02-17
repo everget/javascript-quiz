@@ -7,6 +7,7 @@ The simple test for JavaScript developers:)
 1. [Coercions & Comparisons](#coercions--comparisons)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
+1. [Destructuring](#destructuring)
 1. [Typeof operator](#typeof-operator)
 1. [Comma operator](#comma-operator)
 1. [Try Catch Statement](#try-catch-statement)
@@ -401,6 +402,18 @@ switch (x) {
   default: console.log('Hello, default!');
 };
 // => ?
+```
+
+**[Back to top](#table-of-contents)**
+
+### Destructuring assingment
+
+```js
+let [a] = [];
+```
+
+```js
+let [b = 1] = [];
 ```
 
 **[Back to top](#table-of-contents)**
