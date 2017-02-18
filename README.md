@@ -881,7 +881,7 @@ Object.is(-0, +0);
 ```
 
 ```js
-Object.assign({}) == Object.assign({});
+Object.assign({ a: 1 }) == Object.assign({}, { a: 1 });
 ```
 
 ```js
@@ -893,6 +893,13 @@ var o1 = new Object(proto);
 var o2 = new Object(proto);
 
 o1 === o2;
+```
+
+```js
+Object.freeze(window);
+
+var didItWork = true;
+// => ?
 ```
 
 ```js
@@ -1050,6 +1057,10 @@ arr.indexOf(2, -3);
 
 ```js
 Array(4).join('tada!' - 4);
+```
+
+```js
+Array.from({ '': '' });
 ```
 
 ```js
