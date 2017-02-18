@@ -16,6 +16,7 @@ The simple test for JavaScript developers:)
 1. [Delete operator](#delete-operator)
 1. [Object](#object)
 1. [Function](#function)
+1. [Classes](#classes)
 1. [Custom constructors](#custom-constructors)
 1. [Promise](#promise)
 1. [Symbol](#symbol)
@@ -956,6 +957,16 @@ two.name; // => ?
 async myFunc() {};
 
 Object.prototype.toString.call(myFunc);
+```
+
+**[Back to top](#table-of-contents)**
+
+### Classes
+
+```js
+var Foo = class {};
+class Foo {};
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
