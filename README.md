@@ -37,11 +37,13 @@ The simple test for JavaScript developers:)
 ```
 
 ```js
-vars: var vars = vars; // => ?
+vars: var vars = vars;
+vars; // => ?
 ```
 
 ```js
-{ foo = 123 };
+foo: { foo = 123 };
+foo; // => ?
 ```
 
 ```js
@@ -58,14 +60,16 @@ foo.baz + foo.bar + bar;
 
 ```js
 { 1; 2; } 3
+// => ?
 ```
 
 ```js
-{ foo: 1 }[0];
+{ foo: 1 }[0]; // => ?
 ```
 
 ```js
 a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
+// => ?
 ```
 
 ```js
@@ -271,7 +275,7 @@ var
 ```
 
 ```js
-var c = 0;
+let c = 0;
 
 c+++c++; // => ?
 ```
@@ -369,9 +373,11 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
-1 || 'foo' && 0; // => ?
+1 || 'foo' && 0;
+// => ?
 
-1 && 'foo' || 0; // => ?
+1 && 'foo' || 0;
+// => ?
 ```
 
 ```js
@@ -411,10 +417,12 @@ switch (x) {
 
 ```js
 let [a] = [];
+a; // => ?
 ```
 
 ```js
 let [b = 1] = [];
+b; // => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -423,7 +431,7 @@ let [b = 1] = [];
 
 ```js
 var y = 1, x = y = typeof x;
-x;
+x; // => ?
 ```
 
 ```js
@@ -432,11 +440,11 @@ typeof JSON;
 
 ```js
 var x = [typeof x, typeof y][1];
-typeof typeof x;
+typeof typeof x; // => ?
 ```
 
 ```js
-typeof (null && false);
+typeof (null && false); // => ?
 ```
 
 ```js
@@ -448,7 +456,7 @@ typeof typeof(typeof(undefined)); // => ?
 ```
 
 ```js
-typeof new Number(4);
+typeof new Number(4); // => ?
 ```
 
 ```js
@@ -610,7 +618,7 @@ var o = {
   }
 };
 
-o.doIt();
+o.doIt(); // => ?
 ```
 
 ```js
@@ -618,7 +626,7 @@ function a() {
   alert(this);
 };
 
-a.call(null);
+a.call(null); // => ?
 ```
 
 ```js
@@ -627,7 +635,7 @@ if (function f() {}) {
   x += typeof f;
 };
 
-console.log(x);
+x; // => ?
 ```
 
 ```js
@@ -636,7 +644,7 @@ var foo = {
   baz: 1
 };
 
-typeof (f = foo.bar);
+typeof (f = foo.bar); // => ?
 ```
 
 ```js
@@ -653,7 +661,7 @@ var foo = {
 
 var go = foo.baz.bar;
 
-go() === foo.baz.bar();
+go() === foo.baz.bar(); // => ?
 ```
 
 ```js
@@ -662,12 +670,14 @@ go() === foo.baz.bar();
   return f();
   function f() { return 2; }
 })();
+// => ?
 ```
 
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => alert(i), 100);
 };
+// => ?
 ```
 
 ```js
@@ -679,7 +689,7 @@ function bar() {
   var foo = '12';
 };
 
-typeof bar();
+typeof bar(); // => ?
 ```
 
 ```js
@@ -688,7 +698,7 @@ function f() {
   return new Function('b', 'return a + b');
 };
 
-f()(1);
+f()(1); // => ?
 ```
 
 ```js
@@ -701,7 +711,7 @@ a; // => ?
 ```
 
 ```js
-f.call(f);
+f.call(f); // => ?
 
 function f() {
   return this;
@@ -718,12 +728,14 @@ function f() {
 
   return foo;
 })();
+// => ?
 ```
 
 ```js
 (function f(f) {
   return typeof f();
 })(() => 1);
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -731,7 +743,7 @@ function f() {
 ### Properties
 
 ```js
-{ a: 1, b: 2 }['b'];
+{ a: 1, b: 2 }['b']; // => ?
 ```
 
 ```js
@@ -765,8 +777,8 @@ var obj = {
   1: 'I love this awesome language'
 };
 
-obj[1] == obj[[1]];
-obj[[1]] == obj['1'];
+obj[1] == obj[[1]]; // => ?
+obj[[1]] == obj['1']; // => ?
 ```
 
 ```js
@@ -778,10 +790,12 @@ obj[[1]] == obj['1'];
 (function() {
   return (function (a, b) {}).length;
 })();
+// => ?
 ```
 
 ```js
 ({ 'toString': null }).propertyIsEnumerable('toString');
+// => ?
 ```
 
 ```js
@@ -795,6 +809,7 @@ obj[[1]] == obj['1'];
 
   return map[foo];
 })();
+// => ?
 ```
 
 ```js
@@ -803,11 +818,11 @@ var o = {
   b: () => this === o
 };
 
-o.a() === o.b();
+o.a() === o.b(); // => ?
 ```
 
 ```js
-'1.0e0' == { valueOf: () => true };
+'1.0e0' == { valueOf: () => true }; // => ?
 ```
 
 ```js
@@ -815,7 +830,7 @@ var a = 1;
 var b = { toString: () => '1' };
 var c = 1;
 
-a + b + c;
+a + b + c; // => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -831,6 +846,7 @@ numbers.length; // => ?
 
 ```js
 delete [].length;
+// => ?
 ```
 
 ```js
@@ -852,6 +868,7 @@ admin.type; // => ?
 
 ```js
 delete delete window.document;
+// => ?
 ```
 
 ```js
@@ -859,6 +876,7 @@ delete delete window.document;
   delete x;
   return x;
 })(1);
+// => ?
 ```
 
 ```js
@@ -868,6 +886,7 @@ b = 1;
 (function() {
   return (delete window.a) === (delete window.b);
 })();
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -880,15 +899,22 @@ Object.prototype.toString.call();
 
 ```js
 Object.prototype.toString.call(Object);
+// => ?
 ```
 
 ```js
 Object.is(NaN, NaN);
+// => ?
+```
+
+```js
 Object.is(-0, +0);
+// => ?
 ```
 
 ```js
 Object.assign({ a: 1 }) == Object.assign({}, { a: 1 });
+// => ?
 ```
 
 ```js
@@ -899,7 +925,7 @@ var proto = {
 var o1 = new Object(proto);
 var o2 = new Object(proto);
 
-o1 === o2;
+o1 === o2; // => ?
 ```
 
 ```js
@@ -911,6 +937,7 @@ var didItWork = true;
 
 ```js
 Object.prototype.isPrototypeOf(window);
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -918,7 +945,7 @@ Object.prototype.isPrototypeOf(window);
 ### Function
 
 ```js
-Function instanceof Function;
+Function instanceof Function; // => ?
 ```
 
 ```js
@@ -963,6 +990,7 @@ two.name; // => ?
 async myFunc() {};
 
 Object.prototype.toString.call(myFunc);
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1008,11 +1036,12 @@ new f() instanceof f; // => ?
 ### Promise
 
 ```js
-typeof Promise;
+typeof Promise; // => ?
 ```
 
 ```js
 let promise = Promise(() => {}, () => {});
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1020,7 +1049,7 @@ let promise = Promise(() => {}, () => {});
 ### Symbol
 
 ```js
-typeof Symbol;
+typeof Symbol; // => ?
 ```
 
 ```js
