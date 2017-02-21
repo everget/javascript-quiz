@@ -467,7 +467,8 @@ typeof new Number(4);
 var a = 0;
 var b = (a++, 99);
 
-[a, b]; // => ?
+[a, b];
+// => ?
 ```
 
 ```js
@@ -501,12 +502,16 @@ typeof f;
 
 ```js
 [3, 4, 5, 6][1, 2];
+// => ?
 ```
 
 ```js
 if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
   console.log('awesome js');
+} else {
+  console.log('dreadful js');
 };
+// => ?
 ```
 
 ```js
@@ -515,6 +520,7 @@ alert('2',
   foo('1')
 ),
 foo('3');
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
