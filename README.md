@@ -4,7 +4,8 @@ The simple test for JavaScript developers:)
 ## Table of Contents
 1. [Labels & Blocks](#labels--blocks)
 1. [Semicolons](#semicolons)
-1. [Coercions & Comparisons](#coercions--comparisons)
+1. [Coercions](#coercions)
+1. [Comparisons](#comparisons)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
 1. [Destructuring assignment](#destructuring-assignment)
@@ -111,36 +112,24 @@ a = b
 
 ```js
 function foo() {
-  return 'Some string';
-};
-
-function bar() {
   return
       'Some string';
 };
 
-foo() == bar(); // => ?
+foo() === 'Some string'; // => ?
 ```
 
 ```js
 a = b
-/hi/g.exec(c).map(d);
+/hi/g.exec('hi for everyone!');
 ```
 
 **[Back to top](#table-of-contents)**
 
-### Coercions & Comparisons
+### Coercions
 
 ```js
 !!~1;
-```
-
-```js
-'3' - 2 === 1;
-```
-
-```js
-[1] == true;
 ```
 
 ```js
@@ -148,26 +137,11 @@ a = b
 ```
 
 ```js
-let a = true;
-let b = false;
-
-a != b === !(a == b); // => ?
-```
-
-```js
 '5' + + '6';
 ```
 
 ```js
-1 + 2 + '3' == 1 + '2' + 3;
-```
-
-```js
 '1' + 2 + '3' + 4;
-```
-
-```js
-[2] == true;
 ```
 
 ```js
@@ -187,39 +161,11 @@ a != b === !(a == b); // => ?
 ```
 
 ```js
-[true] == true;
-```
-
-```js
-null == 0;
-```
-
-```js
-[1 , 1] == true;
-```
-
-```js
-' \t\r\n' == 0;
-```
-
-```js
 'foo'.split('') + [];
 ```
 
 ```js
-[[1], [1]] == true;
-```
-
-```js
-({} + 'b' > {} + 'a');
-```
-
-```js
 [] + [] + 'foo'.split('');
-```
-
-```js
-[[[[1]]]] == true;
 ```
 
 ```js
@@ -242,6 +188,55 @@ null == 0;
 
 ```js
 [4, 4] * [4, 4];
+```
+
+**[Back to top](#table-of-contents)**
+
+### Comparisons
+```js
+'3' - 2 === 1;
+```
+
+```js
+[1] == true;
+```
+
+```js
+let a = true;
+let b = false;
+
+a != b === !(a == b); // => ?
+```
+```js
+1 + 2 + '3' == 1 + '2' + 3;
+```
+
+```js
+[2] == true;
+```
+
+```js
+[true] == true;
+```
+
+```js
+null == 0;
+```
+
+```js
+[1, 1] == true;
+```
+
+```js
+' \t\r\n' == 0;
+```
+
+```js
+({} + 'b' > {} + 'a');
+```
+
+```js
+[[[[1]]]] == true;
 ```
 
 ```js
@@ -305,7 +300,7 @@ c+++c++; // => ?
 ```
 
 ```js
-Infinity > - Infinity; // => ?
+Infinity > -Infinity; // => ?
 ```
 
 ```js
