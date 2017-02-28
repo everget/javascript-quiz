@@ -198,6 +198,10 @@ a = b
 ```
 
 ```js
+undefined == false;
+```
+
+```js
 [1] == true;
 ```
 
@@ -209,6 +213,10 @@ a != b === !(a == b); // => ?
 ```
 ```js
 1 + 2 + '3' == 1 + '2' + 3;
+```
+
+```js
+'001' == true;
 ```
 
 ```js
@@ -236,7 +244,15 @@ null == 0;
 ```
 
 ```js
+'0x0' == false;
+```
+
+```js
 [[[[1]]]] == true;
+```
+
+```js
+'002' == true;
 ```
 
 ```js
@@ -1296,6 +1312,10 @@ new Boolean(a).valueOf();
 if (new Boolean(false)) {
   console.log('I love this wonderful language!');
 };
+```
+
+```js
+new Boolean(false).valueOf() === false;
 ```
 
 **[Back to top](#table-of-contents)**
