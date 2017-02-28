@@ -1504,6 +1504,24 @@ with (function (x, undefined) {}) length;
 ```
 
 ```js
+({
+  x: 10,
+  foo: function () {
+    function bar() {
+      console.log(x); // => ?
+      console.log(y); // => ?
+      console.log(this.x); // => ?
+    }
+    with (this) {
+      var x = 20;
+      var y = 30;
+      bar.call(this);
+    }
+  }
+}).foo();
+```
+
+```js
 var foo = { bar: 'baz' && 'foobarbaz' }; with (foo) var bar = eval('bar, 24');
 foo;
 ```
