@@ -503,6 +503,10 @@ if (9, 0) console.log('ok');
 ```
 
 ```js
+(1,5 - 1) * 2;
+```
+
+```js
 var smth = (45, 87) > (195, 3) ? 'bar' : (54, 65) > (1, 0) ? '' : 'baz';
 ```
 
@@ -531,6 +535,18 @@ if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
   console.log('dreadful js');
 };
 // => ?
+```
+
+```js
+let a;
+let b = 10,
+    c = (
+      20,
+      function (x) { return x + 100 },
+      function () { return arguments[0] }
+    );
+ 
+a = b + c; // => ?
 ```
 
 ```js
@@ -749,6 +765,24 @@ function f() {
 // => ?
 ```
 
+```js
+var x = 10;
+var foo = {
+  x: 20,
+  bar: function () {
+    var x = 30;
+    return this.x;
+  }
+};
+ 
+console.log(
+  foo.bar(),
+  (foo.bar)(),
+  (foo.bar = foo.bar)(),
+  (foo.bar, foo.bar)()
+);
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Properties
@@ -830,6 +864,10 @@ var o = {
 };
 
 o.a() === o.b(); // => ?
+```
+
+```js
+100['toString']['length']; // => ?
 ```
 
 ```js
