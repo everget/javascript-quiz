@@ -34,16 +34,14 @@ The simple test for JavaScript developers:)
 ### Labels & Blocks
 
 ```js
-{ break; 4; }; // => ?
-```
-
-```js
 vars: var vars = vars;
+
 vars; // => ?
 ```
 
 ```js
 foo: { foo = 123 };
+
 foo; // => ?
 ```
 
@@ -65,7 +63,8 @@ foo.baz + foo.bar + bar;
 ```
 
 ```js
-{ foo: 1 }[0]; // => ?
+{ foo: 1 }[0];
+// => ?
 ```
 
 ```js
@@ -79,6 +78,7 @@ xxx: {
   break xxx;
   console.log(222);
 };
+// => ?
 ```
 
 ```js
@@ -90,6 +90,7 @@ xxx: {
   };
   console.log('three');
 })(true);
+// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -260,7 +261,7 @@ null == 0;
 ```
 
 ```js
-var foo = {};
+let foo = {};
 foo === foo;
 ```
 
@@ -273,7 +274,7 @@ foo === foo;
 ```
 
 ```js
-var
+let
   num1 = 5,
   num2 = 10,
   num3 = num1+++num2;
@@ -292,7 +293,7 @@ var
 ```js
 let c = 0;
 
-c+++c++; // => ?
+[c+++c++, c]; // => ?
 ```
 
 ```js
@@ -432,11 +433,13 @@ switch (x) {
 
 ```js
 let [a] = [];
+
 a; // => ?
 ```
 
 ```js
 let [b = 1] = [];
+
 b; // => ?
 ```
 
@@ -490,8 +493,7 @@ typeof new Number(4); // => ?
 var a = 0;
 var b = (a++, 99);
 
-[a, b];
-// => ?
+[a, b]; // => ?
 ```
 
 ```js
@@ -524,7 +526,8 @@ typeof ('a', 3);
 
 ```js
 var f = (function f() { return '1' }, function g() { return 2 })();
-typeof f;
+
+typeof f; // => ?
 ```
 
 ```js
@@ -609,6 +612,7 @@ function a(x) {
 };
 
 var a;
+
 typeof a; // => ?
 ```
 
@@ -832,6 +836,7 @@ obj[[1]] == obj['1']; // => ?
 
 ```js
 'hello'.someProperty = 17;
+
 'hello'.someProperty; // => ?
 ```
 
@@ -898,8 +903,7 @@ numbers.length; // => ?
 ```
 
 ```js
-delete [].length;
-// => ?
+delete [].length; // => ?
 ```
 
 ```js
@@ -920,8 +924,7 @@ admin.type; // => ?
 ```
 
 ```js
-delete delete window.document;
-// => ?
+delete delete window.document; // => ?
 ```
 
 ```js
@@ -948,6 +951,7 @@ b = 1;
 
 ```js
 Object.prototype.toString.call();
+// => ?
 ```
 
 ```js
@@ -985,7 +989,8 @@ o1 === o2; // => ?
 Object.freeze(window);
 
 var didItWork = true;
-// => ?
+
+didItWork; // => ?
 ```
 
 ```js
@@ -1069,6 +1074,7 @@ function foo() {
 };
 
 var bar = new new foo;
+
 bar.x; // => ?
 ```
 
@@ -1106,6 +1112,14 @@ typeof Symbol; // => ?
 ```
 
 ```js
+let foo = new Symbol(); // => ?
+```
+
+```js
+Symbol('foo') === Symbol('foo'); // => ?
+```
+
+```js
 class MySymbol extends Symbol {
   constructor() {
     super()
@@ -1113,6 +1127,10 @@ class MySymbol extends Symbol {
 }
 
 let symbol = new MySymbol(); // => ?
+```
+
+```js
+Symbol.for('bar') === Symbol.for('bar'); // => ?
 ```
 
 **[Back to top](#table-of-contents)**
