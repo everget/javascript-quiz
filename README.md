@@ -15,6 +15,7 @@ The simple test for JavaScript developers:)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
 1. [Delete operator](#delete-operator)
+1. [Spread Operator](#spread-operator)
 1. [Object](#object)
 1. [Function](#function)
 1. [Classes](#classes)
@@ -1478,7 +1479,7 @@ function foo(a, b) {
 foo(1);
 ```
 
-```js
+```js 
 var baz = function() {
   return arguments;
 };
@@ -1491,6 +1492,10 @@ baz() == baz();
   return arguments
 })(9, 8, 7), -2);
 ```
+
+**[Back to top](#table-of-contents)**
+
+### Spread operator
 
 **[Back to top](#table-of-contents)**
 
