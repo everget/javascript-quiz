@@ -301,6 +301,10 @@ let c = 0;
 ```
 
 ```js
+42 / -0; // => ?
+```
+
+```js
 10 > 9 > 8 === true;
 ```
 
@@ -463,6 +467,10 @@ typeof typeof x; // => ?
 
 ```js
 typeof (null && false); // => ?
+```
+
+```js
+typeof 000; // => ?
 ```
 
 ```js
@@ -986,6 +994,11 @@ o1 === o2; // => ?
 ```
 
 ```js
+Object.assign({}, 'function');
+// => ?
+```
+
+```js
 Object.freeze(window);
 
 var didItWork = true;
@@ -1197,6 +1210,10 @@ new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
+[NaN].includes(NaN);
+```
+
+```js
 (function() {
   return Array(3).map(function (item) { return 'a' });
 })();
@@ -1314,12 +1331,21 @@ s1 == s2; // => ?
 'Hello'.charAt(1) === 'Hello'.substring(1, 2);
 ```
 
+```js
+String(['awesome', 'js']);
+// => ?
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Number
 
 ```js
 3 instanceof Number;
+```
+
+```js
+Number([]);
 ```
 
 ```js
@@ -1331,11 +1357,23 @@ Number(5) === 5 || new Number(5) === Number(5);
 ```
 
 ```js
+Number([24, 10]);
+```
+
+```js
 Number(undefined);
 ```
 
 ```js
+Number(['awesome', 'js']);
+```
+
+```js
 new Number() instanceof Object;
+```
+
+```js
+Number({});
 ```
 
 ```js
@@ -1369,13 +1407,25 @@ new Boolean(a).valueOf();
 ```
 
 ```js
+Boolean(-Infinity);
+```
+
+```js
 if (new Boolean(false)) {
   console.log('I love this wonderful language!');
 };
 ```
 
 ```js
+Boolean([]);
+```
+
+```js
 new Boolean(false).valueOf() === false;
+```
+
+```js
+Boolean('000');
 ```
 
 **[Back to top](#table-of-contents)**
