@@ -15,7 +15,8 @@ The simple test for JavaScript developers:)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Properties](#properties)
 1. [Delete operator](#delete-operator)
-1. [Spread Operator](#spread-operator)
+1. [Spread operator](#spread-operator)
+1. [Template literals](#template-literals)
 1. [Object](#object)
 1. [Function](#function)
 1. [Classes](#classes)
@@ -446,6 +447,23 @@ a; // => ?
 let [b = 1] = [];
 
 b; // => ?
+```
+
+```js
+var [title, title, title, title] = 'JavaScript is awesome language'.split(' ');
+
+title; // => ?
+```
+
+```js
+({a, b} = {a: 5, b: 6, a: 7});
+// => ?
+```
+
+```js
+var { total, tax } = { total: total, tax: tax };
+
+[total, tax]; // => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -960,6 +978,24 @@ b = 1;
 
 **[Back to top](#table-of-contents)**
 
+### Spread operator
+
+**[Back to top](#table-of-contents)**
+
+### Template literals
+
+```js
+((...args) => args)``
+// => ?
+```
+
+```js
+concat`this``is``a``test``!`();
+// => ?
+```
+
+**[Back to top](#table-of-contents)**
+
 ### Object
 
 ```js
@@ -1183,7 +1219,7 @@ arr.indexOf(2, -3);
 ```
 
 ```js
-[].concat[1,2,3];
+[].concat[1, 2, 3];
 ```
 
 ```js
@@ -1496,10 +1532,6 @@ baz() == baz();
   return arguments
 })(9, 8, 7), -2);
 ```
-
-**[Back to top](#table-of-contents)**
-
-### Spread operator
 
 **[Back to top](#table-of-contents)**
 
