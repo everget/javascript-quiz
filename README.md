@@ -479,6 +479,10 @@ typeof new ReferenceError; // => ?
 ```
 
 ```js
+typeof setTimeout(() => {}, 0); // => ?
+```
+
+```js
 typeof typeof(typeof(undefined)); // => ?
 ```
 
