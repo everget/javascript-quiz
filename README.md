@@ -464,6 +464,10 @@ var { total, tax } = { total: total, tax: tax };
 [total, tax];
 ```
 
+```js
+let x, { x: y = 1 } = { x }; y;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Typeof operator
@@ -964,12 +968,20 @@ b = 1;
 
 ### Spread operator
 
+```js
+[...[...'...']].length
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Template literals
 
 ```js
 ((...args) => args)``
+```
+
+```js
+typeof `${{Object}}`.prototype
 ```
 
 ```js
@@ -1079,6 +1091,16 @@ async myFunc() {};
 Object.prototype.toString.call(myFunc);
 ```
 
+```js
+
+(function() {
+  if (false) {
+    let f = { g() => 1 };
+  }
+  return typeof f;
+})()
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Classes
@@ -1086,6 +1108,24 @@ Object.prototype.toString.call(myFunc);
 ```js
 var Foo = class {};
 class Foo {};
+```
+
+```js
+typeof (new (class F extends (String, Array) { })).substring
+```
+
+```js
+(typeof (new (class { class () {} })))
+```
+
+```js
+(function() {
+  let f = this ? class g { } : class h { };
+  return [
+    typeof f,
+    typeof h
+  ];
+})();
 ```
 
 **[Back to top](#table-of-contents)**
