@@ -6,7 +6,7 @@ The simple test for JavaScript developers:)
 1. [Semicolons](#semicolons)
 1. [Coercions](#coercions)
 1. [Comparisons](#comparisons)
-1. [Equalities](#equalities)
+1. [Inequalities](#inequalities)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
 1. [Destructuring assignment](#destructuring-assignment)
@@ -262,7 +262,7 @@ foo === foo;
 
 **[Back to top](#table-of-contents)**
 
-### Equalities
+### Inequalities
 
 ```js
 10 > 9 > 8;
