@@ -6,6 +6,7 @@ The simple test for JavaScript developers:)
 1. [Semicolons](#semicolons)
 1. [Coercions](#coercions)
 1. [Comparisons](#comparisons)
+1. [Equalities](#equalities)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
 1. [Destructuring assignment](#destructuring-assignment)
@@ -38,13 +39,13 @@ The simple test for JavaScript developers:)
 ```js
 vars: var vars = vars;
 
-vars; // => ?
+vars;
 ```
 
 ```js
 foo: { foo = 123 };
 
-foo; // => ?
+foo;
 ```
 
 ```js
@@ -61,17 +62,14 @@ foo.baz + foo.bar + bar;
 
 ```js
 { 1; 2; } 3
-// => ?
 ```
 
 ```js
 { foo: 1 }[0];
-// => ?
 ```
 
 ```js
 a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
-// => ?
 ```
 
 ```js
@@ -80,7 +78,6 @@ xxx: {
   break xxx;
   console.log(222);
 };
-// => ?
 ```
 
 ```js
@@ -92,7 +89,6 @@ xxx: {
   };
   console.log('three');
 })(true);
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -110,7 +106,7 @@ let [a, b, c] = [1, 2, 3];
 a = b
 ++c
 
-[a, b, c]; // => ?
+[a, b, c];
 ```
 
 ```js
@@ -119,7 +115,7 @@ function foo() {
       'Some string';
 };
 
-foo() === 'Some string'; // => ?
+foo() === 'Some string';
 ```
 
 ```js
@@ -212,8 +208,9 @@ undefined == false;
 let a = true;
 let b = false;
 
-a != b === !(a == b); // => ?
+a != b === !(a == b);
 ```
+
 ```js
 1 + 2 + '3' == 1 + '2' + 3;
 ```
@@ -227,11 +224,11 @@ a != b === !(a == b); // => ?
 ```
 
 ```js
-[true] == true;
+'00' == 0;
 ```
 
 ```js
-'10' < '9';
+[true] == true;
 ```
 
 ```js
@@ -244,10 +241,6 @@ null == 0;
 
 ```js
 ' \t\r\n' == 0;
-```
-
-```js
-({} + 'b' > {} + 'a');
 ```
 
 ```js
@@ -269,6 +262,38 @@ foo === foo;
 
 **[Back to top](#table-of-contents)**
 
+### Equalities
+
+```js
+10 > 9 > 8;
+```
+
+```js
+'10' < '9';
+```
+
+```js
++0 < -0;
+```
+
+```js
+'3' > '12' === '03' > '12';
+```
+
+```js
+0 < 5 < 3;
+```
+
+```js
+Infinity > -Infinity;
+```
+
+```js
+({} + 'b' > {} + 'a');
+```
+
+**[Back to top](#table-of-contents)**
+
 ### Calculus
 
 ```js
@@ -281,7 +306,7 @@ let
   num2 = 10,
   num3 = num1+++num2;
 
-`${num1} ${num2} ${num3}`; // => ?
+`${num1} ${num2} ${num3}`;
 ```
 
 ```js
@@ -295,7 +320,7 @@ let
 ```js
 let c = 0;
 
-[c+++c++, c]; // => ?
+[c+++c++, c];
 ```
 
 ```js
@@ -303,19 +328,7 @@ let c = 0;
 ```
 
 ```js
-42 / -0; // => ?
-```
-
-```js
-10 > 9 > 8 === true;
-```
-
-```js
-'00' == 0;
-```
-
-```js
-+0 < -0; // => ?
+42 / -0;
 ```
 
 ```js
@@ -327,15 +340,7 @@ let c = 0;
 ```
 
 ```js
-Infinity > -Infinity; // => ?
-```
-
-```js
 parseInt(null, 24) === 23;
-```
-
-```js
-0 < 5 < 3; // => ?
 ```
 
 ```js
@@ -379,10 +384,6 @@ parseInt(1 / 0, 19);
 ```
 
 ```js
-'3' > '12' === '03' > '12';
-```
-
-```js
 parseFloat('\t\v\r12.34\n ');
 ```
 
@@ -391,19 +392,19 @@ parseFloat('\t\v\r12.34\n ');
 ### Conditional statements
 
 ```js
-('false') && ('bar'); // => ?
+('false') && ('bar');
 ```
 
 ```js
 1 || 'foo' && 0;
-// => ?
-
-1 && 'foo' || 0;
-// => ?
 ```
 
 ```js
-1 && 3; // => ?
+1 && 3;
+```
+
+```js
+1 && 'foo' || 0;
 ```
 
 ```js
@@ -413,14 +414,13 @@ switch (x) {
             break;
   default: console.log('Hello, default!');
 };
-// => ?
 ```
 
 ```js
 let a, b;
 a = (b = 0) && (b = 1);
 
-[a, b]; // => ?
+[a, b];
 ```
 
 ```js
@@ -430,7 +430,6 @@ switch (x) {
            break;
   default: console.log('Hello, default!');
 };
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -440,30 +439,29 @@ switch (x) {
 ```js
 let [a] = [];
 
-a; // => ?
+a;
 ```
 
 ```js
 let [b = 1] = [];
 
-b; // => ?
+b;
 ```
 
 ```js
 var [title, title, title, title] = 'JavaScript is awesome language'.split(' ');
 
-title; // => ?
+title;
 ```
 
 ```js
 ({a, b} = {a: 5, b: 6, a: 7});
-// => ?
 ```
 
 ```js
 var { total, tax } = { total: total, tax: tax };
 
-[total, tax]; // => ?
+[total, tax];
 ```
 
 **[Back to top](#table-of-contents)**
@@ -472,7 +470,7 @@ var { total, tax } = { total: total, tax: tax };
 
 ```js
 var y = 1, x = y = typeof x;
-x; // => ?
+x;
 ```
 
 ```js
@@ -481,35 +479,35 @@ typeof JSON;
 
 ```js
 var x = [typeof x, typeof y][1];
-typeof typeof x; // => ?
+typeof typeof x;
 ```
 
 ```js
-typeof (null && false); // => ?
+typeof (null && false);
 ```
 
 ```js
-typeof 000; // => ?
+typeof 000;
 ```
 
 ```js
-typeof new ReferenceError; // => ?
+typeof new ReferenceError;
 ```
 
 ```js
-typeof setTimeout(() => {}, 0); // => ?
+typeof setTimeout(() => {}, 0);
 ```
 
 ```js
-typeof typeof(typeof(undefined)); // => ?
+typeof typeof(typeof(undefined));
 ```
 
 ```js
-typeof new Number(4); // => ?
+typeof new Number(4);
 ```
 
 ```js
-((foo) => typeof foo.bar)({ foo: { bar: 1 } }); // => ?
+((foo) => typeof foo.bar)({ foo: { bar: 1 } });
 ```
 
 **[Back to top](#table-of-contents)**
@@ -524,7 +522,7 @@ typeof new Number(4); // => ?
 var a = 0;
 var b = (a++, 99);
 
-[a, b]; // => ?
+[a, b];
 ```
 
 ```js
@@ -558,12 +556,11 @@ typeof ('a', 3);
 ```js
 var f = (function f() { return '1' }, function g() { return 2 })();
 
-typeof f; // => ?
+typeof f;
 ```
 
 ```js
 [3, 4, 5, 6][1, 2];
-// => ?
 ```
 
 ```js
@@ -572,7 +569,6 @@ if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
 } else {
   console.log('dreadful js');
 };
-// => ?
 ```
 
 ```js
@@ -584,7 +580,7 @@ let b = 10,
       function () { return arguments[0] }
     );
  
-a = b + c; // => ?
+a = b + c;
 ```
 
 ```js
@@ -593,7 +589,6 @@ alert('2',
   foo('1')
 ),
 foo('3');
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -604,16 +599,14 @@ foo('3');
 try {
  throw new Error();
 } catch (err) {}
-// => ?
 ```
 
 ```js
 try {
   setTimeout(function() {
-   throw new Error()
+    throw new Error()
   }, 1000);
 } catch (err) {}
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -626,7 +619,7 @@ var x = 1;
   var x = 2;
 }
 
-x; // => ?
+x;
 ```
 
 ```js
@@ -634,7 +627,7 @@ if (!('a' in window)) {
   var a = 1;
 };
 
-a; // => ?
+a;
 ```
 
 ```js
@@ -644,7 +637,7 @@ function a(x) {
 
 var a;
 
-typeof a; // => ?
+typeof a;
 ```
 
 ```js
@@ -656,7 +649,7 @@ function bar() {
 };
 
 bar();
-foo; // => ?
+foo;
 ```
 
 ```js
@@ -684,7 +677,7 @@ var o = {
   }
 };
 
-o.doIt(); // => ?
+o.doIt();
 ```
 
 ```js
@@ -692,7 +685,7 @@ function a() {
   alert(this);
 };
 
-a.call(null); // => ?
+a.call(null);
 ```
 
 ```js
@@ -701,7 +694,7 @@ if (function f() {}) {
   x += typeof f;
 };
 
-x; // => ?
+x;
 ```
 
 ```js
@@ -710,7 +703,7 @@ var foo = {
   baz: 1
 };
 
-typeof (f = foo.bar); // => ?
+typeof (f = foo.bar);
 ```
 
 ```js
@@ -727,7 +720,7 @@ var foo = {
 
 var go = foo.baz.bar;
 
-go() === foo.baz.bar(); // => ?
+go() === foo.baz.bar();
 ```
 
 ```js
@@ -736,14 +729,12 @@ go() === foo.baz.bar(); // => ?
   return f();
   function f() { return 2; }
 })();
-// => ?
 ```
 
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => alert(i), 100);
 };
-// => ?
 ```
 
 ```js
@@ -755,7 +746,7 @@ function bar() {
   var foo = '12';
 };
 
-typeof bar(); // => ?
+typeof bar();
 ```
 
 ```js
@@ -764,7 +755,7 @@ function f() {
   return new Function('b', 'return a + b');
 };
 
-f()(1); // => ?
+f()(1);
 ```
 
 ```js
@@ -773,15 +764,15 @@ var b = function a(x) {
   x && a(--x);
 };
 
-a; // => ?
+a;
 ```
 
 ```js
-f.call(f); // => ?
-
 function f() {
   return this;
 };
+
+f.call(f);
 ```
 
 ```js
@@ -794,14 +785,12 @@ function f() {
 
   return foo;
 })();
-// => ?
 ```
 
 ```js
 (function f(f) {
   return typeof f();
 })(() => 1);
-// => ?
 ```
 
 ```js
@@ -827,7 +816,7 @@ console.log(
 ### Properties
 
 ```js
-{ a: 1, b: 2 }['b']; // => ?
+{ a: 1, b: 2 }['b'];
 ```
 
 ```js
@@ -835,7 +824,7 @@ let obj = {
  '': ''
 };
 
-obj['']; // => ?
+obj[''];
 ```
 
 ```js
@@ -844,7 +833,7 @@ var obj = {
   valueOf: () => 17
 };
 
-'object: ' + obj; // => ?
+'object: ' + obj;
 ```
 
 ```js
@@ -853,7 +842,7 @@ var o = {
   toString: () => this.x.toString()
 };
 
-o.toString(); // => ?
+o.toString();
 ```
 
 ```js
@@ -861,26 +850,24 @@ var obj = {
   1: 'I love this awesome language'
 };
 
-obj[1] == obj[[1]]; // => ?
-obj[[1]] == obj['1']; // => ?
+obj[1] == obj[[1]];
+obj[[1]] == obj['1'];
 ```
 
 ```js
 'hello'.someProperty = 17;
 
-'hello'.someProperty; // => ?
+'hello'.someProperty;
 ```
 
 ```js
 (function() {
   return (function (a, b) {}).length;
 })();
-// => ?
 ```
 
 ```js
 ({ 'toString': null }).propertyIsEnumerable('toString');
-// => ?
 ```
 
 ```js
@@ -894,7 +881,6 @@ obj[[1]] == obj['1']; // => ?
 
   return map[foo];
 })();
-// => ?
 ```
 
 ```js
@@ -903,15 +889,15 @@ var o = {
   b: () => this === o
 };
 
-o.a() === o.b(); // => ?
+o.a() === o.b();
 ```
 
 ```js
-100['toString']['length']; // => ?
+100['toString']['length'];
 ```
 
 ```js
-'1.0e0' == { valueOf: () => true }; // => ?
+'1.0e0' == { valueOf: () => true };
 ```
 
 ```js
@@ -919,7 +905,7 @@ var a = 1;
 var b = { toString: () => '1' };
 var c = 1;
 
-a + b + c; // => ?
+a + b + c;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -930,18 +916,18 @@ a + b + c; // => ?
 var numbers = [2, 3, 5, 7, 11, 13];
 delete numbers[3];
 
-numbers.length; // => ?
+numbers.length;
 ```
 
 ```js
-delete [].length; // => ?
+delete [].length;
 ```
 
 ```js
 function foo() {};
 delete foo.length;
 
-typeof foo.length; // => ?
+typeof foo.length;
 ```
 
 ```js
@@ -951,11 +937,11 @@ Person.prototype.type = 'person';
 var admin = new Person();
 delete admin.type;
 
-admin.type; // => ?
+admin.type;
 ```
 
 ```js
-delete delete window.document; // => ?
+delete delete window.document;
 ```
 
 ```js
@@ -963,7 +949,6 @@ delete delete window.document; // => ?
   delete x;
   return x;
 })(1);
-// => ?
 ```
 
 ```js
@@ -973,7 +958,6 @@ b = 1;
 (function() {
   return (delete window.a) === (delete window.b);
 })();
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -986,12 +970,10 @@ b = 1;
 
 ```js
 ((...args) => args)``
-// => ?
 ```
 
 ```js
 concat`this``is``a``test``!`();
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1000,27 +982,22 @@ concat`this``is``a``test``!`();
 
 ```js
 Object.prototype.toString.call();
-// => ?
 ```
 
 ```js
 Object.prototype.toString.call(Object);
-// => ?
 ```
 
 ```js
 Object.is(NaN, NaN);
-// => ?
 ```
 
 ```js
 Object.is(-0, +0);
-// => ?
 ```
 
 ```js
 Object.assign({ a: 1 }) == Object.assign({}, { a: 1 });
-// => ?
 ```
 
 ```js
@@ -1031,12 +1008,11 @@ var proto = {
 var o1 = new Object(proto);
 var o2 = new Object(proto);
 
-o1 === o2; // => ?
+o1 === o2;
 ```
 
 ```js
 Object.assign({}, 'function');
-// => ?
 ```
 
 ```js
@@ -1044,12 +1020,11 @@ Object.freeze(window);
 
 var didItWork = true;
 
-didItWork; // => ?
+didItWork;
 ```
 
 ```js
 Object.prototype.isPrototypeOf(window);
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1057,11 +1032,11 @@ Object.prototype.isPrototypeOf(window);
 ### Function
 
 ```js
-Function instanceof Function; // => ?
+Function instanceof Function;
 ```
 
 ```js
-Function.prototype.prototype; // => ?
+Function.prototype.prototype;
 ```
 
 ```js
@@ -1069,7 +1044,7 @@ function x() {};
 
 let y = x.bind();
 
-y.prototype; // => ?
+y.prototype;
 ```
 
 ```js
@@ -1079,7 +1054,7 @@ function add(x, y) {
 
 const plus1 = add.bind(undefined, 1);
 
-plus1(); // => ?
+plus1();
 ```
 
 ```js
@@ -1087,7 +1062,7 @@ let a = () => this;
 
 let b = function() { return this }.bind(this);
 
-a() === b(); // => ?
+a() === b();
 ```
 
 ```js
@@ -1095,14 +1070,13 @@ function one() {};
 
 let two = one.bind(this);
 
-two.name; // => ?
+two.name;
 ```
 
 ```js
 async myFunc() {};
 
 Object.prototype.toString.call(myFunc);
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1112,7 +1086,6 @@ Object.prototype.toString.call(myFunc);
 ```js
 var Foo = class {};
 class Foo {};
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1129,19 +1102,19 @@ function foo() {
 
 var bar = new new foo;
 
-bar.x; // => ?
+bar.x;
 ```
 
 ```js
 function CustomType() {};
 
-new CustomType instanceof CustomType; // => ?
+new CustomType instanceof CustomType;
 ```
 
 ```js
 function f() { return f; }
 
-new f() instanceof f; // => ?
+new f() instanceof f;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1149,12 +1122,11 @@ new f() instanceof f; // => ?
 ### Promise
 
 ```js
-typeof Promise; // => ?
+typeof Promise;
 ```
 
 ```js
 let promise = Promise(() => {}, () => {});
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1162,15 +1134,15 @@ let promise = Promise(() => {}, () => {});
 ### Symbol
 
 ```js
-typeof Symbol; // => ?
+typeof Symbol;
 ```
 
 ```js
-let foo = new Symbol(); // => ?
+let foo = new Symbol();
 ```
 
 ```js
-Symbol('foo') === Symbol('foo'); // => ?
+Symbol('foo') === Symbol('foo');
 ```
 
 ```js
@@ -1180,11 +1152,11 @@ class MySymbol extends Symbol {
   }
 }
 
-let symbol = new MySymbol(); // => ?
+let symbol = new MySymbol();
 ```
 
 ```js
-Symbol.for('bar') === Symbol.for('bar'); // => ?
+Symbol.for('bar') === Symbol.for('bar');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1265,7 +1237,7 @@ new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
-Array.isArray({__proto__: Array.prototype });
+Array.isArray({ __proto__: Array.prototype });
 ```
 
 ```js
@@ -1285,10 +1257,6 @@ Array.isArray({__proto__: Array.prototype });
 **[Back to top](#table-of-contents)**
 
 ### RegExp
-
-```js
-var smth = /()/;
-```
 
 ```js
 /^.$/.test('');
@@ -1365,7 +1333,7 @@ new String('foo') === 'foo';
 let s1 = new String('hello');
 let s2 = new String('hello');
 
-s1 == s2; // => ?
+s1 == s2;
 ```
 
 ```js
@@ -1374,7 +1342,6 @@ s1 == s2; // => ?
 
 ```js
 String(['awesome', 'js']);
-// => ?
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1431,7 +1398,7 @@ Number.prototype.toString = function() {
   return typeof this;
 };
 
-(4).toString(); // => ?
+(4).toString();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1474,7 +1441,7 @@ Boolean('000');
 ### Arguments
 
 ```js
-var myArray = [1,2,3];
+var myArray = [1, 2, 3];
 
 function setNull(param) {
   param = null;
@@ -1482,7 +1449,7 @@ function setNull(param) {
 
 setNull(myArray);
 
-myArray; // => ?
+myArray;
 ```
 
 ```js
@@ -1570,7 +1537,7 @@ Math.pow(-0, -1);
 ```
 
 ```js
-Math.ceil(5.01) === -Math.floor(-5.01); // => ?
+Math.ceil(5.01) === -Math.floor(-5.01);
 ```
 
 ```js
@@ -1589,7 +1556,7 @@ function whatDoesItDo(num) {
 ### Miscellaneous
 
 ```js
-8 | 1; // => ?
+8 | 1;
 ```
 
 ```js
