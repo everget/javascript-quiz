@@ -1208,11 +1208,19 @@ typeof [1, 2, 3];
 ```
 
 ```js
+new Array(null);
+```
+
+```js
 [].unshift(0);
 ```
 
 ```js
 Array(2).join();
+```
+
+```js
+new Array('100');
 ```
 
 ```js
