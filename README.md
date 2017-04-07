@@ -685,11 +685,19 @@ o.doIt();
 ```
 
 ```js
-function a() {
+function f() {
   alert(this);
 };
 
-a.call(null);
+f.call(null);
+```
+
+```js
+function f() {
+  return this;
+};
+
+f.call(f);
 ```
 
 ```js
@@ -736,6 +744,17 @@ go() === foo.baz.bar();
 ```
 
 ```js
+var obj = {
+  message: 'Hello',
+  innerMessage: !(function() {
+    console.log(this.message);
+  })()
+};
+
+console.log(obj.innerMessage);
+```
+
+```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => alert(i), 100);
 };
@@ -769,14 +788,6 @@ var b = function a(x) {
 };
 
 a;
-```
-
-```js
-function f() {
-  return this;
-};
-
-f.call(f);
 ```
 
 ```js
@@ -1108,6 +1119,12 @@ Object.prototype.toString.call(myFunc);
 ```js
 var Foo = class {};
 class Foo {};
+```
+
+```js
+class AwesomeJS extends null {}
+
+new AwesomeJS
 ```
 
 ```js
