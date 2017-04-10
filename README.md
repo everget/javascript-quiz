@@ -600,9 +600,15 @@ foo('3');
 ### Try Catch Statement
 
 ```js
-try {
- throw new Error();
-} catch (err) {}
+function foo() {
+  try {
+    return 'return';
+  } finally {
+    console.log('finally');
+  }
+}
+
+foo();
 ```
 
 ```js
@@ -611,6 +617,25 @@ try {
     throw new Error()
   }, 1000);
 } catch (err) {}
+```
+
+```js
+try {
+  try {
+    throw new Error('oops');
+  }
+  catch (ex) {
+    console.error('inner', ex.message);
+    throw ex;
+  }
+  finally {
+    console.log('finally');
+    return;
+  }
+}
+catch (ex) {
+  console.error('outer', ex.message);
+}
 ```
 
 **[Back to top](#table-of-contents)**
