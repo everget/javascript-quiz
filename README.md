@@ -132,6 +132,10 @@ a = b
 ```
 
 ```js
+false % 1;
+```
+
+```js
 '1' - - '1';
 ```
 
@@ -148,6 +152,10 @@ a = b
 ```
 
 ```js
+!!!function(){};
+```
+
+```js
 [4] * [4];
 ```
 
@@ -157,6 +165,10 @@ a = b
 
 ```js
 4 + 3 + 2 + '1';
+```
+
+```js
+[] + 24 + 10;
 ```
 
 ```js
@@ -321,6 +333,10 @@ let
 let c = 0;
 
 [c+++c++, c];
+```
+
+```js
+.1 + .2 != .3
 ```
 
 ```js
@@ -1128,7 +1144,6 @@ Object.prototype.toString.call(myFunc);
 ```
 
 ```js
-
 (function() {
   if (false) {
     let f = { g() => 1 };
@@ -1251,6 +1266,14 @@ typeof [1, 2, 3];
 
 ```js
 new Array(null);
+```
+
+```js
+var arr = [];
+arr[1] = 1;
+arr[24] = 24;
+
+arr.length;
 ```
 
 ```js
