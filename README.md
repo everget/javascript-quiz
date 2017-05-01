@@ -14,14 +14,15 @@ The simple test for JavaScript developers:)
 1. [Comma operator](#comma-operator)
 1. [Try Catch Statement](#try-catch-statement)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
-1. [Properties](#properties)
+1. [Context](#context)
 1. [Delete operator](#delete-operator)
 1. [Spread operator](#spread-operator)
+1. [Void operator](#void-operator)
+1. [Instanceof operator](#instanceof-operator)
 1. [Template literals](#template-literals)
 1. [Object](#object)
 1. [Function](#function)
-1. [Classes](#classes)
-1. [Custom constructors](#custom-constructors)
+1. [Window](#window)
 1. [Promise](#promise)
 1. [Symbol](#symbol)
 1. [Array](#array)
@@ -30,8 +31,11 @@ The simple test for JavaScript developers:)
 1. [String](#string)
 1. [Number](#number)
 1. [Boolean](#boolean)
+1. [Classes](#classes)
+1. [Custom constructors](#custom-constructors)
 1. [Arguments](#arguments)
 1. [Math](#math)
+1. [With operator](#with-operator)
 1. [Miscellaneous](#miscellaneous)
 
 ### Labels & Blocks
@@ -58,14 +62,6 @@ foo: {
 };
 
 foo.baz + foo.bar + bar;
-```
-
-```js
-{ 1; 2; } 3
-```
-
-```js
-{ foo: 1 }[0];
 ```
 
 ```js
@@ -152,6 +148,10 @@ false % 1;
 ```
 
 ```js
+[1] + 1;
+```
+
+```js
 !!!function(){};
 ```
 
@@ -180,6 +180,14 @@ false % 1;
 ```
 
 ```js
+[1,2] + [3,4];
+```
+
+```js
+({} + {});
+```
+
+```js
 [] + {};
 
 [] * {};
@@ -198,7 +206,15 @@ false % 1;
 ```
 
 ```js
+[] + null + 1;
+```
+
+```js
 [4, 4] * [4, 4];
+```
+
+```js
+[3 + NaN + true] + [10 / (8 * null) - 1];
 ```
 
 **[Back to top](#table-of-contents)**
@@ -244,6 +260,10 @@ a != b === !(a == b);
 ```
 
 ```js
+0 === -0;
+```
+
+```js
 null == 0;
 ```
 
@@ -272,6 +292,10 @@ let foo = {};
 foo === foo;
 ```
 
+```js
+[] == ![];
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Inequalities
@@ -289,7 +313,11 @@ foo === foo;
 ```
 
 ```js
-'3' > '12' === '03' > '12';
+'3' > '12'
+```
+
+```js
+'03' > '12';
 ```
 
 ```js
@@ -313,6 +341,10 @@ Infinity > -Infinity;
 ```
 
 ```js
+8 | 1;
+```
+
+```js
 let
   num1 = 5,
   num2 = 10,
@@ -323,10 +355,6 @@ let
 
 ```js
 1 + - + + + - + 1;
-```
-
-```js
-0 === -0;
 ```
 
 ```js
@@ -364,19 +392,15 @@ parseInt(null, 24) === 23;
 ```
 
 ```js
+1 / parseFloat('-.00');
+```
+
+```js
 12..toFixed(1);
 ```
 
 ```js
 (0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
-```
-
-```js
-1 / 0 === 1 / -0;
-```
-
-```js
-1 / parseFloat('-0') !== -Infinity;
 ```
 
 ```js
@@ -389,10 +413,6 @@ parseInt(null, 24) === 23;
 
 ```js
 (0.9).toFixed(0);
-```
-
-```js
-[3 + NaN + true] + [10 / (8 * null) - 1];
 ```
 
 ```js
@@ -471,7 +491,7 @@ title;
 ```
 
 ```js
-({a, b} = {a: 5, b: 6, a: 7});
+({ a, b } = { a: 5, b: 6, a: 7 });
 ```
 
 ```js
@@ -519,7 +539,7 @@ typeof setTimeout(() => {}, 0);
 ```
 
 ```js
-typeof typeof(typeof(undefined));
+typeof typeof undefined;
 ```
 
 ```js
@@ -527,7 +547,9 @@ typeof new Number(4);
 ```
 
 ```js
-((foo) => typeof foo.bar)({ foo: { bar: 1 } });
+(function (foo) {
+  return typeof foo.bar;
+})({ foo: { bar: 1 } });
 ```
 
 **[Back to top](#table-of-contents)**
@@ -589,18 +611,6 @@ if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
 } else {
   console.log('dreadful js');
 };
-```
-
-```js
-let a;
-let b = 10,
-    c = (
-      20,
-      function (x) { return x + 100 },
-      function () { return arguments[0] }
-    );
- 
-a = b + c;
 ```
 
 ```js
@@ -711,69 +721,12 @@ x = 1;
 ```
 
 ```js
-var x = 5,
-var o = {
-  x: 10,
-  doIt: function doIt() {
-    var x = 20;
-    setTimeout(function() {
-      alert(this.x);
-    }, 10);
-  }
-};
-
-o.doIt();
-```
-
-```js
-function f() {
-  alert(this);
-};
-
-f.call(null);
-```
-
-```js
-function f() {
-  return this;
-};
-
-f.call(f);
-```
-
-```js
 var x = 1;
 if (function f() {}) {
   x += typeof f;
 };
 
 x;
-```
-
-```js
-var foo = {
-  bar: function() { return this.baz },
-  baz: 1
-};
-
-typeof (f = foo.bar);
-```
-
-```js
-var x = 3;
-var foo = {
-  x: 2,
-  baz: {
-    x: 1,
-    bar: function() {
-        return this.x;
-    }
-  }
-};
-
-var go = foo.baz.bar;
-
-go() === foo.baz.bar();
 ```
 
 ```js
@@ -792,7 +745,7 @@ var obj = {
   })()
 };
 
-console.log(obj.innerMessage);
+obj.innerMessage;
 ```
 
 ```js
@@ -849,94 +802,74 @@ a;
 })(() => 1);
 ```
 
+**[Back to top](#table-of-contents)**
+
+### Context
+
+```js
+function f() {
+  alert(this);
+};
+
+f.call(null);
+```
+
+```js
+function f() {
+  return this;
+};
+
+f.call(f);
+```
+
+```js
+var obj = {
+  go: function() { return this }
+};
+
+(obj.go)();
+```
+
+```js
+var foo = {
+  bar: function() { return this.baz },
+  baz: 1
+};
+
+typeof (f = foo.bar)();
+```
+
 ```js
 var x = 10;
 var foo = {
   x: 20,
-  bar: function () {
+  bar: function() {
     var x = 30;
     return this.x;
   }
 };
  
-console.log(
-  foo.bar(),
-  (foo.bar)(),
-  (foo.bar = foo.bar)(),
-  (foo.bar, foo.bar)()
-);
-```
-
-**[Back to top](#table-of-contents)**
-
-### Properties
-
-```js
-{ a: 1, b: 2 }['b'];
+foo.bar();
+(foo.bar)();
+(foo.bar = foo.bar)();
+(foo.bar, foo.bar)();
 ```
 
 ```js
-let obj = {
- '': ''
+var x = 3;
+var foo = {
+  x: 2,
+  baz: {
+    x: 1,
+    bar: function() {
+        return this.x;
+    }
+  }
 };
 
-obj[''];
-```
+var go = foo.baz.bar;
 
-```js
-var obj = {
-  toString: () => '[object MyObject]',
-  valueOf: () => 17
-};
-
-'object: ' + obj;
-```
-
-```js
-var o = {
-  x: 8,
-  toString: () => this.x.toString()
-};
-
-o.toString();
-```
-
-```js
-var obj = {
-  1: 'I love this awesome language'
-};
-
-obj[1] == obj[[1]];
-obj[[1]] == obj['1'];
-```
-
-```js
-'hello'.someProperty = 17;
-
-'hello'.someProperty;
-```
-
-```js
-(function() {
-  return (function (a, b) {}).length;
-})();
-```
-
-```js
-({ 'toString': null }).propertyIsEnumerable('toString');
-```
-
-```js
-(function() {
-  var foo = {};
-  var bar = {};
-  var map = {};
-
-  map[foo] = 'foo';
-  map[bar] = 'bar';
-
-  return map[foo];
-})();
+go() === foo.baz.bar();
 ```
 
 ```js
@@ -949,19 +882,16 @@ o.a() === o.b();
 ```
 
 ```js
-100['toString']['length'];
-```
+(function() {
+  'use strict';
 
-```js
-'1.0e0' == { valueOf: () => true };
-```
+  const globalOne = (function() { return this || (1, eval)('this') })();
 
-```js
-var a = 1;
-var b = { toString: () => '1' };
-var c = 1;
+  const globalTwo = (function() { return this })();
 
-a + b + c;
+  return globalOne === globalTwo;
+
+}());
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1022,6 +952,56 @@ b = 1;
 
 ```js
 [...[...'...']].length
+```
+
+**[Back to top](#table-of-contents)**
+
+### Void operator
+
+```js
+(() => void (1 + 1))();
+```
+
+**[Back to top](#table-of-contents)**
+
+### Instanceof operator
+
+```js
+var arr = [];
+arr instanceof Array;
+arr instanceof Object;
+```
+
+```js
+function A() {}
+function B() {}
+
+A.prototype = B.prototype = {};
+
+var a = new A();
+
+a instanceof B;
+```
+
+```js
+function Rabbit() {}
+var rabbit = new Rabbit();
+
+Rabbit.prototype = {};
+
+rabbit instanceof Rabbit;
+```
+
+```js
+function Animal() {}
+
+function Rabbit() {}
+Rabbit.prototype = Object.create(Animal.prototype);
+
+var rabbit = new Rabbit();
+
+rabbit instanceof Animal;
+rabbit instanceof Object;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1091,16 +1071,94 @@ didItWork;
 Object.prototype.isPrototypeOf(window);
 ```
 
+```js
+{ a: 1, b: 2 }['b'];
+```
+
+```js
+let obj = {
+ '': ''
+};
+
+obj[''];
+```
+
+```js
+var obj = {
+  toString: () => '[object MyObject]',
+  valueOf: () => 17
+};
+
+'object: ' + obj;
+```
+
+```js
+var obj = {
+  1: 'I love this awesome language'
+};
+
+obj[1] == obj[[1]];
+obj[[1]] == obj['1'];
+```
+
+```js
+'hello'.someProperty = 17;
+
+'hello'.someProperty;
+```
+
+```js
+({ 'toString': null }).propertyIsEnumerable('toString');
+```
+
+```js
+(function() {
+  var foo = {};
+  var bar = {};
+  var map = {};
+
+  map[foo] = 'foo';
+  map[bar] = 'bar';
+
+  return map[foo];
+})();
+```
+
+```js
+100['toString']['length'];
+```
+
+```js
+'1.0e0' == { valueOf: () => true };
+```
+
+```js
+var a = 1;
+var b = { toString: () => '1' };
+var c = 1;
+
+a + b + c;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Function
 
 ```js
+typeof Function;
 Function instanceof Function;
 ```
 
 ```js
+typeof Function.prototype;
+Function.prototype instanceof Function;
+Function.prototype.isPrototypeOf(Function);
 Function.prototype.prototype;
+```
+
+```js
+Function.prototype === Function;
+Function.prototype.constructor === Function;
 ```
 
 ```js
@@ -1145,6 +1203,12 @@ Object.prototype.toString.call(myFunc);
 
 ```js
 (function() {
+  return (function (a, b) {}).length;
+})();
+```
+
+```js
+(function() {
   if (false) {
     let f = { g() => 1 };
   }
@@ -1152,69 +1216,44 @@ Object.prototype.toString.call(myFunc);
 })()
 ```
 
-**[Back to top](#table-of-contents)**
-
-### Classes
-
 ```js
-var Foo = class {};
-class Foo {};
-```
+let x = 4;
+let y = ['foo', 'bar'];
+let z = { first: true };
 
-```js
-class AwesomeJS extends null {}
+function f(a, b, c) {
+  a = 3;
+  b.push('baz');
+  b = ['baz'];
+  c.first = false;
+  c = true;
+}
 
-new AwesomeJS
-```
+f(x, y, z);
 
-```js
-typeof (new (class F extends (String, Array) { })).substring
-```
-
-```js
-(typeof (new (class { class () {} })))
-```
-
-```js
-(function() {
-  let f = this ? class g { } : class h { };
-  return [
-    typeof f,
-    typeof h
-  ];
-})();
+[x, y, z.first];
 ```
 
 **[Back to top](#table-of-contents)**
 
-### Custom constructors
+### Window
 
 ```js
-var x = 0;
-function foo() {
-  x++;
-  this.x = x;
-  return foo;
-};
-
-var bar = new new foo;
-
-bar.x;
+typeof window;
+typeof Window;
 ```
 
 ```js
-function CustomType() {};
-
-new CustomType instanceof CustomType;
+Object.getPrototypeOf(window) === Window;
 ```
 
 ```js
-function f() { return f; }
-
-new f() instanceof f;
+Window.constructor === Function;
 ```
 
-**[Back to top](#table-of-contents)**
+```js
+Window.prototype.constructor === Window;
+```
 
 ### Promise
 
@@ -1269,6 +1308,10 @@ new Array(null);
 ```
 
 ```js
+new Array(1)[0] + '';
+```
+
+```js
 var arr = [];
 arr[1] = 1;
 arr[24] = 24;
@@ -1312,6 +1355,10 @@ arr.indexOf(2, -3);
 ```
 
 ```js
+[].fill.call({ length: 3 }, 4);
+```
+
+```js
 Array(4).join('tada!' - 4);
 ```
 
@@ -1350,7 +1397,11 @@ new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
-Array.isArray({ __proto__: Array.prototype });
+Array.isArray({
+ constructor: Array,
+ length: 0,
+ __proto__: Array.prototype
+});
 ```
 
 ```js
@@ -1365,6 +1416,14 @@ Array.isArray({ __proto__: Array.prototype });
 
 ```js
 '2016/12/31' == new Date('2016/12/31');
+```
+
+```js
+new Date(-666).getUTCMonth();
+```
+
+```js
+new Date(0) - 0;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1551,6 +1610,68 @@ Boolean('000');
 
 **[Back to top](#table-of-contents)**
 
+### Classes
+
+```js
+var Foo = class {};
+class Foo {};
+```
+
+```js
+class AwesomeJS extends null {}
+
+new AwesomeJS
+```
+
+```js
+typeof (new (class F extends (String, Array) { })).substring
+```
+
+```js
+(typeof (new (class { class () {} })))
+```
+
+```js
+(function() {
+  let f = this ? class g { } : class h { };
+  return [
+    typeof f,
+    typeof h
+  ];
+})();
+```
+
+**[Back to top](#table-of-contents)**
+
+### Custom constructors
+
+```js
+var x = 0;
+function foo() {
+  x++;
+  this.x = x;
+  return foo;
+};
+
+var bar = new new foo;
+
+bar.x;
+```
+
+```js
+function CustomType() {};
+
+new CustomType instanceof CustomType;
+```
+
+```js
+function f() { return f; }
+
+new f() instanceof f;
+```
+
+**[Back to top](#table-of-contents)**
+
 ### Arguments
 
 ```js
@@ -1563,6 +1684,22 @@ function setNull(param) {
 setNull(myArray);
 
 myArray;
+```
+
+```js
+(function() {
+  var arguments;
+  return arguments[0];
+})(200);
+```
+
+```js
+(function() {
+  console.log(
+    arguments.constructor === {}.constructor,
+    arguments.constructor === [].constructor
+  );
+})();
 ```
 
 ```js
@@ -1666,21 +1803,19 @@ function whatDoesItDo(num) {
 
 **[Back to top](#table-of-contents)**
 
-### Miscellaneous
+### With operator
 
 ```js
-8 | 1;
-```
+var a = 1;
 
-```js
-(() => void (1 + 1))();
-```
+var obj = {
+  b: 2
+};
 
-```js
-(function() {
-  'use strict';
-  return this || (1, eval)('this');
-})();
+with (obj) {
+  var b;
+  console.log( a + b );
+}
 ```
 
 ```js
@@ -1715,9 +1850,15 @@ with (function (x, undefined) {}) length;
 ```
 
 ```js
-var foo = { bar: 'baz' && 'foobarbaz' }; with (foo) var bar = eval('bar, 24');
-foo;
+var foo = { bar: 'baz' && 'foobarbaz' };
+with (foo) var bar = eval('bar, 24');
+
+foo.bar;
 ```
+
+**[Back to top](#table-of-contents)**
+
+### Miscellaneous
 
 ```js
 (![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]];
