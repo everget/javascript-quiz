@@ -32,7 +32,6 @@ The simple test for JavaScript developers:)
 1. [Number](#number)
 1. [Boolean](#boolean)
 1. [Classes](#classes)
-1. [Custom constructors](#custom-constructors)
 1. [Arguments](#arguments)
 1. [Math](#math)
 1. [With operator](#with-operator)
@@ -1004,6 +1003,12 @@ rabbit instanceof Animal;
 rabbit instanceof Object;
 ```
 
+```js
+function f() { return f; }
+
+new f() instanceof f;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Template literals
@@ -1232,6 +1237,19 @@ function f(a, b, c) {
 f(x, y, z);
 
 [x, y, z.first];
+```
+
+```js
+let x = 0;
+function foo() {
+  x++;
+  this.x = x;
+  return foo;
+};
+
+let bar = new new foo;
+
+bar.x;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1643,35 +1661,6 @@ typeof (new (class F extends (String, Array) { })).substring
 
 **[Back to top](#table-of-contents)**
 
-### Custom constructors
-
-```js
-var x = 0;
-function foo() {
-  x++;
-  this.x = x;
-  return foo;
-};
-
-var bar = new new foo;
-
-bar.x;
-```
-
-```js
-function CustomType() {};
-
-new CustomType instanceof CustomType;
-```
-
-```js
-function f() { return f; }
-
-new f() instanceof f;
-```
-
-**[Back to top](#table-of-contents)**
-
 ### Arguments
 
 ```js
@@ -1755,6 +1744,10 @@ baz() == baz();
 ### Math
 
 ```js
+Math instanceof Math;
+```
+
+```js
 (1.22e-10).toFixed(2);
 ```
 
@@ -1788,17 +1781,6 @@ Math.pow(-0, -1);
 
 ```js
 Math.ceil(5.01) === -Math.floor(-5.01);
-```
-
-```js
-Math instanceof Math;
-```
-
-```js
-// what does it do ?
-function whatDoesItDo(num) {
-  return Math.max(0, Math.min(10, num));
-};
 ```
 
 **[Back to top](#table-of-contents)**
