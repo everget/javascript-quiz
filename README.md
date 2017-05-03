@@ -108,7 +108,7 @@ a = b
 function foo() {
   return
       'Some string';
-};
+}
 
 foo() === 'Some string';
 ```
@@ -444,11 +444,14 @@ parseFloat('\t\v\r12.34\n ');
 
 ```js
 let x = NaN;
+
 switch (x) {
-  case NaN: console.log('Hello, NaN!');
-            break;
-  default: console.log('Hello, default!');
-};
+  case NaN:
+    console.log('Hello, NaN!');
+    break;
+  default:
+    console.log('Hello, default!');
+}
 ```
 
 ```js
@@ -460,11 +463,14 @@ a = (b = 0) && (b = 1);
 
 ```js
 let x = {};
+
 switch (x) {
-  case {}: console.log('Hello, object!');
-           break;
-  default: console.log('Hello, default!');
-};
+  case {}:
+    console.log('Hello, object!');
+    break;
+  default:
+    console.log('Hello, default!');
+}
 ```
 
 **[Back to top](#table-of-contents)**
@@ -609,7 +615,7 @@ if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
   console.log('awesome js');
 } else {
   console.log('dreadful js');
-};
+}
 ```
 
 ```js
@@ -657,8 +663,7 @@ try {
     console.log('finally');
     return;
   }
-}
-catch (ex) {
+} catch (ex) {
   console.error('outer', ex.message);
 }
 ```
@@ -679,7 +684,7 @@ x;
 ```js
 if (!('a' in window)) {
   var a = 1;
-};
+}
 
 a;
 ```
@@ -687,7 +692,7 @@ a;
 ```js
 function a(x) {
   return x * 2;
-};
+}
 
 var a;
 
@@ -700,7 +705,7 @@ function bar() {
   foo = 10;
   return;
   function foo() {};
-};
+}
 
 bar();
 foo;
@@ -723,7 +728,7 @@ x = 1;
 var x = 1;
 if (function f() {}) {
   x += typeof f;
-};
+}
 
 x;
 ```
@@ -750,7 +755,7 @@ obj.innerMessage;
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => alert(i), 100);
-};
+}
 ```
 
 ```js
@@ -760,7 +765,7 @@ function bar() {
   foo = 10;
   function foo() {};
   var foo = '12';
-};
+}
 
 typeof bar();
 ```
@@ -769,7 +774,7 @@ typeof bar();
 function f() {
   var a = 5;
   return new Function('b', 'return a + b');
-};
+}
 
 f()(1);
 ```
@@ -808,7 +813,7 @@ a;
 ```js
 function f() {
   alert(this);
-};
+}
 
 f.call(null);
 ```
@@ -816,7 +821,7 @@ f.call(null);
 ```js
 function f() {
   return this;
-};
+}
 
 f.call(f);
 ```
@@ -967,13 +972,14 @@ b = 1;
 
 ```js
 var arr = [];
+
 arr instanceof Array;
 arr instanceof Object;
 ```
 
 ```js
-function A() {}
-function B() {}
+function A() {};
+function B() {};
 
 A.prototype = B.prototype = {};
 
@@ -983,7 +989,7 @@ a instanceof B;
 ```
 
 ```js
-function Rabbit() {}
+function Rabbit() {};
 var rabbit = new Rabbit();
 
 Rabbit.prototype = {};
@@ -992,9 +998,9 @@ rabbit instanceof Rabbit;
 ```
 
 ```js
-function Animal() {}
+function Animal() {};
 
-function Rabbit() {}
+function Rabbit() {};
 Rabbit.prototype = Object.create(Animal.prototype);
 
 var rabbit = new Rabbit();
@@ -1177,7 +1183,7 @@ y.prototype;
 ```js
 function add(x, y) {
   return x + y;
-};
+}
 
 const plus1 = add.bind(undefined, 1);
 
@@ -1611,7 +1617,7 @@ Boolean(-Infinity);
 ```js
 if (new Boolean(false)) {
   console.log('I love this wonderful language!');
-};
+}
 ```
 
 ```js
@@ -1668,7 +1674,7 @@ var myArray = [1, 2, 3];
 
 function setNull(param) {
   param = null;
-};
+}
 
 setNull(myArray);
 
@@ -1707,7 +1713,7 @@ myArray;
 function bar(x, y, z) {
   arguments[2] = 10;
   return z;
-};
+}
 
 bar(1, 2, 3);
 ```
@@ -1720,7 +1726,7 @@ bar(1, 2, 3);
 function foo(a, b) {
   arguments[2] = 5;
   return b;
-};
+}
 
 foo(1);
 ```
@@ -1818,8 +1824,8 @@ with (function (x, undefined) {}) length;
   x: 10,
   foo: function () {
     function bar() {
-      console.log(x); // => ?
-      console.log(y); // => ?
+      console.log(x);      // => ?
+      console.log(y);      // => ?
       console.log(this.x); // => ?
     }
     with (this) {
