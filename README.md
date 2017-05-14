@@ -10,31 +10,31 @@ The simple test for JavaScript developers:)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
 1. [Destructuring assignment](#destructuring-assignment)
-1. [Typeof operator](#typeof-operator)
+1. [```typeof``` operator](#typeof-operator)
 1. [Comma operator](#comma-operator)
-1. [Try Catch Statement](#try-catch-statement)
+1. [```try-catch```](#try-catch)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Context](#context)
-1. [Delete operator](#delete-operator)
+1. [```delete``` operator](#delete-operator)
 1. [Spread operator](#spread-operator)
-1. [Void operator](#void-operator)
-1. [Instanceof operator](#instanceof-operator)
+1. [```void``` operator](#void-operator)
+1. [```instanceof``` operator](#instanceof-operator)
 1. [Template literals](#template-literals)
 1. [Object](#object)
 1. [Function](#function)
+1. [```class```](#class)
 1. [Window](#window)
 1. [Promise](#promise)
-1. [Symbol](#symbol)
 1. [Array](#array)
 1. [Date](#date)
 1. [RegExp](#regexp)
+1. [Symbol](#symbol)
 1. [String](#string)
 1. [Number](#number)
 1. [Boolean](#boolean)
-1. [Classes](#classes)
-1. [Arguments](#arguments)
+1. [```arguments```](#arguments)
 1. [Math](#math)
-1. [With operator](#with-operator)
+1. [```with``` operator](#with-operator)
 1. [Miscellaneous](#miscellaneous)
 
 ### Labels & Blocks
@@ -79,7 +79,9 @@ xxx: {
 (function tada(printTwo) {
   printing: {
      console.log('one');
-     if (!printTwo) break printing;
+     if (!printTwo) {
+       break printing;
+     }
      console.log('two');
   };
   console.log('three');
@@ -96,7 +98,7 @@ var a = []
 ```
 
 ```js
-let [a, b, c] = [1, 2, 3];
+var [a, b, c] = [1, 2, 3];
 
 a = b
 ++c
@@ -147,23 +149,19 @@ false % 1;
 ```
 
 ```js
-[1] + 1;
+4 - '5' + 0xf - '1e1';
 ```
 
 ```js
-!!!function(){};
-```
-
-```js
-[4] * [4];
-```
-
-```js
-++'24'.split('')[0];
+!!!function() {};
 ```
 
 ```js
 4 + 3 + 2 + '1';
+```
+
+```js
+[1] + 1;
 ```
 
 ```js
@@ -179,7 +177,15 @@ false % 1;
 ```
 
 ```js
-[1,2] + [3,4];
+[1, 2] + [3, 4];
+```
+
+```js
+[1, 2, [3, 4]] + [[5, 6], 7, 8];
+```
+
+```js
+[4] * [4];
 ```
 
 ```js
@@ -219,6 +225,7 @@ false % 1;
 **[Back to top](#table-of-contents)**
 
 ### Comparisons
+
 ```js
 '3' - 2 === 1;
 ```
@@ -232,8 +239,8 @@ undefined == false;
 ```
 
 ```js
-let a = true;
-let b = false;
+var a = true;
+var b = false;
 
 a != b === !(a == b);
 ```
@@ -287,11 +294,6 @@ null == 0;
 ```
 
 ```js
-let foo = {};
-foo === foo;
-```
-
-```js
 [] == ![];
 ```
 
@@ -301,6 +303,18 @@ foo === foo;
 
 ```js
 10 > 9 > 8;
+```
+
+```js
+9 < 5 < 1;
+```
+
+```js
+2 < 6 < 1;
+```
+
+```js
+1 < 3 < 4;
 ```
 
 ```js
@@ -336,15 +350,27 @@ Infinity > -Infinity;
 ### Calculus
 
 ```js
+.1 + .2 != .3
+```
+
+```js
+0.1 + (0.2 + 0.3) == (0.1 + 0.2) + 0.3;
+```
+
+```js
+(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
+```
+
+```js
 -9 % 7;
 ```
 
 ```js
-8 | 1;
+42 / -0;
 ```
 
 ```js
-let
+var
   num1 = 5,
   num2 = 10,
   num3 = num1+++num2;
@@ -353,37 +379,13 @@ let
 ```
 
 ```js
-1 + - + + + - + 1;
-```
-
-```js
-let c = 0;
+var c = 0;
 
 [c+++c++, c];
 ```
 
 ```js
-.1 + .2 != .3
-```
-
-```js
-~~(-5.5);
-```
-
-```js
-42 / -0;
-```
-
-```js
-0.1 + (0.2 + 0.3) == (0.1 + 0.2) + 0.3;
-```
-
-```js
-(0.00008).toFixed(3) === 0;
-```
-
-```js
-parseInt(null, 24) === 23;
+1 + - + + + - + 1;
 ```
 
 ```js
@@ -391,15 +393,11 @@ parseInt(null, 24) === 23;
 ```
 
 ```js
-1 / parseFloat('-.00');
+8 | 1;
 ```
 
 ```js
-12..toFixed(1);
-```
-
-```js
-(0.2 + 0.4) / 1 == (0.1 + 0.2) * 2;
+~~(-5.5);
 ```
 
 ```js
@@ -407,7 +405,11 @@ parseInt(null, 24) === 23;
 ```
 
 ```js
-4 - '5' + 0xf - '1e1';
+(1.22e-10).toFixed(2);
+```
+
+```js
+12..toFixed(1);
 ```
 
 ```js
@@ -415,11 +417,35 @@ parseInt(null, 24) === 23;
 ```
 
 ```js
+(0.00008).toFixed(3) === 0;
+```
+
+```js
 parseInt(1 / 0, 19);
 ```
 
 ```js
+parseInt(null, 24) === 23;
+```
+
+```js
+parseInt(null);
+```
+
+```js
+parseInt(Infinity);
+```
+
+```js
+parseFloat('12.3.4');
+```
+
+```js
 parseFloat('\t\v\r12.34\n ');
+```
+
+```js
+1 / parseFloat('-.00');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -443,7 +469,7 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
-let x = NaN;
+var x = NaN;
 
 switch (x) {
   case NaN:
@@ -455,14 +481,14 @@ switch (x) {
 ```
 
 ```js
-let a, b;
+var a, b;
 a = (b = 0) && (b = 1);
 
 [a, b];
 ```
 
 ```js
-let x = {};
+var x = {};
 
 switch (x) {
   case {}:
@@ -478,20 +504,17 @@ switch (x) {
 ### Destructuring assignment
 
 ```js
-let [a] = [];
-
+var [a] = [];
 a;
 ```
 
 ```js
-let [b = 1] = [];
-
+var [b = 1] = [];
 b;
 ```
 
 ```js
 var [title, title, title, title] = 'JavaScript is awesome language'.split(' ');
-
 title;
 ```
 
@@ -536,6 +559,10 @@ typeof 000;
 ```
 
 ```js
+typeof { null: null }.null;
+```
+
+```js
 typeof new ReferenceError;
 ```
 
@@ -549,12 +576,6 @@ typeof typeof undefined;
 
 ```js
 typeof new Number(4);
-```
-
-```js
-(function (foo) {
-  return typeof foo.bar;
-})({ foo: { bar: 1 } });
 ```
 
 **[Back to top](#table-of-contents)**
@@ -628,7 +649,7 @@ foo('3');
 
 **[Back to top](#table-of-contents)**
 
-### Try Catch Statement
+### Try Catch
 
 ```js
 function foo() {
@@ -655,16 +676,16 @@ try {
   try {
     throw new Error('oops');
   }
-  catch (ex) {
-    console.error('inner', ex.message);
-    throw ex;
+  catch (err) {
+    console.error('inner', err.message);
+    throw err;
   }
   finally {
     console.log('finally');
     return;
   }
-} catch (ex) {
-  console.error('outer', ex.message);
+} catch (err) {
+  console.error('outer', err.message);
 }
 ```
 
@@ -712,7 +733,10 @@ foo;
 ```
 
 ```js
-var foo = function bar() { return 23 };
+var foo = function bar() {
+  return 23;
+}
+
 typeof bar();
 ```
 
@@ -742,17 +766,6 @@ x;
 ```
 
 ```js
-var obj = {
-  message: 'Hello',
-  innerMessage: !(function() {
-    console.log(this.message);
-  })()
-};
-
-obj.innerMessage;
-```
-
-```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => alert(i), 100);
 }
@@ -760,6 +773,7 @@ for (var i = 0; i < 10; i++) {
 
 ```js
 var foo = 11;
+
 function bar() {
   return foo;
   foo = 10;
@@ -768,15 +782,6 @@ function bar() {
 }
 
 typeof bar();
-```
-
-```js
-function f() {
-  var a = 5;
-  return new Function('b', 'return a + b');
-}
-
-f()(1);
 ```
 
 ```js
@@ -828,7 +833,7 @@ f.call(f);
 
 ```js
 var obj = {
-  go: function() { return this }
+  go() { return this }
 };
 
 (obj.go)();
@@ -836,7 +841,7 @@ var obj = {
 
 ```js
 var foo = {
-  bar: function() { return this.baz },
+  bar() { return this.baz },
   baz: 1
 };
 
@@ -847,7 +852,7 @@ typeof (f = foo.bar)();
 var x = 10;
 var foo = {
   x: 20,
-  bar: function() {
+  bar() {
     var x = 30;
     return this.x;
   }
@@ -860,29 +865,32 @@ foo.bar();
 ```
 
 ```js
-var x = 3;
-var foo = {
-  x: 2,
-  baz: {
-    x: 1,
-    bar: function() {
-        return this.x;
-    }
-  }
-};
-
-var go = foo.baz.bar;
-
-go() === foo.baz.bar();
-```
-
-```js
 var o = {
   a: function() { return this === o },
   b: () => this === o
 };
 
 o.a() === o.b();
+```
+
+```js
+var obj = {
+  message: 'Hello',
+  innerMessage: !(function() {
+    console.log(this.message);
+  })()
+};
+
+obj.innerMessage;
+```
+
+```js
+function f() {
+  var a = 5;
+  return new Function('b', 'return a + b');
+}
+
+f()(1);
 ```
 
 ```js
@@ -894,7 +902,6 @@ o.a() === o.b();
   const globalTwo = (function() { return this })();
 
   return globalOne === globalTwo;
-
 }());
 ```
 
@@ -966,16 +973,13 @@ b = 1;
 (() => void (1 + 1))();
 ```
 
+```js
+void function() { return 'tada'; }()
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Instanceof operator
-
-```js
-var arr = [];
-
-arr instanceof Array;
-arr instanceof Object;
-```
 
 ```js
 function A() {};
@@ -1036,11 +1040,31 @@ concat`this``is``a``test``!`();
 ### Object
 
 ```js
+Object instanceof Function;
+```
+
+```js
 Object.prototype.toString.call();
 ```
 
 ```js
 Object.prototype.toString.call(Object);
+```
+
+```js
+var foo = {};
+foo === foo;
+```
+
+```js
+var proto = {
+  x: () => 'x'
+}
+
+var o1 = new Object(proto);
+var o2 = new Object(proto);
+
+o1 === o2;
 ```
 
 ```js
@@ -1053,17 +1077,6 @@ Object.is(-0, +0);
 
 ```js
 Object.assign({ a: 1 }) == Object.assign({}, { a: 1 });
-```
-
-```js
-var proto = {
-  x: () => 'x'
-}
-
-var o1 = new Object(proto);
-var o2 = new Object(proto);
-
-o1 === o2;
 ```
 
 ```js
@@ -1083,11 +1096,15 @@ Object.prototype.isPrototypeOf(window);
 ```
 
 ```js
+({ 'toString': null }).propertyIsEnumerable('toString');
+```
+
+```js
 { a: 1, b: 2 }['b'];
 ```
 
 ```js
-let obj = {
+var obj = {
  '': ''
 };
 
@@ -1119,14 +1136,10 @@ obj[[1]] == obj['1'];
 ```
 
 ```js
-({ 'toString': null }).propertyIsEnumerable('toString');
-```
-
-```js
 (function() {
-  var foo = {};
-  var bar = {};
-  var map = {};
+  let foo = {};
+  let bar = {};
+  let map = {};
 
   map[foo] = 'foo';
   map[bar] = 'bar';
@@ -1140,7 +1153,7 @@ obj[[1]] == obj['1'];
 ```
 
 ```js
-'1.0e0' == { valueOf: () => true };
+{ valueOf: () => true } == '1.0e0';
 ```
 
 ```js
@@ -1158,6 +1171,7 @@ a + b + c;
 ```js
 typeof Function;
 Function instanceof Function;
+Function instanceof Object;
 ```
 
 ```js
@@ -1175,7 +1189,7 @@ Function.prototype.constructor === Function;
 ```js
 function x() {};
 
-let y = x.bind();
+var y = x.bind();
 
 y.prototype;
 ```
@@ -1191,9 +1205,9 @@ plus1();
 ```
 
 ```js
-let a = () => this;
+var a = () => this;
 
-let b = function() { return this }.bind(this);
+var b = function() { return this }.bind(this);
 
 a() === b();
 ```
@@ -1201,7 +1215,7 @@ a() === b();
 ```js
 function one() {};
 
-let two = one.bind(this);
+var two = one.bind(this);
 
 two.name;
 ```
@@ -1228,9 +1242,9 @@ Object.prototype.toString.call(myFunc);
 ```
 
 ```js
-let x = 4;
-let y = ['foo', 'bar'];
-let z = { first: true };
+var x = 4;
+var y = ['foo', 'bar'];
+var z = { first: true };
 
 function f(a, b, c) {
   a = 3;
@@ -1246,16 +1260,50 @@ f(x, y, z);
 ```
 
 ```js
-let x = 0;
+var x = 0;
+
 function foo() {
   x++;
   this.x = x;
   return foo;
 };
 
-let bar = new new foo;
+var bar = new new foo;
 
 bar.x;
+```
+
+**[Back to top](#table-of-contents)**
+
+### Class
+
+```js
+var Foo = class {};
+class Foo {};
+```
+
+```js
+class AwesomeJS extends null {};
+
+new AwesomeJS;
+```
+
+```js
+typeof (new (class F extends (String, Array) {})).substring;
+```
+
+```js
+typeof (new (class { class () {} }));
+```
+
+```js
+(function() {
+  let f = this ? class g {} : class h {};
+  return [
+    typeof f,
+    typeof h
+  ];
+})();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1286,45 +1334,43 @@ typeof Promise;
 ```
 
 ```js
-let promise = Promise(() => {}, () => {});
-```
-
-**[Back to top](#table-of-contents)**
-
-### Symbol
-
-```js
-typeof Symbol;
-```
-
-```js
-let foo = new Symbol();
-```
-
-```js
-Symbol('foo') === Symbol('foo');
-```
-
-```js
-class MySymbol extends Symbol {
-  constructor() {
-    super()
-  }
-}
-
-let symbol = new MySymbol();
-```
-
-```js
-Symbol.for('bar') === Symbol.for('bar');
+var promise = Promise(() => {}, () => {});
 ```
 
 **[Back to top](#table-of-contents)**
 
 ### Array
 
-```
+```js
 typeof [1, 2, 3];
+```
+
+```js
+var arr = [];
+
+arr instanceof Array;
+arr instanceof Object;
+```
+
+```js
+[,].length;
+```
+
+```js
+[,,].length;
+```
+
+```js
+[[[1], 2], 3].length;
+```
+
+```js
+var arr = [];
+
+arr[1] = 1;
+arr[24] = 24;
+
+arr.length;
 ```
 
 ```js
@@ -1336,27 +1382,29 @@ new Array(1)[0] + '';
 ```
 
 ```js
-var arr = [];
-arr[1] = 1;
-arr[24] = 24;
+var arr = new Array('100');
 
 arr.length;
 ```
 
 ```js
-[].unshift(0);
+new Array(1, 2) == true;
 ```
 
 ```js
-Array(2).join();
-```
-
-```js
-new Array('100');
+new Array([], null, undefined, null) == ',,,';
 ```
 
 ```js
 [1, 2, 3].toString();
+```
+
+```js
+[1, 2, 3, 4, 5][0..toString().length];
+```
+
+```js
+[].unshift(0);
 ```
 
 ```js
@@ -1366,20 +1414,20 @@ arr.indexOf(7, 2);
 arr.indexOf(2, -3);
 ```
 
+```js
+[NaN].indexOf(NaN);
 ```
+
+```js
 '0'.split(void 0, 0);
 ```
 
 ```js
-[].concat[1, 2, 3];
+Array(2).join();
 ```
 
 ```js
-[1, 2, 3, 4, 5][0..toString().length];
-```
-
-```js
-[].fill.call({ length: 3 }, 4);
+[1, 2].join(undefined);
 ```
 
 ```js
@@ -1387,11 +1435,25 @@ Array(4).join('tada!' - 4);
 ```
 
 ```js
+(function() {
+  return Array(5).join(',').length;
+})();
+```
+
+```js
+[].concat[1, 2, 3];
+```
+
+```js
+[].fill.call({ length: 3 }, 4);
+```
+
+```js
 Array.from({ '': '' });
 ```
 
 ```js
-[NaN].indexOf(NaN);
+[NaN].includes(NaN);
 ```
 
 ```js
@@ -1403,35 +1465,17 @@ arr.slice(3, -6);
 ```
 
 ```js
-new Array([], null, undefined, null) == ',,,';
-```
-
-```js
-[NaN].includes(NaN);
-```
-
-```js
 (function() {
-  return Array(3).map(function (item) { return 'a' });
+  return Array(3).map(item => 'a');
 })();
-```
-
-```js
-[1, 2].join(undefined);
 ```
 
 ```js
 Array.isArray({
- constructor: Array,
- length: 0,
- __proto__: Array.prototype
+  constructor: Array,
+  length: 0,
+  __proto__: Array.prototype
 });
-```
-
-```js
-(function() {
-  return Array(5).join(',').length;
-})();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1460,7 +1504,9 @@ new Date(0) - 0;
 ```
 
 ```js
-RegExp.prototype.toString = function() { return this.source };
+RegExp.prototype.toString = function() {
+  return this.source;
+}
 
 /3/-/2/;
 ```
@@ -1507,10 +1553,44 @@ x2;
 
 **[Back to top](#table-of-contents)**
 
+### Symbol
+
+```js
+typeof Symbol;
+```
+
+```js
+var foo = new Symbol();
+```
+
+```js
+Symbol('foo') === Symbol('foo');
+```
+
+```js
+class MySymbol extends Symbol {
+  constructor() {
+    super();
+  }
+}
+
+var symbol = new MySymbol();
+```
+
+```js
+Symbol.for('bar') === Symbol.for('bar');
+```
+
+**[Back to top](#table-of-contents)**
+
 ### String
 
 ```js
-'' == '' instanceof String;
+String(['awesome', 'js']);
+```
+
+```js
+'' instanceof String;
 ```
 
 ```js
@@ -1537,7 +1617,7 @@ s1 == s2;
 ```
 
 ```js
-String(['awesome', 'js']);
+++'24'.split('')[0];
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1549,15 +1629,11 @@ String(['awesome', 'js']);
 ```
 
 ```js
+new Number() instanceof Object;
+```
+
+```js
 Number([]);
-```
-
-```js
-(123).toString();
-```
-
-```js
-Number(5) === 5 || new Number(5) === Number(5);
 ```
 
 ```js
@@ -1569,15 +1645,15 @@ Number(undefined);
 ```
 
 ```js
+Number({});
+```
+
+```js
 Number(['awesome', 'js']);
 ```
 
 ```js
-new Number() instanceof Object;
-```
-
-```js
-Number({});
+new Number(5) === Number(5);
 ```
 
 ```js
@@ -1585,14 +1661,17 @@ Number.isNaN('NaN') === window.isNaN('NaN');
 ```
 
 ```js
-Number.prototype.x = function() { return this === 123 };
-Number(123).x();
+Number.prototype.compare = function(value) {
+  return this === value;
+}
+
+Number(123).compare(123);
 ```
 
 ```js
 Number.prototype.toString = function() {
   return typeof this;
-};
+}
 
 (4).toString();
 ```
@@ -1634,58 +1713,18 @@ Boolean('000');
 
 **[Back to top](#table-of-contents)**
 
-### Classes
-
-```js
-var Foo = class {};
-class Foo {};
-```
-
-```js
-class AwesomeJS extends null {}
-
-new AwesomeJS
-```
-
-```js
-typeof (new (class F extends (String, Array) { })).substring
-```
-
-```js
-(typeof (new (class { class () {} })))
-```
-
-```js
-(function() {
-  let f = this ? class g { } : class h { };
-  return [
-    typeof f,
-    typeof h
-  ];
-})();
-```
-
-**[Back to top](#table-of-contents)**
-
 ### Arguments
 
 ```js
-var myArray = [1, 2, 3];
-
-function setNull(param) {
-  param = null;
-}
-
-setNull(myArray);
-
-myArray;
+(function() {
+  return typeof arguments;
+})();
 ```
 
 ```js
 (function() {
-  var arguments;
-  return arguments[0];
-})(200);
+  return arguments.toString();
+})();
 ```
 
 ```js
@@ -1699,14 +1738,9 @@ myArray;
 
 ```js
 (function() {
-  return typeof arguments;
-})();
-```
-
-```js
-(function() {
-  return arguments.toString();
-})();
+  var arguments;
+  return arguments[0];
+})(200);
 ```
 
 ```js
@@ -1734,15 +1768,9 @@ foo(1);
 ```js 
 var baz = function() {
   return arguments;
-};
+}
 
 baz() == baz();
-```
-
-```js
-[].slice.call((function() {
-  return arguments
-})(9, 8, 7), -2);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1754,7 +1782,14 @@ Math instanceof Math;
 ```
 
 ```js
-(1.22e-10).toFixed(2);
+Math.round(true + .501);
+```
+```js
+Math.round(-5.5);
+```
+
+```js
+Math.ceil(5.01) === -Math.floor(-5.01);
 ```
 
 ```js
@@ -1762,11 +1797,11 @@ Math.max(2, []);
 ```
 
 ```js
-Math.pow(+0, -1);
+Math.max({}, 2);
 ```
 
 ```js
-Math.round(true + .501);
+Math.pow(+0, -1);
 ```
 
 ```js
@@ -1774,19 +1809,7 @@ Math.pow(2, 53) === Math.pow(2, 53) + 1;
 ```
 
 ```js
-Math.max({}, 2);
-```
-
-```js
-Math.round(-5.5);
-```
-
-```js
 Math.pow(-0, -1);
-```
-
-```js
-Math.ceil(5.01) === -Math.floor(-5.01);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1802,7 +1825,7 @@ var obj = {
 
 with (obj) {
   var b;
-  console.log( a + b );
+  console.log(a + b);
 }
 ```
 
@@ -1810,24 +1833,27 @@ with (obj) {
 with ({a: 1}) {
   a = 2,
   b = 3
-};
+}
 
 [window.a, window.b];
 ```
 
 ```js
-with (function (x, undefined) {}) length;
+with (function (x, undefined) {}) {
+  length;
+}
 ```
 
 ```js
 ({
   x: 10,
-  foo: function () {
+  foo() {
     function bar() {
       console.log(x);      // => ?
       console.log(y);      // => ?
       console.log(this.x); // => ?
     }
+
     with (this) {
       var x = 20;
       var y = 30;
@@ -1854,7 +1880,10 @@ foo.bar;
 
 ```js
 (function pewpew(Infinity, length, __proto__) {
-  return [,,~0.[0|0]][pewpew.__proto__.length && Infinity, -~String(this).length >> __proto__] << (0. === .0) + Infinity;
+
+  return [,,~0.[0|0]][pewpew.__proto__.length && Infinity,
+                      -~String(this).length >> __proto__] << (0. === .0) + Infinity;
+
 }).apply(typeof pewpew, [,,2]);
 ```
 
