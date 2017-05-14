@@ -133,6 +133,16 @@ false % 1;
 ```
 
 ```js
+1 / '';
+```
+
+```js
++'  -12';
+
++'1 2'
+```
+
+```js
 '1' - - '1';
 ```
 
@@ -942,6 +952,22 @@ delete delete window.document;
 ```
 
 ```js
+(function() {
+  a = 1;
+  window.b = 2;
+  this.c = 3;
+  var d = 4;
+
+  delete a;
+  delete b;
+  delete c;
+  delete d;
+
+  return [typeof a, typeof b, typeof c, typeof d];
+})();
+```
+
+```js
 (function (x) {
   delete x;
   return x;
@@ -1199,9 +1225,9 @@ function add(x, y) {
   return x + y;
 }
 
-const plus1 = add.bind(undefined, 1);
+var plusOne = add.bind(undefined, 1);
 
-plus1();
+plusOne();
 ```
 
 ```js
@@ -1237,6 +1263,7 @@ Object.prototype.toString.call(myFunc);
   if (false) {
     let f = { g() => 1 };
   }
+
   return typeof f;
 })()
 ```
@@ -1584,6 +1611,10 @@ Symbol.for('bar') === Symbol.for('bar');
 **[Back to top](#table-of-contents)**
 
 ### String
+
+```js
+String(1.23e+2);
+```
 
 ```js
 String(['awesome', 'js']);
