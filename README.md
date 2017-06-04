@@ -22,6 +22,7 @@ The simple test for JavaScript developers:)
 1. [Template literals](#template-literals)
 1. [```Object```](#object)
 1. [```Function```](#function)
+1. [Default parameters](#default-parameters)
 1. [```class```](#class)
 1. [```Window```](#window)
 1. [```Promise```](#promise)
@@ -34,6 +35,7 @@ The simple test for JavaScript developers:)
 1. [```Boolean```](#boolean)
 1. [```arguments```](#arguments)
 1. [```Math```](#math)
+1. [Event Loop](#event-loop)
 1. [```with``` operator](#with-operator)
 1. [Miscellaneous](#miscellaneous)
 
@@ -68,24 +70,24 @@ a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
 ```
 
 ```js
-xxx: {
+foo: {
   console.log(111);
-  break xxx;
+  break foo;
   console.log(222);
 };
 ```
 
 ```js
-(function tada(printTwo) {
+(function foo(printTwo) {
   printing: {
-     console.log('one');
+     console.log(1);
      if (!printTwo) {
        break printing;
      }
-     console.log('two');
+     console.log(2);
   };
-  console.log('three');
-})(true);
+  console.log(3);
+})(false);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -93,17 +95,17 @@ xxx: {
 ### Semicolons
 
 ```js
-var a = []
+var foo = []
 (new Date).getTime();
 ```
 
 ```js
-var [a, b, c] = [1, 2, 3];
+var [foo, bar, baz] = [1, 2, 3];
 
-a = b
-++c
+foo = bar
+++baz
 
-[a, b, c];
+[foo, bar, baz];
 ```
 
 ```js
@@ -116,7 +118,9 @@ foo() === 'Some string';
 ```
 
 ```js
-a = b
+var foo = 'foo';
+
+bar = foo
 /hi/g.exec('hi for everyone!');
 ```
 
@@ -138,8 +142,10 @@ false % 1;
 
 ```js
 +'  -12';
+```
 
-+'1 2'
+```js
++'1 2';
 ```
 
 ```js
@@ -360,7 +366,15 @@ Infinity > -Infinity;
 ### Calculus
 
 ```js
-.1 + .2 != .3
+0.3 - 0.1;
+```
+
+```js
+0.1 * 0.2;
+```
+
+```js
+.1 + .2 != .3;
 ```
 
 ```js
@@ -1302,6 +1316,12 @@ bar.x;
 
 **[Back to top](#table-of-contents)**
 
+
+### Default parameters
+
+
+**[Back to top](#table-of-contents)**
+
 ### Class
 
 ```js
@@ -1845,6 +1865,10 @@ Math.pow(-0, -1);
 
 **[Back to top](#table-of-contents)**
 
+### Event Loop
+
+**[Back to top](#table-of-contents)**
+
 ### With operator
 
 ```js
@@ -1861,7 +1885,7 @@ with (obj) {
 ```
 
 ```js
-with ({a: 1}) {
+with ({ a: 1 }) {
   a = 2,
   b = 3
 }
