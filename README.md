@@ -1064,7 +1064,9 @@ new f() instanceof f;
 ### Template literals
 
 ```js
-((...args) => args)``
+`use strict`;
+
+this == null;
 ```
 
 ```js
@@ -1072,7 +1074,19 @@ typeof `${{Object}}`.prototype
 ```
 
 ```js
+((...args) => args)``
+```
+
+```js
 concat`this``is``a``test``!`();
+```
+
+```js
+const x = { `hello world`: 42 };
+```
+
+```js
+const { `hello world`: a } = x;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1227,8 +1241,12 @@ Function.prototype.constructor === Function;
 ```
 
 ```js
-function x() {};
+var getObj = () => { a: 1 };
+getObj();
+```
 
+```js
+var x = function() {};
 var y = x.bind();
 
 y.prototype;
@@ -1240,13 +1258,11 @@ function add(x, y) {
 }
 
 var plusOne = add.bind(undefined, 1);
-
 plusOne();
 ```
 
 ```js
 var a = () => this;
-
 var b = function() { return this }.bind(this);
 
 a() === b();
@@ -1319,6 +1335,22 @@ bar.x;
 
 ### Default parameters
 
+```js
+function foo(a = 24, b = 10) {
+  return a + b;
+}
+
+foo(undefined, 20);
+foo(null, null);
+```
+
+```js
+function bar(x, y = 24, z = 10) {
+  return x + y + z;
+}
+
+bar(1,,2);
+```
 
 **[Back to top](#table-of-contents)**
 
@@ -1539,6 +1571,22 @@ new Date(-666).getUTCMonth();
 
 ```js
 new Date(0) - 0;
+```
+
+```js
+new Date(0);
+```
+
+```js
+new Date('0');
+```
+
+```js
+new Date(0, 0);
+```
+
+```js
+new Date(0, 0, 0);
 ```
 
 **[Back to top](#table-of-contents)**
