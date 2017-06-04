@@ -35,7 +35,7 @@ The simple test for JavaScript developers:)
 1. [```Boolean```](#boolean)
 1. [```arguments```](#arguments)
 1. [```Math```](#math)
-1. [Event Loop](#event-loop)
+1. [Event loop](#event-loop)
 1. [```with``` operator](#with-operator)
 1. [Miscellaneous](#miscellaneous)
 
@@ -1865,7 +1865,53 @@ Math.pow(-0, -1);
 
 **[Back to top](#table-of-contents)**
 
-### Event Loop
+### Event loop
+
+```js
+setTimeout(() => {
+  console.log(1);
+}, 1000);
+
+setTimeout(() => {
+  console.log(2);
+}, 0);
+
+console.log(3);
+```
+
+```js
+setTimeout(() => {
+  console.log(1);
+}, 300);
+
+Promise.resolve()
+  .then(() => console.log(2));
+
+console.log(3);
+```
+
+```js
+setTimeout(() => {
+  console.log(1);
+}, 1000);
+
+process.nextTick(() => {
+  console.log(2);
+});
+
+console.log(3);
+```
+
+```js
+process.nextTick(() => {
+  console.log(1);
+  while (true) {}
+});
+
+process.nextTick(() => {
+  console.log(2);
+});
+```
 
 **[Back to top](#table-of-contents)**
 
