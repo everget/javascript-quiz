@@ -13,6 +13,7 @@ The simple test for JavaScript developers:)
 1. [```typeof``` operator](#typeof-operator)
 1. [```,``` operator](#comma-operator)
 1. [```try-catch```](#try-catch)
+1. [Hoisting](#hoisting)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Context](#context)
 1. [```delete``` operator](#delete-operator)
@@ -22,9 +23,9 @@ The simple test for JavaScript developers:)
 1. [Template literals](#template-literals)
 1. [```Object```](#object)
 1. [```Function```](#function)
+1. [```Function.prototype.bind```](#function.prototype.bind)
 1. [Default parameters](#default-parameters)
 1. [```class```](#class)
-1. [```Window```](#window)
 1. [```Promise```](#promise)
 1. [```Array```](#array)
 1. [```Date```](#date)
@@ -35,6 +36,7 @@ The simple test for JavaScript developers:)
 1. [```Boolean```](#boolean)
 1. [```arguments```](#arguments)
 1. [```Math```](#math)
+1. [```Window```](#window)
 1. [Event loop](#event-loop)
 1. [```with``` operator](#with-operator)
 1. [Miscellaneous](#miscellaneous)
@@ -347,10 +349,6 @@ null == 0;
 
 ```js
 '03' > '12';
-```
-
-```js
-0 < 5 < 3;
 ```
 
 ```js
@@ -712,6 +710,10 @@ try {
   console.error('outer', err.message);
 }
 ```
+
+**[Back to top](#table-of-contents)**
+
+### Hoisting
 
 **[Back to top](#table-of-contents)**
 
@@ -1332,6 +1334,9 @@ bar.x;
 
 **[Back to top](#table-of-contents)**
 
+### Function.prototype.bind
+
+**[Back to top](#table-of-contents)**
 
 ### Default parameters
 
@@ -1386,25 +1391,6 @@ typeof (new (class { class () {} }));
 ```
 
 **[Back to top](#table-of-contents)**
-
-### Window
-
-```js
-typeof window;
-typeof Window;
-```
-
-```js
-Object.getPrototypeOf(window) === Window;
-```
-
-```js
-Window.constructor === Function;
-```
-
-```js
-Window.prototype.constructor === Window;
-```
 
 ### Promise
 
@@ -1909,6 +1895,27 @@ Math.pow(2, 53) === Math.pow(2, 53) + 1;
 
 ```js
 Math.pow(-0, -1);
+```
+
+**[Back to top](#table-of-contents)**
+
+### Window
+
+```js
+typeof window;
+typeof Window;
+```
+
+```js
+Object.getPrototypeOf(window) === Window;
+```
+
+```js
+Window.constructor === Function;
+```
+
+```js
+Window.prototype.constructor === Window;
 ```
 
 **[Back to top](#table-of-contents)**
