@@ -23,10 +23,11 @@ The simple test for JavaScript developers:)
 1. [Template literals](#template-literals)
 1. [```Object```](#object)
 1. [```Function```](#function)
-1. [```Function.prototype.bind```](#function.prototype.bind)
 1. [Default parameters](#default-parameters)
 1. [```class```](#class)
+1. [```GeneratorFunction```](#generator-function)
 1. [```Promise```](#promise)
+1. [```AsyncFunction```](#async-function)
 1. [```Array```](#array)
 1. [```Date```](#date)
 1. [```RegExp```](#regexp)
@@ -39,6 +40,7 @@ The simple test for JavaScript developers:)
 1. [```Window```](#window)
 1. [Event loop](#event-loop)
 1. [```with``` operator](#with-operator)
+1. [```eval```](#eval-function)
 1. [Miscellaneous](#miscellaneous)
 
 ### Labels & Blocks
@@ -491,6 +493,22 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
+var a, b;
+a = (b = 0) && (b = 1);
+
+[a, b];
+```
+
+```js
+var x = 1;
+if (false)
+    x = 3;
+    x = 4;
+
+x;
+```
+
+```js
 var x = NaN;
 
 switch (x) {
@@ -500,13 +518,6 @@ switch (x) {
   default:
     console.log('Hello, default!');
 }
-```
-
-```js
-var a, b;
-a = (b = 0) && (b = 1);
-
-[a, b];
 ```
 
 ```js
@@ -551,7 +562,9 @@ var { total, tax } = { total: total, tax: tax };
 ```
 
 ```js
-let x, { x: y = 1 } = { x }; y;
+var x, { x: y = 1 } = { x };
+
+[x, y];
 ```
 
 **[Back to top](#table-of-contents)**
@@ -715,6 +728,28 @@ try {
 
 ### Hoisting
 
+```js
+(function() {
+   console.log(a);
+   console.log(bar());
+
+   var a = 1;
+   function bar() {
+      return 2;
+   }
+})();
+```
+
+```js
+function a(x) {
+  return x * 2;
+}
+
+var a;
+
+typeof a;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Scopes & Closures & Hoisting
@@ -734,16 +769,6 @@ if (!('a' in window)) {
 }
 
 a;
-```
-
-```js
-function a(x) {
-  return x * 2;
-}
-
-var a;
-
-typeof a;
 ```
 
 ```js
@@ -875,19 +900,27 @@ typeof (f = foo.bar)();
 ```
 
 ```js
-var x = 10;
-var foo = {
-  x: 20,
-  bar() {
-    var x = 30;
-    return this.x;
-  }
-};
- 
-foo.bar();
-(foo.bar)();
-(foo.bar = foo.bar)();
-(foo.bar, foo.bar)();
+(function() {
+  'use strict'
+
+  var x = 10;
+  var foo = {
+    x: 20,
+    bar() {
+      var x = 30;
+      return this.x;
+    }
+  };
+
+  return [
+    foo.bar(),
+    (foo.bar)(),
+    (foo.bar = foo.bar)(),
+    (foo.bar, foo.bar)(),
+    (foo.baz || foo.bar)()
+  ];
+
+})();
 ```
 
 ```js
@@ -1007,6 +1040,12 @@ b = 1;
 [...[...'...']].length
 ```
 
+```js
+var foo = [...[,,24]];
+
+[0 in foo, 1 in foo, 2 in foo];
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Void operator
@@ -1084,11 +1123,11 @@ concat`this``is``a``test``!`();
 ```
 
 ```js
-const x = { `hello world`: 42 };
+var x = { `hello world`: 24 };
 ```
 
 ```js
-const { `hello world`: a } = x;
+var { `hello world`: a } = { 'hello world': 24 };
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1279,12 +1318,6 @@ two.name;
 ```
 
 ```js
-async myFunc() {};
-
-Object.prototype.toString.call(myFunc);
-```
-
-```js
 (function() {
   return (function (a, b) {}).length;
 })();
@@ -1331,10 +1364,6 @@ var bar = new new foo;
 
 bar.x;
 ```
-
-**[Back to top](#table-of-contents)**
-
-### Function.prototype.bind
 
 **[Back to top](#table-of-contents)**
 
@@ -1392,6 +1421,10 @@ typeof (new (class { class () {} }));
 
 **[Back to top](#table-of-contents)**
 
+### Generator function
+
+**[Back to top](#table-of-contents)**
+
 ### Promise
 
 ```js
@@ -1399,7 +1432,82 @@ typeof Promise;
 ```
 
 ```js
-var promise = Promise(() => {}, () => {});
+new Promise((resolve, reject) => resolve(24))
+  .then((res) => console.log(res))
+  .then((res) => console.log(res));
+```
+
+```js
+Promise.resolve('foo')
+  .then(Promise.resolve('bar'))
+  .then((res) => console.log(res));
+```
+
+```js
+Promise.resolve('foo')
+  .then((res) => Promise.resolve('bar'))
+  .then((res) => console.log(res));
+```
+
+```js
+Promise.resolve(2)
+  .then(3)
+  .then((res) => console.log(res));
+```
+
+```js
+Promise.resolve({ a: 24 })
+  .then((res) => {
+    delete res.a;
+  })
+  .then((res) => {
+    console.log(res.a);
+  });
+```
+
+```js
+Promise.resolve(2410).then(
+  (res) => { throw new Error(res) },
+  (err) => { try {} catch(err) {} }
+);
+```
+
+```js
+Promise.reject(24)
+  .then(null, null)
+  .then(null, (reason) => console.log(reason));
+
+Promise.reject(24)
+  .then(5, null)
+  .then(null, (reason) => console.log(reason));
+
+Promise.reject(24)
+  .then(null, 5)
+  .then(null, (reason) => console.log(reason));
+```
+
+```js
+Promise.resolve(24)
+  .then(null, null)
+  .then((res) => console.log(res), null);
+
+Promise.resolve(24)
+  .then(null, 5)
+  .then((res) => console.log(res), null);
+
+Promise.resolve(24)
+  .then(5, null)
+  .then((res) => console.log(res), null);
+```
+
+**[Back to top](#table-of-contents)**
+
+### Async function
+
+```js
+async fn() {};
+
+Object.prototype.toString.call(fn);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1923,15 +2031,21 @@ Window.prototype.constructor === Window;
 ### Event loop
 
 ```js
+setTimeout(() => console.log(1), 1);
+setTimeout(() => console.log(2), 1000);
+setTimeout(() => console.log(3), 0);
+console.log(4);
+```
+
+```js
 setTimeout(() => {
   console.log(1);
-}, 1000);
+  setTimeout(() => console.log(2), 0);
+}, 500);
 
 setTimeout(() => {
-  console.log(2);
-}, 0);
-
-console.log(3);
+  setTimeout(() => console.log(3), 500);
+}, 250);
 ```
 
 ```js
@@ -1943,6 +2057,24 @@ Promise.resolve()
   .then(() => console.log(2));
 
 console.log(3);
+```
+
+```js
+setTimeout(() => {
+  console.log(1);
+}, 0);
+
+Promise.resolve(2)
+  .then((res) => {
+    console.log(res);
+    setTimeout(() => {
+      console.log(3);
+    }, 0);
+    return Promise.resolve(4);
+  })
+  .then((res) => {
+    console.log(res);
+  });
 ```
 
 ```js
@@ -2024,6 +2156,36 @@ var foo = { bar: 'baz' && 'foobarbaz' };
 with (foo) var bar = eval('bar, 24');
 
 foo.bar;
+```
+
+**[Back to top](#table-of-contents)**
+
+### Eval function
+
+```js
+function foo() {
+  return eval.bind(null, '(function() { return bar; })');
+}
+
+var bar = 1;
+
+(function() {
+  var bar = 2;
+  foo()()();
+})();
+```
+
+```js
+function foo() {
+  return '(function() { return bar; })';
+}
+
+var bar = 1;
+
+(function() {
+  var bar = 2;
+  eval(foo())();
+})();
 ```
 
 **[Back to top](#table-of-contents)**
