@@ -39,8 +39,8 @@ The simple test for JavaScript developers:)
 1. [```Math```](#math)
 1. [```Window```](#window)
 1. [Event loop](#event-loop)
+1. [```eval``` method](#eval-method)
 1. [```with``` operator](#with-operator)
-1. [```eval```](#eval-function)
 1. [Miscellaneous](#miscellaneous)
 
 ### Labels & Blocks
@@ -2102,6 +2102,36 @@ process.nextTick(() => {
 
 **[Back to top](#table-of-contents)**
 
+### Eval method
+
+```js
+function foo() {
+  return eval.bind(null, '(function() { return bar; })');
+}
+
+var bar = 1;
+
+(function() {
+  var bar = 2;
+  foo()()();
+})();
+```
+
+```js
+function foo() {
+  return '(function() { return bar; })';
+}
+
+var bar = 1;
+
+(function() {
+  var bar = 2;
+  eval(foo())();
+})();
+```
+
+**[Back to top](#table-of-contents)**
+
 ### With operator
 
 ```js
@@ -2156,36 +2186,6 @@ var foo = { bar: 'baz' && 'foobarbaz' };
 with (foo) var bar = eval('bar, 24');
 
 foo.bar;
-```
-
-**[Back to top](#table-of-contents)**
-
-### Eval function
-
-```js
-function foo() {
-  return eval.bind(null, '(function() { return bar; })');
-}
-
-var bar = 1;
-
-(function() {
-  var bar = 2;
-  foo()()();
-})();
-```
-
-```js
-function foo() {
-  return '(function() { return bar; })';
-}
-
-var bar = 1;
-
-(function() {
-  var bar = 2;
-  eval(foo())();
-})();
 ```
 
 **[Back to top](#table-of-contents)**
