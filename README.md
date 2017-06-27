@@ -104,6 +104,11 @@ var foo = []
 ```
 
 ```js
+!function(){console.log('awesome');}() // Missing semicolon!
+!function(){console.log('language');}();
+```
+
+```js
 var [foo, bar, baz] = [1, 2, 3];
 
 foo = bar
@@ -124,7 +129,7 @@ foo() === 'Some string';
 ```js
 var foo = 'foo';
 
-bar = foo
+var bar = foo
 /hi/g.exec('hi for everyone!');
 ```
 
