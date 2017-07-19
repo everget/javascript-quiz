@@ -12,7 +12,7 @@ The simple test for JavaScript developers:)
 1. [Destructuring assignment](#destructuring-assignment)
 1. [```typeof``` operator](#typeof-operator)
 1. [```,``` operator](#comma-operator)
-1. [```try-catch```](#try-catch)
+1. [```try-catch``` statement](#try-catch-statement)
 1. [Hoisting](#hoisting)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Context](#context)
@@ -24,10 +24,13 @@ The simple test for JavaScript developers:)
 1. [```Object```](#object)
 1. [```Function```](#function)
 1. [Default parameters](#default-parameters)
+1. [```arguments```](#arguments)
 1. [```class```](#class)
 1. [```GeneratorFunction```](#generator-function)
 1. [```Promise```](#promise)
 1. [```AsyncFunction```](#async-function)
+1. [```Reflect```](#reflect)
+1. [```Proxy```](#proxy)
 1. [```Array```](#array)
 1. [```Date```](#date)
 1. [```RegExp```](#regexp)
@@ -35,7 +38,6 @@ The simple test for JavaScript developers:)
 1. [```String```](#string)
 1. [```Number```](#number)
 1. [```Boolean```](#boolean)
-1. [```arguments```](#arguments)
 1. [```Math```](#math)
 1. [```Window```](#window)
 1. [Event loop](#event-loop)
@@ -689,7 +691,7 @@ foo('3');
 
 **[Back to top](#table-of-contents)**
 
-### Try Catch
+### Try Catch statement
 
 ```js
 function foo() {
@@ -1393,6 +1395,68 @@ bar(1,,2);
 
 **[Back to top](#table-of-contents)**
 
+### Arguments
+
+```js
+(function() {
+  return typeof arguments;
+})();
+```
+
+```js
+(function() {
+  return arguments.toString();
+})();
+```
+
+```js
+(function() {
+  console.log(
+    arguments.constructor === {}.constructor,
+    arguments.constructor === [].constructor
+  );
+})();
+```
+
+```js
+(function() {
+  var arguments;
+  return arguments[0];
+})(200);
+```
+
+```js
+function bar(x, y, z) {
+  arguments[2] = 10;
+  return z;
+}
+
+bar(1, 2, 3);
+```
+
+```js
+(() => arguments.toString())();
+```
+
+```js
+function foo(a, b) {
+  arguments[2] = 5;
+  return b;
+}
+
+foo(1);
+```
+
+```js 
+var baz = function() {
+  return arguments;
+}
+
+baz() == baz();
+```
+
+**[Back to top](#table-of-contents)**
+
 ### Class
 
 ```js
@@ -1514,6 +1578,14 @@ async fn() {};
 
 Object.prototype.toString.call(fn);
 ```
+
+**[Back to top](#table-of-contents)**
+
+### Reflect
+
+**[Back to top](#table-of-contents)**
+
+### Proxy
 
 **[Back to top](#table-of-contents)**
 
@@ -1907,68 +1979,6 @@ new Boolean(false).valueOf() === false;
 
 ```js
 Boolean('000');
-```
-
-**[Back to top](#table-of-contents)**
-
-### Arguments
-
-```js
-(function() {
-  return typeof arguments;
-})();
-```
-
-```js
-(function() {
-  return arguments.toString();
-})();
-```
-
-```js
-(function() {
-  console.log(
-    arguments.constructor === {}.constructor,
-    arguments.constructor === [].constructor
-  );
-})();
-```
-
-```js
-(function() {
-  var arguments;
-  return arguments[0];
-})(200);
-```
-
-```js
-function bar(x, y, z) {
-  arguments[2] = 10;
-  return z;
-}
-
-bar(1, 2, 3);
-```
-
-```js
-(() => arguments.toString())();
-```
-
-```js
-function foo(a, b) {
-  arguments[2] = 5;
-  return b;
-}
-
-foo(1);
-```
-
-```js 
-var baz = function() {
-  return arguments;
-}
-
-baz() == baz();
 ```
 
 **[Back to top](#table-of-contents)**
