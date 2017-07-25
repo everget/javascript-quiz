@@ -1345,6 +1345,12 @@ var bar = new new foo;
 bar.x;
 ```
 
+```js
+var foo = Function.prototype.call;
+
+foo();
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Default parameters
