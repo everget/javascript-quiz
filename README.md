@@ -76,18 +76,10 @@ a: b: c: d: e: f: g: 1, 2, 3, 4, 5;
 ```
 
 ```js
-foo: {
-  console.log(111);
-  break foo;
-  console.log(222);
-};
-```
-
-```js
-(function foo(printTwo) {
+(printing => {
   printing: {
      console.log(1);
-     if (!printTwo) {
+     if (!printing) {
        break printing;
      }
      console.log(2);
@@ -101,7 +93,7 @@ foo: {
 ### Semicolons
 
 ```js
-var foo = []
+var foo = [] // Missing semicolon!
 (new Date).getTime();
 ```
 
@@ -113,7 +105,7 @@ var foo = []
 ```js
 var [foo, bar, baz] = [1, 2, 3];
 
-foo = bar
+foo = bar // Missing semicolon!
 ++baz
 
 [foo, bar, baz];
@@ -121,7 +113,7 @@ foo = bar
 
 ```js
 function foo() {
-  return
+  return // Missing semicolon!
       'Some string';
 }
 
@@ -129,10 +121,8 @@ foo() === 'Some string';
 ```
 
 ```js
-var foo = 'foo';
-
-var bar = foo
-/hi/g.exec('hi for everyone!');
+var bar = 'bar' // Missing semicolon!
+/js/g.exec('awesome js!');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -579,20 +569,6 @@ var x, { x: y = 1 } = { x };
 ### Typeof operator
 
 ```js
-var y = 1, x = y = typeof x;
-x;
-```
-
-```js
-typeof JSON;
-```
-
-```js
-var x = [typeof x, typeof y][1];
-typeof typeof x;
-```
-
-```js
 typeof (null && false);
 ```
 
@@ -605,10 +581,6 @@ typeof { null: null }.null;
 ```
 
 ```js
-typeof new ReferenceError;
-```
-
-```js
 typeof setTimeout(() => {}, 0);
 ```
 
@@ -617,7 +589,13 @@ typeof typeof undefined;
 ```
 
 ```js
-typeof new Number(4);
+var y = 1, x = y = typeof x;
+x;
+```
+
+```js
+var x = [typeof x, typeof y][1];
+typeof typeof x;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1154,11 +1132,6 @@ Object.prototype.toString.call(Object);
 ```
 
 ```js
-var foo = {};
-foo === foo;
-```
-
-```js
 var proto = {
   x: () => 'x'
 }
@@ -1461,6 +1434,7 @@ baz() == baz();
 
 ```js
 var Foo = class {};
+
 class Foo {};
 ```
 
@@ -1501,6 +1475,10 @@ typeof Promise;
 ```
 
 ```js
+typeof Promise.resolve(2410);
+```
+
+```js
 new Promise((resolve, reject) => resolve(24))
   .then((res) => console.log(res))
   .then((res) => console.log(res));
@@ -1526,12 +1504,8 @@ Promise.resolve(2)
 
 ```js
 Promise.resolve({ a: 24 })
-  .then((res) => {
-    delete res.a;
-  })
-  .then((res) => {
-    console.log(res.a);
-  });
+  .then((res) => delete res.a)
+  .then((res) => console.log(res.a));
 ```
 
 ```js
