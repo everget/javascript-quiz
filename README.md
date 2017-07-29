@@ -497,18 +497,17 @@ a = (b = 0) && (b = 1);
 ```
 
 ```js
-var x = 1;
+var a = 1;
 if (false)
-    x = 3;
-    x = 4;
+    a = 3;
+    a = 4;
 
-x;
+a;
 ```
 
 ```js
-var x = NaN;
-
-switch (x) {
+var foo = NaN;
+switch (foo) {
   case NaN:
     console.log('Hello, NaN!');
     break;
@@ -518,9 +517,8 @@ switch (x) {
 ```
 
 ```js
-var x = {};
-
-switch (x) {
+var foo = {};
+switch (foo) {
   case {}:
     console.log('Hello, object!');
     break;
@@ -559,14 +557,14 @@ var { total, tax } = { total: total, tax: tax };
 ```
 
 ```js
-var x, { x: y = 1 } = { x };
+var a, { a: b = 1 } = { a };
 
-[x, y];
+[a, b];
 ```
 
 **[Back to top](#table-of-contents)**
 
-### Typeof operator
+### typeof operator
 
 ```js
 typeof (null && false);
@@ -589,13 +587,13 @@ typeof typeof undefined;
 ```
 
 ```js
-var y = 1, x = y = typeof x;
-x;
+var b = 1, a = b = typeof a;
+a;
 ```
 
 ```js
-var x = [typeof x, typeof y][1];
-typeof typeof x;
+var a = [typeof a, typeof b][1];
+typeof typeof a;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -726,13 +724,13 @@ try {
 ```
 
 ```js
-function a(x) {
-  return x * 2;
+function foo(a) {
+  return a * 2;
 }
 
-var a;
+var foo;
 
-typeof a;
+typeof foo;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -740,12 +738,12 @@ typeof a;
 ### Scopes & Closures & Hoisting
 
 ```js
-var x = 1;
+var b = 1;
 {
-  var x = 2;
+  var b = 2;
 }
 
-x;
+b;
 ```
 
 ```js
@@ -777,20 +775,20 @@ typeof bar();
 ```
 
 ```js
-x = 1;
+a = 1;
 (() => {
-  return x;
-  var x = 2;
+  return a;
+  var a = 2;
 })();
 ```
 
 ```js
-var x = 1;
+var a = 1;
 if (function f() {}) {
-  x += typeof f;
+  a += typeof f;
 }
 
-x;
+a;
 ```
 
 ```js
@@ -821,12 +819,12 @@ typeof bar();
 ```
 
 ```js
-var a = 1,
-var b = function a(x) {
-  x && a(--x);
+var foo = 1,
+var bar = function foo(a) {
+  a && foo(--a);
 };
 
-a;
+foo;
 ```
 
 ```js
@@ -868,11 +866,11 @@ f.call(f);
 ```
 
 ```js
-var obj = {
-  go() { return this }
+var foo = {
+  bar() { return this }
 };
 
-(obj.go)();
+(foo.bar)();
 ```
 
 ```js
@@ -888,12 +886,12 @@ typeof (f = foo.bar)();
 (function() {
   'use strict'
 
-  var x = 10;
+  var a = 10;
   var foo = {
-    x: 20,
+    a: 20,
     bar() {
-      var x = 30;
-      return this.x;
+      var a = 30;
+      return this.a;
     }
   };
 
@@ -909,23 +907,23 @@ typeof (f = foo.bar)();
 ```
 
 ```js
-var o = {
-  a: function() { return this === o },
-  b: () => this === o
+var foo = {
+  bar: function() { return this === foo },
+  baz: () => this === foo
 };
 
-o.a() === o.b();
+foo.bar() === foo.baz();
 ```
 
 ```js
-var obj = {
+var foo = {
   message: 'Hello',
   innerMessage: !(function() {
     console.log(this.message);
   })()
 };
 
-obj.innerMessage;
+foo.innerMessage;
 ```
 
 ```js
@@ -951,7 +949,7 @@ f()(1);
 
 **[Back to top](#table-of-contents)**
 
-### Delete operator
+### delete operator
 
 ```js
 var numbers = [2, 3, 5, 7, 11, 13];
@@ -1002,9 +1000,9 @@ delete delete window.document;
 ```
 
 ```js
-(function (x) {
-  delete x;
-  return x;
+(function (a) {
+  delete a;
+  return a;
 })(1);
 ```
 
@@ -1033,7 +1031,7 @@ var foo = [...[,,24]];
 
 **[Back to top](#table-of-contents)**
 
-### Void operator
+### void operator
 
 ```js
 (() => void (1 + 1))();
@@ -1045,7 +1043,7 @@ void function() { return 'tada'; }()
 
 **[Back to top](#table-of-contents)**
 
-### Instanceof operator
+### instanceof operator
 
 ```js
 function A() {};
@@ -1108,7 +1106,7 @@ concat`this``is``a``test``!`();
 ```
 
 ```js
-var x = { `hello world`: 24 };
+var foo = { `hello world`: 24 };
 ```
 
 ```js
@@ -1133,13 +1131,13 @@ Object.prototype.toString.call(Object);
 
 ```js
 var proto = {
-  x: () => 'x'
+  foo: () => 'foo'
 }
 
-var o1 = new Object(proto);
-var o2 = new Object(proto);
+var obj1 = new Object(proto);
+var obj2 = new Object(proto);
 
-o1 === o2;
+obj1 === obj2;
 ```
 
 ```js
@@ -1374,7 +1372,7 @@ bar(1,,2);
 
 **[Back to top](#table-of-contents)**
 
-### Arguments
+### arguments
 
 ```js
 (function() {
@@ -1844,10 +1842,6 @@ String(['awesome', 'js']);
 ```
 
 ```js
-new String('foo') === 'foo';
-```
-
-```js
 'foo' == new function() { return String('foo') };
 ```
 
@@ -1856,10 +1850,7 @@ new String('foo') === 'foo';
 ```
 
 ```js
-let s1 = new String('hello');
-let s2 = new String('hello');
-
-s1 == s2;
+new String('hello') == new String('hello');
 ```
 
 ```js
@@ -1903,10 +1894,6 @@ Number(['awesome', 'js']);
 ```
 
 ```js
-new Number(5) === Number(5);
-```
-
-```js
 Number.isNaN('NaN') === window.isNaN('NaN');
 ```
 
@@ -1935,8 +1922,11 @@ Boolean('true') === true;
 ```
 
 ```js
-var a = '';
-new Boolean(a).valueOf();
+Boolean([]);
+```
+
+```js
+Boolean('000');
 ```
 
 ```js
@@ -1945,20 +1935,16 @@ Boolean(-Infinity);
 
 ```js
 if (new Boolean(false)) {
-  console.log('I love this wonderful language!');
+  console.log('JS');
 }
 ```
 
 ```js
-Boolean([]);
+new Boolean('').valueOf();
 ```
 
 ```js
 new Boolean(false).valueOf() === false;
-```
-
-```js
-Boolean('000');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -2097,7 +2083,7 @@ process.nextTick(() => {
 
 **[Back to top](#table-of-contents)**
 
-### Eval method
+### eval method
 
 ```js
 function foo() {
@@ -2127,7 +2113,7 @@ var bar = 1;
 
 **[Back to top](#table-of-contents)**
 
-### With operator
+### with operator
 
 ```js
 var a = 1;
