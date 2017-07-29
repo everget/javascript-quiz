@@ -667,7 +667,7 @@ foo('3');
 
 **[Back to top](#table-of-contents)**
 
-### Try Catch statement
+### try catch statement
 
 ```js
 function foo() {
