@@ -1581,6 +1581,15 @@ arr instanceof Object;
 ```
 
 ```js
+var arr = [];
+
+arr[1] = 1;
+arr[24] = 24;
+
+arr.length;
+```
+
+```js
 [,].length;
 ```
 
@@ -1593,15 +1602,6 @@ arr instanceof Object;
 ```
 
 ```js
-var arr = [];
-
-arr[1] = 1;
-arr[24] = 24;
-
-arr.length;
-```
-
-```js
 new Array(null);
 ```
 
@@ -1610,9 +1610,7 @@ new Array(1)[0] + '';
 ```
 
 ```js
-var arr = new Array('100');
-
-arr.length;
+new Array('100').length;
 ```
 
 ```js
@@ -1659,13 +1657,15 @@ Array(2).join();
 ```
 
 ```js
-Array(4).join('tada!' - 4);
+[,,,].join() === ',,';
 ```
 
 ```js
-(function() {
-  return Array(5).join(',').length;
-})();
+Array(4).join('js!' - 4);
+```
+
+```js
+Array(5).join(',').length;
 ```
 
 ```js
@@ -1693,9 +1693,11 @@ arr.slice(3, -6);
 ```
 
 ```js
-(function() {
-  return Array(3).map(item => 'a');
-})();
+Array(3).map(item => 'x');
+```
+
+```js
+Array.prototype.push(1, 2, 3);
 ```
 
 ```js
@@ -1743,8 +1745,7 @@ new Date(0, 0, 0);
 ### RegExp
 
 ```js
-/^.$/.test('');
-/^..$/.test('');
+/[a-z]/ === /[a-z]/;
 ```
 
 ```js
@@ -1752,19 +1753,35 @@ RegExp.prototype.toString = function() {
   return this.source;
 }
 
-/3/-/2/;
+/3/3/ - /1/;
 ```
 
 ```js
-'ab'.split(/a*?/);
+/^$/.test('');
 ```
 
 ```js
-'ab'.split(/(?:ab)*/);
+/$^/.test('');
 ```
 
 ```js
-'ab'.split(/a*/);
+/^.$/.test('');
+```
+
+```js
+/^..$/.test('');
+```
+
+```js
+'xy'.split(/x*?/);
+```
+
+```js
+'xy'.split(/(?:xy)*/);
+```
+
+```js
+'xy'.split(/x*/);
 ```
 
 ```js
@@ -1788,11 +1805,19 @@ typeof (/()??/).exec('')[1];
 ```
 
 ```js
-var x1 = /[/ + 'javascript'[0] + '///';
-x1;
+/^$^$^$^$^$^$$$$^^^/.test('');
+```
 
-var x2 = /\[/ + 'javascript'[0] + '///';
-x2;
+```js
+new RegExp(/xy+z/, 'i');
+```
+
+```js
+var foo = /[/ + 'javascript'[0] + '///';
+foo;
+
+var bar = /\[/ + 'javascript'[0] + '///';
+bar;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -2005,6 +2030,13 @@ Window.constructor === Function;
 
 ```js
 Window.prototype.constructor === Window;
+```
+
+```js
+(() => {
+  console.log(window);
+  var window = window;
+})();
 ```
 
 **[Back to top](#table-of-contents)**
