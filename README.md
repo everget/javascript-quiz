@@ -670,15 +670,15 @@ foo('3');
 ### try catch statement
 
 ```js
-function foo() {
+function f() {
   try {
-    return 'return';
+    return 'try';
   } finally {
     console.log('finally');
   }
 }
 
-foo();
+f();
 ```
 
 ```js
@@ -692,19 +692,40 @@ try {
 ```js
 try {
   try {
-    throw new Error('oops');
-  }
-  catch (err) {
+    throw new Error('try');
+  } catch (err) {
     console.error('inner', err.message);
     throw err;
-  }
-  finally {
+  } finally {
     console.log('finally');
-    return;
   }
 } catch (err) {
   console.error('outer', err.message);
 }
+```
+
+```js
+(() => {
+  label: try {
+    return 0;
+  } finally {
+    break label;
+    return 1;
+  }
+  return 2;
+})();
+```
+
+```js
+(() => {
+  try {
+      throw new Error('try')
+  } catch (err) {
+      throw err; // The error thrown from try block is caught and rethrown
+  } finally {
+      throw new Error('finally'); // Finally(...) is thrown, which we did not expect
+  }
+})();
 ```
 
 **[Back to top](#table-of-contents)**
