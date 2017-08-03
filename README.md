@@ -1260,45 +1260,48 @@ Function.prototype.constructor === Function;
 ```
 
 ```js
-var getObj = () => { a: 1 };
-getObj();
+(function (x, y) {}).length;
 ```
 
 ```js
-var x = function() {};
-var y = x.bind();
-
-y.prototype;
+var f = () => { a: 1 };
+f();
 ```
 
 ```js
-function add(x, y) {
+function f() {};
+
+f.bind(this).name;
+```
+
+```js
+var f = function() {};
+var g = f.bind();
+
+g.prototype;
+```
+
+```js
+function f(x, y) {
   return x + y;
 }
 
-var plusOne = add.bind(undefined, 1);
-plusOne();
+f.bind(1)();
 ```
 
 ```js
-var a = () => this;
-var b = function() { return this }.bind(this);
+function f() {
+  return this.value;
+}
 
-a() === b();
+f.bind({ value: 1 }).call({ value: 2 });
 ```
 
 ```js
-function one() {};
+var f = () => this;
+var g = function() { return this }.bind(this);
 
-var two = one.bind(this);
-
-two.name;
-```
-
-```js
-(function() {
-  return (function (a, b) {}).length;
-})();
+f() === g();
 ```
 
 ```js
@@ -1308,45 +1311,45 @@ two.name;
   }
 
   return typeof f;
-})()
+})();
 ```
 
 ```js
-var x = 4;
-var y = ['foo', 'bar'];
-var z = { first: true };
+var foo = 2410;
+var bar = ['a', 'b'];
+var baz = { first: true };
 
-function f(a, b, c) {
-  a = 3;
-  b.push('baz');
-  b = ['baz'];
-  c.first = false;
-  c = true;
+function f(x, y, z) {
+  x = 3;
+  y.push('c');
+  y = ['c'];
+  z.first = false;
+  z = true;
 }
 
-f(x, y, z);
+f(foo, bar, baz);
 
-[x, y, z.first];
+[foo, bar, baz.first];
 ```
 
 ```js
 var x = 0;
 
-function foo() {
+function f() {
   x++;
   this.x = x;
-  return foo;
-};
+  return f;
+}
 
-var bar = new new foo;
+var foo = new new f;
 
-bar.x;
+foo.x;
 ```
 
 ```js
-var foo = Function.prototype.call;
+var f = Function.prototype.call;
 
-foo();
+f();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -2059,6 +2062,17 @@ setTimeout(() => {
 setTimeout(() => {
   setTimeout(() => console.log(3), 500);
 }, 250);
+```
+
+```js
+new Promise((resolve, reject) => {
+  console.log(1);
+  resolve();
+}).then(() => {
+  console.log(2);
+});
+
+console.log(3);
 ```
 
 ```js
