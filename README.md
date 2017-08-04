@@ -694,15 +694,13 @@ foo('3');
 ### try catch statement
 
 ```js
-function f() {
+(() => {
   try {
     return 'try';
   } finally {
     console.log('finally');
   }
-}
-
-f();
+})();
 ```
 
 ```js
@@ -758,24 +756,24 @@ try {
 
 ```js
 (function() {
-   console.log(a);
-   console.log(bar());
+   console.log(x);
+   console.log(f());
 
-   var a = 1;
-   function bar() {
+   var x = 1;
+   function f() {
       return 2;
    }
 })();
 ```
 
 ```js
-function foo(a) {
-  return a * 2;
+function f(x) {
+  return x * 2;
 }
 
-var foo;
+var f;
 
-typeof foo;
+typeof f;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -783,20 +781,20 @@ typeof foo;
 ### Scopes & Closures & Hoisting
 
 ```js
-var b = 1;
+var x = 1;
 {
-  var b = 2;
+  var x = 2;
 }
 
-b;
+x;
 ```
 
 ```js
-if (!('a' in window)) {
-  var a = 1;
+if (!('y' in window)) {
+  var y = 1;
 }
 
-a;
+y;
 ```
 
 ```js
@@ -820,20 +818,20 @@ typeof bar();
 ```
 
 ```js
-a = 1;
+x = 1;
 (() => {
-  return a;
-  var a = 2;
+  return x;
+  var x = 2;
 })();
 ```
 
 ```js
-var a = 1;
+var x = 1;
 if (function f() {}) {
-  a += typeof f;
+  x += typeof f;
 }
 
-a;
+x;
 ```
 
 ```js
@@ -865,8 +863,8 @@ typeof bar();
 
 ```js
 var foo = 1,
-var bar = function foo(a) {
-  a && foo(--a);
+var bar = function foo(x) {
+  x && foo(--x);
 };
 
 foo;
@@ -874,10 +872,10 @@ foo;
 
 ```js
 (function() {
-  var foo = 'a';
+  var foo = 'x';
 
   (function (foo) {
-    foo = 'b';
+    foo = 'y';
   })(foo);
 
   return foo;
@@ -1309,7 +1307,7 @@ Function.prototype.constructor === Function;
 ```
 
 ```js
-var f = () => { a: 1 };
+var f = () => { x: 1 };
 f();
 ```
 
@@ -1402,8 +1400,8 @@ f();
 ### Default parameters
 
 ```js
-function foo(a = 24, b = 10) {
-  return a + b;
+function f(x = 24, y = 10) {
+  return x + y;
 }
 
 foo(undefined, 20);
@@ -1411,11 +1409,11 @@ foo(null, null);
 ```
 
 ```js
-function bar(x, y = 24, z = 10) {
+function g(x, y = 24, z = 10) {
   return x + y + z;
 }
 
-bar(1,,2);
+g(1,,2);
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1451,12 +1449,12 @@ bar(1,,2);
 ```
 
 ```js
-function bar(x, y, z) {
+function f(x, y, z) {
   arguments[2] = 10;
   return z;
 }
 
-bar(1, 2, 3);
+f(1, 2, 3);
 ```
 
 ```js
@@ -1464,20 +1462,20 @@ bar(1, 2, 3);
 ```
 
 ```js
-function foo(a, b) {
+function f(x, y) {
   arguments[2] = 5;
-  return b;
+  return y;
 }
 
-foo(1);
+f(1);
 ```
 
 ```js 
-var baz = function() {
+var g = function() {
   return arguments;
-}
+};
 
-baz() == baz();
+g() == g();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1943,10 +1941,6 @@ new String('hello') == new String('hello');
 ```
 
 ```js
-new Number() instanceof Object;
-```
-
-```js
 Number([]);
 ```
 
@@ -1973,7 +1967,7 @@ Number.isNaN('NaN') === window.isNaN('NaN');
 ```js
 Number.prototype.compare = function(value) {
   return this === value;
-}
+};
 
 Number(123).compare(123);
 ```
@@ -1981,7 +1975,7 @@ Number(123).compare(123);
 ```js
 Number.prototype.toString = function() {
   return typeof this;
-}
+};
 
 (4).toString();
 ```
