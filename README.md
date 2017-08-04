@@ -60,8 +60,8 @@ foo;
 ```
 
 ```js
-var bar = 1,
-    foo = {};
+var foo = {};
+var bar = 1;
 
 foo: {
     bar: 2;
@@ -166,7 +166,7 @@ false % 1;
 ```
 
 ```js
-'a' + + 'b';
+'x' + + 'y';
 ```
 
 ```js
@@ -272,10 +272,10 @@ undefined == false;
 ```
 
 ```js
-var a = true;
-var b = false;
+var x = true;
+var y = false;
 
-a != b === !(a == b);
+x != y === !(x == y);
 ```
 
 ```js
@@ -379,7 +379,7 @@ Infinity > -Infinity;
 ```
 
 ```js
-({} + 'b' > {} + 'a');
+({} + 'y' > {} + 'x');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -420,7 +420,7 @@ var
   num2 = 10,
   num3 = num1+++num2;
 
-`${num1} ${num2} ${num3}`;
+[num1, num2, num3];
 ```
 
 ```js
@@ -514,19 +514,19 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
-var a, b;
-a = (b = 0) && (b = 1);
+var x, y;
+x = (y = 0) && (y = 1);
 
-[a, b];
+[x, y];
 ```
 
 ```js
-var a = 1;
+var x = 1;
 if (false)
-    a = 3;
-    a = 4;
+    x = 3;
+    x = 4;
 
-a;
+x;
 ```
 
 ```js
@@ -556,34 +556,34 @@ switch (foo) {
 ### Destructuring assignment
 
 ```js
-var [a] = [];
-a;
+var [x] = [];
+x;
 ```
 
 ```js
-var [b = 1] = [];
-b;
+var [x = 1] = [];
+x;
 ```
 
 ```js
-var [title, title, title, title] = 'JavaScript is awesome language'.split(' ');
-title;
+var [x, x, x, x] = 'JavaScript is awesome language'.split(' ');
+x;
 ```
 
 ```js
-({ a, b } = { a: 5, b: 6, a: 7 });
+({ x, y } = { x: 5, y: 6, x: 7 });
 ```
 
 ```js
-var { total, tax } = { total: total, tax: tax };
+var { x, y } = { x: x, y: y };
 
-[total, tax];
+[x, y];
 ```
 
 ```js
-var a, { a: b = 1 } = { a };
+var x, { x: y = 1 } = { x };
 
-[a, b];
+[x, y];
 ```
 
 **[Back to top](#table-of-contents)**
@@ -611,13 +611,13 @@ typeof typeof undefined;
 ```
 
 ```js
-var b = 1, a = b = typeof a;
-a;
+var y = 1, x = y = typeof x;
+x;
 ```
 
 ```js
-var a = [typeof a, typeof b][1];
-typeof typeof a;
+var x = [typeof x, typeof y][1];
+typeof typeof x;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -629,10 +629,10 @@ typeof typeof a;
 ```
 
 ```js
-var a = 0;
-var b = (a++, 99);
+var x = 0;
+var y = (x++, 99);
 
-[a, b];
+[x, y];
 ```
 
 ```js
@@ -660,7 +660,7 @@ alert('1', alert('2', alert('3')));
 ```
 
 ```js
-typeof ('a', 3);
+typeof ('x', 3);
 ```
 
 ```js
