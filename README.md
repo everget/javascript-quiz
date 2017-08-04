@@ -166,7 +166,7 @@ false % 1;
 ```
 
 ```js
-'x' + + 'y';
+'foo' + + 'bar';
 ```
 
 ```js
@@ -415,10 +415,9 @@ Infinity > -Infinity;
 ```
 
 ```js
-var
-  num1 = 5,
-  num2 = 10,
-  num3 = num1+++num2;
+var num1 = 5;
+var num2 = 10;
+var num3 = num1+++num2;
 
 [num1, num2, num3];
 ```
@@ -466,11 +465,7 @@ var c = 0;
 ```
 
 ```js
-parseInt(1 / 0, 19);
-```
-
-```js
-parseInt(null, 24) === 23;
+parseInt('08');
 ```
 
 ```js
@@ -478,7 +473,19 @@ parseInt(null);
 ```
 
 ```js
+parseInt(null, 24);
+```
+
+```js
 parseInt(Infinity);
+```
+
+```js
+parseInt(1 / 0, 19);
+```
+
+```js
+parseInt('Infinity', 23)
 ```
 
 ```js
@@ -533,10 +540,10 @@ x;
 var foo = NaN;
 switch (foo) {
   case NaN:
-    console.log('Hello, NaN!');
+    console.log('NaN');
     break;
   default:
-    console.log('Hello, default!');
+    console.log('default');
 }
 ```
 
@@ -544,10 +551,10 @@ switch (foo) {
 var foo = {};
 switch (foo) {
   case {}:
-    console.log('Hello, object!');
+    console.log('object');
     break;
   default:
-    console.log('Hello, default!');
+    console.log('default');
 }
 ```
 
@@ -675,15 +682,15 @@ typeof f;
 
 ```js
 if ((1, true) && (2, false) || (3, false) && (4, true) || (5, true)) {
-  console.log('awesome js');
+  console.log('if');
 } else {
-  console.log('dreadful js');
+  console.log('else');
 }
 ```
 
 ```js
 alert('2',
-  foo = (arg) => alert(arg),
+  foo = (x) => alert(x),
   foo('1')
 ),
 foo('3');
@@ -929,12 +936,12 @@ typeof (f = foo.bar)();
 (function() {
   'use strict'
 
-  var a = 10;
+  var x = 10;
   var foo = {
-    a: 20,
+    x: 20,
     bar() {
-      var a = 30;
-      return this.a;
+      var x = 30;
+      return this.x;
     }
   };
 
@@ -971,8 +978,8 @@ foo.innerMessage;
 
 ```js
 function f() {
-  var a = 5;
-  return new Function('b', 'return a + b');
+  var x = 5;
+  return new Function('y', 'return x + y');
 }
 
 f()(1);
@@ -982,11 +989,11 @@ f()(1);
 (function() {
   'use strict';
 
-  const globalOne = (function() { return this || (1, eval)('this') })();
+  const g1 = (function() { return this || (1, eval)('this') })();
 
-  const globalTwo = (function() { return this })();
+  const g2 = (function() { return this })();
 
-  return globalOne === globalTwo;
+  return g1 === g2;
 }());
 ```
 
@@ -1028,33 +1035,33 @@ delete delete window.document;
 
 ```js
 (function() {
-  a = 1;
-  window.b = 2;
-  this.c = 3;
-  var d = 4;
+  x = 1;
+  window.y = 2;
+  this.z = 3;
+  var w = 4;
 
-  delete a;
-  delete b;
-  delete c;
-  delete d;
+  delete x;
+  delete y;
+  delete z;
+  delete w;
 
-  return [typeof a, typeof b, typeof c, typeof d];
+  return [typeof x, typeof y, typeof z, typeof w];
 })();
 ```
 
 ```js
-(function (a) {
-  delete a;
-  return a;
+(x => {
+  delete x;
+  return x;
 })(1);
 ```
 
 ```js
-var a = 1;
-b = 1;
+var x = 1;
+y = 1;
 
 (function() {
-  return (delete window.a) === (delete window.b);
+  return (delete window.x) === (delete window.y);
 })();
 ```
 
@@ -1081,7 +1088,7 @@ var foo = [...[,,24]];
 ```
 
 ```js
-void function() { return 'tada'; }()
+void function() { return 'foo'; }();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1152,10 +1159,6 @@ concat`this``is``a``test``!`();
 var foo = { `hello world`: 24 };
 ```
 
-```js
-var { `hello world`: a } = { 'hello world': 24 };
-```
-
 **[Back to top](#table-of-contents)**
 
 ### Object
@@ -1192,10 +1195,6 @@ Object.is(-0, +0);
 ```
 
 ```js
-Object.assign({ a: 1 }) == Object.assign({}, { a: 1 });
-```
-
-```js
 Object.assign({}, 'function');
 ```
 
@@ -1216,7 +1215,7 @@ Object.prototype.isPrototypeOf(window);
 ```
 
 ```js
-{ a: 1, b: 2 }['b'];
+{ x: 1, y: 2 }['x'];
 ```
 
 ```js
@@ -1246,16 +1245,16 @@ obj[[1]] == obj['1'];
 ```
 
 ```js
-'hello'.someProperty = 17;
+'foo'.someProperty = 17;
 
-'hello'.someProperty;
+'foo'.someProperty;
 ```
 
 ```js
 (function() {
-  let foo = {};
-  let bar = {};
-  let map = {};
+  var foo = {};
+  var bar = {};
+  var map = {};
 
   map[foo] = 'foo';
   map[bar] = 'bar';
@@ -1273,11 +1272,11 @@ obj[[1]] == obj['1'];
 ```
 
 ```js
-var a = 1;
-var b = { toString: () => '1' };
-var c = 1;
+var x = 1;
+var y = { toString: () => '1' };
+var z = 1;
 
-a + b + c;
+x + y+ z;
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1515,6 +1514,10 @@ typeof (new (class { class () {} }));
 **[Back to top](#table-of-contents)**
 
 ### Generator function
+
+```js
+(function* f() { yield f })().next()
+```
 
 **[Back to top](#table-of-contents)**
 
@@ -1941,15 +1944,23 @@ new String('hello') == new String('hello');
 ```
 
 ```js
+Number.MIN_VALUE > 0;
+```
+
+```js
+Number();
+```
+
+```js
+Number(undefined);
+```
+
+```js
 Number([]);
 ```
 
 ```js
 Number([24, 10]);
-```
-
-```js
-Number(undefined);
 ```
 
 ```js
