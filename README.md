@@ -497,7 +497,7 @@ parseFloat('\t\v\r12.34\n ');
 ```
 
 ```js
-1 / parseFloat('-.00');
+parseFloat('-.00');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -598,11 +598,11 @@ var x, { x: y = 1 } = { x };
 ### typeof operator
 
 ```js
-typeof (null && false);
+typeof 000;
 ```
 
 ```js
-typeof 000;
+typeof (null && false);
 ```
 
 ```js
@@ -967,13 +967,13 @@ foo.bar() === foo.baz();
 
 ```js
 var foo = {
-  message: 'Hello',
-  innerMessage: !(function() {
-    console.log(this.message);
+  bar: 'bar',
+  baz: !(function() {
+    console.log(this.bar);
   })()
 };
 
-foo.innerMessage;
+foo.baz;
 ```
 
 ```js
@@ -990,7 +990,6 @@ f()(1);
   'use strict';
 
   const g1 = (function() { return this || (1, eval)('this') })();
-
   const g2 = (function() { return this })();
 
   return g1 === g2;
@@ -1908,7 +1907,7 @@ String(1.23e+2);
 ```
 
 ```js
-String(['awesome', 'js']);
+String(['foo', 'bar']);
 ```
 
 ```js
@@ -1920,15 +1919,11 @@ String(['awesome', 'js']);
 ```
 
 ```js
-'Hello'[-1] == 'Hello'.charAt(-1);
+'foo'[-1] == 'foo'.charAt(-1);
 ```
 
 ```js
-new String('hello') == new String('hello');
-```
-
-```js
-'Hello'.charAt(1) === 'Hello'.substring(1, 2);
+'foo'.charAt(1) === 'foo'.substring(1, 2);
 ```
 
 ```js
