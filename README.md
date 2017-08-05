@@ -10,6 +10,7 @@ The simple test for JavaScript developers:)
 1. [Calculus](#calculus)
 1. [Conditional statements](#conditional-statements)
 1. [Destructuring assignment](#destructuring-assignment)
+1. [```void``` operator](#void-operator)
 1. [```typeof``` operator](#typeof-operator)
 1. [```,``` operator](#comma-operator)
 1. [```try-catch``` statement](#try-catch-statement)
@@ -18,7 +19,6 @@ The simple test for JavaScript developers:)
 1. [Context](#context)
 1. [```delete``` operator](#delete-operator)
 1. [```...``` operator](#spread-operator)
-1. [```void``` operator](#void-operator)
 1. [```instanceof``` operator](#instanceof-operator)
 1. [Template literals](#template-literals)
 1. [```Object```](#object)
@@ -276,6 +276,11 @@ var x = true;
 var y = false;
 
 x != y === !(x == y);
+```
+
+```js
+!!'false' ==  !!'true';
+!!'false' === !!'true';
 ```
 
 ```js
@@ -595,6 +600,18 @@ var x, { x: y = 1 } = { x };
 
 **[Back to top](#table-of-contents)**
 
+### void operator
+
+```js
+(() => void (1 + 1))();
+```
+
+```js
+void function() { return 'foo'; }();
+```
+
+**[Back to top](#table-of-contents)**
+
 ### typeof operator
 
 ```js
@@ -603,6 +620,10 @@ typeof 000;
 
 ```js
 typeof (null && false);
+```
+
+```js
+typeof (void null);
 ```
 
 ```js
@@ -762,6 +783,17 @@ try {
 ### Hoisting
 
 ```js
+var bar;
+f();
+
+function f() {
+  return bar;
+}
+
+var bar = 2410;
+```
+
+```js
 (function() {
    console.log(x);
    console.log(f());
@@ -805,6 +837,22 @@ y;
 ```
 
 ```js
+(function() {
+  var x = x = 3;
+})();
+
+[typeof x, typeof y];
+```
+
+```js
+var foo = function bar() {
+  return 'bar';
+}
+
+typeof bar();
+```
+
+```js
 var foo = 1;
 function bar() {
   foo = 10;
@@ -814,14 +862,6 @@ function bar() {
 
 bar();
 foo;
-```
-
-```js
-var foo = function bar() {
-  return 23;
-}
-
-typeof bar();
 ```
 
 ```js
@@ -895,6 +935,26 @@ foo;
 })(() => 1);
 ```
 
+```js
+function f() {
+  var x = 5;
+  return new Function('y', 'return x + y');
+}
+
+f()(1);
+```
+
+```js
+var x = 1;
+
+function f() {
+  var x = 2;
+  return new Function('', 'return x');
+}
+
+f()();
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Context
@@ -916,11 +976,28 @@ f.call(f);
 ```
 
 ```js
-var foo = {
-  bar() { return this }
+(function() {
+
+  var f = function() {
+    return this * 2;
+  };
+
+  return [
+    f.call(undefined),
+    f.call(null),
+    f.call(1)
+  ];
+
+})();
+```
+
+```js
+var user = {
+  name: 'Alex',
+  _user: this
 };
 
-(foo.bar)();
+user._user.name;
 ```
 
 ```js
@@ -974,15 +1051,6 @@ var foo = {
 };
 
 foo.baz;
-```
-
-```js
-function f() {
-  var x = 5;
-  return new Function('y', 'return x + y');
-}
-
-f()(1);
 ```
 
 ```js
@@ -1076,18 +1144,6 @@ y = 1;
 var foo = [...[,,24]];
 
 [0 in foo, 1 in foo, 2 in foo];
-```
-
-**[Back to top](#table-of-contents)**
-
-### void operator
-
-```js
-(() => void (1 + 1))();
-```
-
-```js
-void function() { return 'foo'; }();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1226,9 +1282,13 @@ obj[''];
 ```
 
 ```js
+{ [{}]: {} };
+```
+
+```js
 var obj = {
-  toString: () => '[object MyObject]',
-  valueOf: () => 17
+  toString: () => '[object Foo]',
+  valueOf: () => 2410
 };
 
 'object: ' + obj;
@@ -1236,7 +1296,7 @@ var obj = {
 
 ```js
 var obj = {
-  1: 'I love this awesome language'
+  1: 'foo'
 };
 
 obj[1] == obj[[1]];
@@ -1302,6 +1362,14 @@ Function.prototype.constructor === Function;
 
 ```js
 (function (x, y) {}).length;
+```
+
+```js
+(function (foo) {
+
+  return typeof foo.bar;
+
+})({ foo: { bar: 1 } });
 ```
 
 ```js
@@ -1393,6 +1461,10 @@ var f = Function.prototype.call;
 f();
 ```
 
+```js
+console.log.call.call.call.call.call.apply(x => x, [1, 2]);
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Default parameters
@@ -1412,6 +1484,27 @@ function g(x, y = 24, z = 10) {
 }
 
 g(1,,2);
+```
+
+```js
+var bar = 1;
+
+function f(bar = bar) {
+  return bar;
+}
+
+f();
+```
+
+```js
+var x = 1;
+
+function f(y = function() { return x; }) {
+  var x = 2;
+  return y();
+}
+
+f();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1466,6 +1559,14 @@ function f(x, y) {
 }
 
 f(1);
+```
+
+```js
+function f(foo, bar, baz) {
+  return Array.from(arguments);
+}
+
+f(...['foo', , 'bar']);
 ```
 
 ```js 
@@ -1555,9 +1656,9 @@ Promise.resolve(2)
 ```
 
 ```js
-Promise.resolve({ a: 24 })
-  .then((res) => delete res.a)
-  .then((res) => console.log(res.a));
+Promise.resolve({ x: 24 })
+  .then((res) => delete res.x)
+  .then((res) => console.log(res.x));
 ```
 
 ```js
@@ -1573,11 +1674,11 @@ Promise.reject(24)
   .then(null, (reason) => console.log(reason));
 
 Promise.reject(24)
-  .then(5, null)
+  .then(10, null)
   .then(null, (reason) => console.log(reason));
 
 Promise.reject(24)
-  .then(null, 5)
+  .then(null, 10)
   .then(null, (reason) => console.log(reason));
 ```
 
@@ -1587,11 +1688,11 @@ Promise.resolve(24)
   .then((res) => console.log(res), null);
 
 Promise.resolve(24)
-  .then(null, 5)
+  .then(null, 10)
   .then((res) => console.log(res), null);
 
 Promise.resolve(24)
-  .then(5, null)
+  .then(10, null)
   .then((res) => console.log(res), null);
 ```
 
@@ -1635,6 +1736,10 @@ arr[1] = 1;
 arr[24] = 24;
 
 arr.length;
+```
+
+```js
+[].length = -2;
 ```
 
 ```js
@@ -1745,6 +1850,14 @@ Array(3).map(item => 'x');
 ```
 
 ```js
+Array.apply(null, new Array(4)).map((el, i) => i);
+```
+
+```js
+[...new Set([1, 1, 2, 3, 5, 8, 13])];
+```
+
+```js
 Array.prototype.push(1, 2, 3);
 ```
 
@@ -1762,6 +1875,10 @@ Array.isArray({
 
 ```js
 '2016/12/31' == new Date('2016/12/31');
+```
+
+```js
+typeof (new Date() + new Date());
 ```
 
 ```js
@@ -1802,6 +1919,10 @@ RegExp.prototype.toString = function() {
 }
 
 /3/3/ - /1/;
+```
+
+```js
+'foobar'.replace(/^/, "$'");
 ```
 
 ```js
@@ -2266,6 +2387,10 @@ foo.bar;
 
 ```js
 (![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]];
+```
+
+```js
+({[{}]:{[{}]:{}}})[{}][{}];
 ```
 
 ```js
