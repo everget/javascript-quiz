@@ -1701,9 +1701,52 @@ Promise.resolve(24)
 ### Async function
 
 ```js
-async fn() {};
+async function f(x) {
+  return x * x;
+}
 
-Object.prototype.toString.call(fn);
+f(2) === 4;
+```
+
+```js
+var y = 2;
+async function f(x = await y) {
+  return x * x;
+}
+
+f();
+```
+
+```js
+(() => {
+  'use strict';
+  async function eval(x, y) {
+    await x * y;
+  }
+
+  eval(1, 2);
+})();
+```
+
+```js
+async function f(x) {
+  return await x * (await x);
+}
+
+f(2).then(res => console.log(res));
+```
+
+```js
+async function User(firstname, lastname) {
+  this.firstname = await firstname;
+  this.lastname = await lastname;
+}
+
+var user = new User('John', 'Doe');
+```
+
+```js
+(async function(){}).__proto__.__proto__ == (function(){}).__proto__;
 ```
 
 **[Back to top](#table-of-contents)**
