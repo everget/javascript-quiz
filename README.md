@@ -771,9 +771,9 @@ try {
   try {
       throw new Error('try')
   } catch (err) {
-      throw err; // The error thrown from try block is caught and rethrown
+      throw err;
   } finally {
-      throw new Error('finally'); // Finally(...) is thrown, which we did not expect
+      throw new Error('finally');
   }
 })();
 ```
