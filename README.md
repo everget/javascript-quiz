@@ -1162,24 +1162,23 @@ a instanceof B;
 ```
 
 ```js
-function Rabbit() {};
-var rabbit = new Rabbit();
+function A() {};
+var a = new A();
 
-Rabbit.prototype = {};
+A.prototype = {};
 
-rabbit instanceof Rabbit;
+a instanceof A;
 ```
 
 ```js
-function Animal() {};
+function A() {};
 
-function Rabbit() {};
-Rabbit.prototype = Object.create(Animal.prototype);
+function B() {};
+B.prototype = Object.create(A.prototype);
 
-var rabbit = new Rabbit();
+var b = new B();
 
-rabbit instanceof Animal;
-rabbit instanceof Object;
+b instanceof A;
 ```
 
 ```js
