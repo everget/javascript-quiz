@@ -420,17 +420,17 @@ Infinity > -Infinity;
 ```
 
 ```js
-var num1 = 5;
-var num2 = 10;
-var num3 = num1+++num2;
+var x = 5;
+var y = 10;
+var z = x+++y;
 
-[num1, num2, num3];
+[x, y, z];
 ```
 
 ```js
-var c = 0;
+var x = 0;
 
-[c+++c++, c];
+[x+++x++, x];
 ```
 
 ```js
