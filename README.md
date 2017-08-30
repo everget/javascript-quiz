@@ -1229,16 +1229,6 @@ Object.prototype.toString.call();
 Object.prototype.toString.call(Object);
 ```
 
-```js
-var proto = {
-  foo: () => 'foo'
-}
-
-var obj1 = new Object(proto);
-var obj2 = new Object(proto);
-
-obj1 === obj2;
-```
 
 ```js
 Object.is(NaN, NaN);
@@ -1261,10 +1251,6 @@ didItWork;
 ```
 
 ```js
-Object.prototype.isPrototypeOf(window);
-```
-
-```js
 ({ 'toString': null }).propertyIsEnumerable('toString');
 ```
 
@@ -1282,15 +1268,6 @@ obj[''];
 
 ```js
 { [{}]: {} };
-```
-
-```js
-var obj = {
-  toString: () => '[object Foo]',
-  valueOf: () => 2410
-};
-
-'object: ' + obj;
 ```
 
 ```js
@@ -1330,11 +1307,55 @@ obj[[1]] == obj['1'];
 ```
 
 ```js
+var foo = {
+  toString: () => '[object Foo]',
+  valueOf: () => 2410
+};
+
+'object: ' + foo;
+```
+
+```js
 var x = 1;
 var y = { toString: () => '1' };
 var z = 1;
 
-x + y+ z;
+x + y + z;
+```
+
+```js
+var foo = { x: 1 };
+foo.y = foo = { x: 2 };
+
+foo.y;
+```
+
+```js
+var proto = {
+  x: () => 'x'
+}
+
+var foo = new Object(proto);
+var bar = new Object(proto);
+
+foo === bar;
+```
+
+```js
+Object.prototype.isPrototypeOf(window);
+```
+
+```js
+var foo = { __proto__: null };
+
+Object.getPrototypeOf(foo) === null;
+```
+
+```js
+var __proto__ = 'bar';
+var foo = { __proto__ };
+
+Object.getPrototypeOf(foo) === Object.prototype;
 ```
 
 **[Back to top](#table-of-contents)**
