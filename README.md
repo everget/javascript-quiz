@@ -420,6 +420,14 @@ Infinity > -Infinity;
 ```
 
 ```js
+1e16 === 1e16 + 1;
+```
+
+```js
+1e16 + 1.1 < 1e16 + 2;
+```
+
+```js
 var x = 5;
 var y = 10;
 var z = x+++y;
@@ -2082,6 +2090,19 @@ var symbol = new MySymbol();
 Symbol.for('bar') === Symbol.for('bar');
 ```
 
+```js
+var obj = {
+  [Symbol('foo')]: 'foo',
+  [Symbol('bar')]: 'bar'
+};
+
+Object.keys(obj);
+
+Object.getOwnPropertyNames(obj);
+
+JSON.stringify(obj);
+```
+
 **[Back to top](#table-of-contents)**
 
 ### String
@@ -2342,6 +2363,18 @@ process.nextTick(() => {
   console.log(2);
 });
 
+console.log(3);
+```
+
+```js
+async function f() {
+  console.log(await new Promise(resolve => {
+     setTimeout(() => resolve(2), 0);
+  }));
+}
+
+console.log(1);
+f();
 console.log(3);
 ```
 
