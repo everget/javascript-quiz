@@ -98,8 +98,8 @@ var foo = [] // Missing semicolon!
 ```
 
 ```js
-!function(){console.log('awesome');}() // Missing semicolon!
-!function(){console.log('language');}();
+!function(){console.log('Awesome');}() // Missing semicolon!
+!function(){console.log('JS');}();
 ```
 
 ```js
@@ -114,15 +114,15 @@ foo = bar // Missing semicolon!
 ```js
 function foo() {
   return // Missing semicolon!
-      'Some string';
+      'Awesome JS';
 }
 
-foo() === 'Some string';
+foo() === 'Awesome JS';
 ```
 
 ```js
 var bar = 'bar' // Missing semicolon!
-/js/g.exec('awesome js!');
+/JS/g.exec('Awesome JS');
 ```
 
 **[Back to top](#table-of-contents)**
@@ -586,7 +586,7 @@ x;
 ```
 
 ```js
-var [x, x, x, x] = 'JavaScript is awesome language'.split(' ');
+var [x, x, x, x] = 'JS is awesome language'.split(' ');
 x;
 ```
 
@@ -1214,10 +1214,6 @@ typeof `${{Object}}`.prototype
 ```
 
 ```js
-concat`this``is``a``test``!`();
-```
-
-```js
 var foo = { `hello world`: 24 };
 ```
 
@@ -1652,10 +1648,6 @@ typeof (new (class { class () {} }));
 ### Promise
 
 ```js
-typeof Promise;
-```
-
-```js
 typeof Promise.resolve(2410);
 ```
 
@@ -1791,13 +1783,6 @@ var user = new User('John', 'Doe');
 
 ```js
 typeof [1, 2, 3];
-```
-
-```js
-var arr = [];
-
-arr instanceof Array;
-arr instanceof Object;
 ```
 
 ```js
@@ -2065,10 +2050,6 @@ bar;
 ### Symbol
 
 ```js
-typeof Symbol;
-```
-
-```js
 var foo = new Symbol();
 ```
 
@@ -2168,7 +2149,7 @@ Number({});
 ```
 
 ```js
-Number(['awesome', 'js']);
+Number(['Awesome', 'JS']);
 ```
 
 ```js
@@ -2213,7 +2194,7 @@ Boolean(-Infinity);
 
 ```js
 if (new Boolean(false)) {
-  console.log('JS');
+  console.log('Awesome JS');
 }
 ```
 
@@ -2355,18 +2336,6 @@ Promise.resolve(2)
 ```
 
 ```js
-setTimeout(() => {
-  console.log(1);
-}, 1000);
-
-process.nextTick(() => {
-  console.log(2);
-});
-
-console.log(3);
-```
-
-```js
 async function f() {
   console.log(await new Promise(resolve => {
      setTimeout(() => resolve(2), 0);
@@ -2379,6 +2348,20 @@ console.log(3);
 ```
 
 ```js
+// Node.js
+setTimeout(() => {
+  console.log(1);
+}, 1000);
+
+process.nextTick(() => {
+  console.log(2);
+});
+
+console.log(3);
+```
+
+```js
+// Node.js
 process.nextTick(() => {
   console.log(1);
   while (true) {}
