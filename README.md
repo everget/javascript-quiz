@@ -1,5 +1,5 @@
 ## JavaScript Quiz
-:question: A simple quiz for JavaScript developers. Test your knowledge:)
+:question: A simple quiz for JavaScript developers. Test your knowledge!)
 
 ## Table of Contents
 1. [Labels & Blocks](#labels--blocks)
