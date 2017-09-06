@@ -2385,7 +2385,7 @@ var bar = 1;
 
 (function() {
   var bar = 2;
-  foo()()();
+  foo()()(); // => ?
 })();
 ```
 
@@ -2398,7 +2398,7 @@ var bar = 1;
 
 (function() {
   var bar = 2;
-  eval(foo())();
+  eval(foo())(); // => ?
 })();
 ```
 
@@ -2415,7 +2415,7 @@ var obj = {
 
 with (obj) {
   var b;
-  console.log(a + b);
+  console.log(a + b); // => ?
 }
 ```
 
@@ -2430,7 +2430,7 @@ with ({ a: 1 }) {
 
 ```js
 with (function (x, undefined) {}) {
-  length;
+  length; // => ?
 }
 ```
 
