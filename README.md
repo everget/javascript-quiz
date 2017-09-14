@@ -2,7 +2,7 @@
 :question: A simple quiz for JavaScript developers. Test your knowledge!)
 
 ## Table of Contents
-1. [Labels & Blocks](#labels--blocks)
+1. [Labels](#labels)
 1. [Semicolons](#semicolons)
 1. [Coercions](#coercions)
 1. [Comparisons](#comparisons)
@@ -45,7 +45,7 @@
 1. [```with``` operator](#with-operator)
 1. [Miscellaneous](#miscellaneous)
 
-### Labels & Blocks
+### Labels
 
 ```js
 vars: var vars = vars;
