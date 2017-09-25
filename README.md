@@ -1200,6 +1200,10 @@ new f() instanceof f;
 ### Template literals
 
 ```js
+`${1.0}`;
+```
+
+```js
 `use strict`;
 
 this == null;
@@ -1232,7 +1236,6 @@ Object.prototype.toString.call();
 ```js
 Object.prototype.toString.call(Object);
 ```
-
 
 ```js
 Object.is(NaN, NaN);
@@ -1335,6 +1338,10 @@ foo.y;
 ```
 
 ```js
+('__proto__').__proto__.__proto__.__proto__;
+```
+
+```js
 var proto = {
   x: () => 'x'
 }
@@ -1343,6 +1350,19 @@ var foo = new Object(proto);
 var bar = new Object(proto);
 
 foo === bar;
+```
+
+```js
+Object.create(null) instanceof Object;
+```
+
+```js
+var bar = { bar: 'bar'};
+
+function foo() {}
+foo.prototype = bar;
+
+[bar instanceof foo, Object.create(bar) instanceof foo];
 ```
 
 ```js
@@ -1638,6 +1658,26 @@ typeof (new (class { class () {} }));
 **[Back to top](#table-of-contents)**
 
 ### Generator function
+
+```js
+function* g() {
+  yield 'foo';
+}
+
+g[Symbol.toStringTag] === g()[Symbol.toStringTag];
+```
+
+```js
+function* g() {
+  yield 'foo';
+  yield yield 'bar';
+  yield yield yield 'baz';
+}
+
+var gen = g();
+
+[...gen];
+```
 
 ```js
 (function* f() { yield f })().next()
@@ -2035,6 +2075,10 @@ typeof (/()??/).exec('')[1];
 
 ```js
 new RegExp(/xy+z/, 'i');
+```
+
+```js
+new RegExp([].join('|'));
 ```
 
 ```js
