@@ -1,5 +1,5 @@
 ## JavaScript Quiz
-:question: A simple quiz for JavaScript developers. Test your knowledge!)
+:question: A simple quiz for JavaScript developers.
 
 ## Table of Contents
 1. [Labels](#labels)
@@ -417,6 +417,10 @@ Infinity > -Infinity;
 
 ```js
 42 / -0;
+```
+
+```js
+9999999999999999 === 1e16;
 ```
 
 ```js
@@ -1338,6 +1342,20 @@ foo.y;
 ```
 
 ```js
+var t = true;
+var obj = ({[t]: t});
+
+obj;
+```
+
+```js
+var t = true;
+var obj = ({[`${t}`]: t, [t]: t});
+
+obj;
+```
+
+```js
 ('__proto__').__proto__.__proto__.__proto__;
 ```
 
@@ -1549,6 +1567,28 @@ function f(y = function() { return x; }) {
 }
 
 f();
+```
+
+```js
+function f(x, y = function() { return x; }) {
+  console.log(x);
+  var x = 1;
+  console.log(y());
+}
+
+f(2);
+```
+
+```js
+function f(x, y = function() { console.log(x); x = 1; }) {
+  var x;
+  console.log(x);
+  x = 2;
+  y();
+  console.log(x);
+}
+
+f(3);
 ```
 
 **[Back to top](#table-of-contents)**
