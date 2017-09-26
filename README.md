@@ -1,5 +1,4 @@
 ## JavaScript Quiz
-:question: A simple quiz for JavaScript developers.
 
 ## Table of Contents
 1. [Labels](#labels)
