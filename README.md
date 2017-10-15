@@ -609,6 +609,16 @@ var x, { x: y = 1 } = { x };
 [x, y];
 ```
 
+```js
+var o1 = { a: 1 },
+    o2 = { b: 2 },
+    o3 = { c: 3 }
+
+[o1, o2, o3] = [o3, o2, o1];
+
+o3;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### void operator
@@ -740,6 +750,24 @@ foo('3');
     console.log('finally');
   }
 })();
+```
+
+```js
+var foo = () => {
+  var o = { foo: 24 };
+  window.bar = () => {
+    return o;
+  };
+
+  try {
+    return o;
+  } finally {
+    o = null;
+  }
+};
+
+foo(); // => ?
+bar(); // => ?
 ```
 
 ```js
@@ -1427,9 +1455,7 @@ Function.prototype.constructor === Function;
 
 ```js
 (function (foo) {
-
   return typeof foo.bar;
-
 })({ foo: { bar: 1 } });
 ```
 
@@ -1475,6 +1501,15 @@ f() === g();
 ```
 
 ```js
+function f() {}
+
+var fBind = f.bind({});
+var obj = new f();
+
+[obj instanceof f, obj instanceof fBind];
+```
+
+```js
 (function() {
   if (false) {
     let f = { g() => 1 };
@@ -1500,6 +1535,17 @@ function f(x, y, z) {
 f(foo, bar, baz);
 
 [foo, bar, baz.first];
+```
+
+```js
+function f(name) {
+  this.name = name;
+}
+
+var name = 'foo';
+var person = f('bar');
+
+[name, person];
 ```
 
 ```js
@@ -1731,6 +1777,10 @@ typeof Promise.resolve(2410);
 ```
 
 ```js
+Promise.reject(Promise.resolve());
+```
+
+```js
 new Promise((resolve, reject) => resolve(24))
   .then((res) => console.log(res))
   .then((res) => console.log(res));
@@ -1852,9 +1902,45 @@ var user = new User('John', 'Doe');
 
 ### Reflect
 
+```js
+Reflect.get(Reflect, Reflect.get(Reflect, 'get').name);
+```
+
+```js
+Reflect.setPrototypeOf(Reflect, Array.prototype);
+
+typeof Reflect.slice;
+```
+
+```js
+Reflect.preventExtensions(Reflect);
+
+Reflect.isExtensible(Reflect);
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Proxy
+
+```js
+var proxy = new Proxy({}, {});
+
+proxy instanceof Proxy;
+```
+
+```js
+Proxy.prototype = null;
+
+class P extends Proxy {
+  constructor() {
+    super(window, {
+      getPrototypeOf() { return P.prototype }
+    });
+  }
+};
+
+(new P) instanceof P === true;
+```
 
 **[Back to top](#table-of-contents)**
 
@@ -1871,6 +1957,15 @@ arr[1] = 1;
 arr[24] = 24;
 
 arr.length;
+```
+
+```js
+var arr = [];
+var b = 3;
+
+arr[--b] = ++b;
+
+arr;
 ```
 
 ```js
@@ -2038,6 +2133,13 @@ new Date(0, 0);
 
 ```js
 new Date(0, 0, 0);
+```
+
+```js
+var f = Date.bind.call(Date, 2000, 0, 1);
+var g = Function.bind.call(Date, null, 2000, 0, 1);
+
+new f().toString() === new g().toString();
 ```
 
 **[Back to top](#table-of-contents)**
