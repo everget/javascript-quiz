@@ -1759,6 +1759,34 @@ typeof (new (class { class () {} }));
 })();
 ```
 
+```js
+class A {
+  foo() {
+    console.log('A.foo');
+  }
+}
+
+class B extends A {
+  foo() {
+    super.foo();
+  }
+}
+
+class C {
+  foo() {
+    console.log('C.foo');
+  }
+}
+
+var D = {
+  foo: B.prototype.foo,
+};
+
+Object.setPrototypeOf(B, C.constructor);
+
+D.foo();
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Generator function
@@ -1948,17 +1976,35 @@ proxy instanceof Proxy;
 ```
 
 ```js
-Proxy.prototype = null;
+(() => {
+  Proxy.prototype = null;
 
-class P extends Proxy {
-  constructor() {
-    super(window, {
-      getPrototypeOf() { return P.prototype }
-    });
-  }
-};
+  class P extends Proxy {
+    constructor() {
+      super(window, {});
+      this.foo = 'foo';
+    }
+  };
 
-(new P) instanceof P === true;
+  new P;
+  console.log(window.foo);
+});
+```
+
+```js
+(() => {
+  Proxy.prototype = null;
+
+  class P extends Proxy {
+    constructor() {
+      super(window, {
+        getPrototypeOf() { return P.prototype }
+      });
+    }
+  };
+
+  (new P) instanceof P === true;
+});
 ```
 
 **[Back to top](#table-of-contents)**
@@ -1980,9 +2026,9 @@ arr.length;
 
 ```js
 var arr = [];
-var b = 3;
+var i = 3;
 
-arr[--b] = ++b;
+arr[--i] = ++i;
 
 arr;
 ```
