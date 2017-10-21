@@ -1576,6 +1576,12 @@ foo.x;
 ```
 
 ```js
+var c = 'constructor';
+
+c[c][c]('console.log(c)')();
+```
+
+```js
 var f = Function.prototype.call;
 
 f();
@@ -2293,13 +2299,13 @@ Object.keys(obj);
 ```
 
 ```js
-var foo = {};
+var obj = {};
 
-foo[Symbol('bar')] = true;
+obj[Symbol('foo')] = true;
 
-foo[Symbol('baz')] = false;
+obj[Symbol('foo')] = false;
 
-Object.getOwnPropertySymbols(foo).length;
+Object.getOwnPropertySymbols(obj).length;
 ```
 
 **[Back to top](#table-of-contents)**
