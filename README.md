@@ -1510,6 +1510,19 @@ var obj = new f();
 ```
 
 ```js
+function foo() {
+  return Function.bind(null, 'console.log(bar);');
+}
+
+var bar = 1;
+
+(function() {
+  var bar = 2;
+  foo()()();
+})();
+```
+
+```js
 (function() {
   if (false) {
     let f = { g() => 1 };
@@ -2159,6 +2172,16 @@ RegExp.prototype.toString = function() {
 ```
 
 ```js
+class CustomRegExp extends RegExp {
+  constructor() {
+    super();
+  }
+}
+
+new CustomRegExp;
+```
+
+```js
 'foobar'.replace(/^/, "$'");
 ```
 
@@ -2257,16 +2280,26 @@ Symbol.for('bar') === Symbol.for('bar');
 ```
 
 ```js
+Symbol.keyFor(Symbol.iterator);
+```
+
+```js
 var obj = {
   [Symbol('foo')]: 'foo',
   [Symbol('bar')]: 'bar'
 };
 
 Object.keys(obj);
+```
 
-Object.getOwnPropertyNames(obj);
+```js
+var foo = {};
 
-JSON.stringify(obj);
+foo[Symbol('bar')] = true;
+
+foo[Symbol('baz')] = false;
+
+Object.getOwnPropertySymbols(foo).length;
 ```
 
 **[Back to top](#table-of-contents)**
