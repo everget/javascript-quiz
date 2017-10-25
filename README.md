@@ -1868,11 +1868,15 @@ Promise.resolve(2410).then(
 Promise.reject(24)
   .then(null, null)
   .then(null, (reason) => console.log(reason));
+```
 
+```js
 Promise.reject(24)
   .then(10, null)
   .then(null, (reason) => console.log(reason));
+```
 
+```js
 Promise.reject(24)
   .then(null, 10)
   .then(null, (reason) => console.log(reason));
@@ -1882,11 +1886,15 @@ Promise.reject(24)
 Promise.resolve(24)
   .then(null, null)
   .then((res) => console.log(res), null);
+```
 
+```js
 Promise.resolve(24)
   .then(null, 10)
   .then((res) => console.log(res), null);
+```
 
+```js
 Promise.resolve(24)
   .then(10, null)
   .then((res) => console.log(res), null);
