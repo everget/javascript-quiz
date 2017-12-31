@@ -2165,7 +2165,19 @@ Array.apply(null, new Array(4)).map((el, i) => i);
 ```
 
 ```js
+var arr = [1, 2, 3];
+var pushResult = arr.push(4, 5, 6);
+
+[pushResult, arr];
+```
+
+```js
 Array.prototype.push(1, 2, 3);
+```
+
+```js
+var arr = [80, 9, 34, 23, 5, 1];
+arr.sort(); // => ?
 ```
 
 ```js
