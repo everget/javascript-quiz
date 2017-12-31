@@ -334,6 +334,10 @@ null == 0;
 [] == ![];
 ```
 
+```js
+[[]] == 0;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Inequalities
@@ -2243,6 +2247,10 @@ new CustomRegExp;
 
 ```js
 'foobar'.replace(/^/, "$'");
+```
+
+```js
+/foo.bar/.test('foo\nbar');
 ```
 
 ```js
