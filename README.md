@@ -1289,6 +1289,13 @@ Object.assign({}, 'function');
 ```
 
 ```js
+var foo = 'abc';
+var bar = Object(foo);
+
+Object.prototype.toString.call(bar);
+```
+
+```js
 Object.freeze(window);
 
 var didItWork = true;
@@ -2083,6 +2090,12 @@ new Array(1, 2) == true;
 
 ```js
 new Array([], null, undefined, null) == ',,,';
+```
+
+```js
+var arr = new Array(3);
+
+arr.map((value, index) => index);
 ```
 
 ```js
