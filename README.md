@@ -1179,6 +1179,10 @@ y = 1;
 })();
 ```
 
+```js
+void typeof delete this;
+```
+
 **[Back to top](#table-of-contents)**
 
 ### Spread operator
