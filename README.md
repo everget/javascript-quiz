@@ -2015,7 +2015,7 @@ proxy instanceof Proxy;
 
   new P;
   console.log(window.foo);
-});
+})();
 ```
 
 ```js
@@ -2030,8 +2030,8 @@ proxy instanceof Proxy;
     }
   };
 
-  (new P) instanceof P === true;
-});
+  console.log((new P) instanceof P === true);
+})();
 ```
 
 **[Back to top](#table-of-contents)**
@@ -2193,7 +2193,18 @@ var pushResult = arr.push(4, 5, 6);
 ```
 
 ```js
-Array.prototype.push(1, 2, 3);
+var arr = [undefined, , true];
+
+arr.filter(() => true);
+```
+
+```js
+var arr = new Array(2);
+var i = 0;
+
+arr.forEach(() => i++);
+
+i;
 ```
 
 ```js
@@ -2202,11 +2213,29 @@ arr.sort(); // => ?
 ```
 
 ```js
+new Array(10).map((el, i) => i + 1);
+```
+
+```js
 Array.isArray({
   constructor: Array,
   length: 0,
-  __proto__: Array.prototype
+  __proto__: Array.prototype,
 });
+```
+
+```js
+Array.prototype.push(1, 2, 3);
+```
+
+```js
+Array.prototype[1] = 'foo';
+
+var arr = [undefined, ,];
+
+0 in arr; // => ?
+1 in arr; // => ?
+arr.hasOwnProperty(1); // => ?
 ```
 
 **[Back to top](#table-of-contents)**
