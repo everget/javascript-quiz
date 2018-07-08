@@ -1360,6 +1360,10 @@ obj[[1]] == obj['1'];
 ```
 
 ```js
+({}).valueOf();
+```
+
+```js
 { valueOf: () => true } == '1.0e0';
 ```
 
@@ -2039,6 +2043,10 @@ proxy instanceof Proxy;
 ### Array
 
 ```js
+[].valueOf();
+```
+
+```js
 typeof [1, 2, 3];
 ```
 
@@ -2174,11 +2182,19 @@ arr.slice(3, -6);
 ```
 
 ```js
+[1, 2, 3].slice(0, null);
+```
+
+```js
 Array(3).map(item => 'x');
 ```
 
 ```js
 Array.apply(null, new Array(4)).map((el, i) => i);
+```
+
+```js
+Array.apply(null, { length : 3 });
 ```
 
 ```js
@@ -2473,6 +2489,7 @@ String(['foo', 'bar']);
 ```
 
 ```js
+Number.MAX_VALUE > 0;
 Number.MIN_VALUE > 0;
 ```
 
@@ -2482,6 +2499,10 @@ Number();
 
 ```js
 Number(undefined);
+```
+
+```js
+Number('');
 ```
 
 ```js
@@ -2497,11 +2518,11 @@ Number({});
 ```
 
 ```js
-Number(['Awesome', 'JS']);
+Number.isNaN('NaN') === window.isNaN('NaN');
 ```
 
 ```js
-Number.isNaN('NaN') === window.isNaN('NaN');
+Number('0.') === Number('.0');
 ```
 
 ```js
@@ -2579,6 +2600,10 @@ Math.max(2, []);
 
 ```js
 Math.max({}, 2);
+```
+
+```js
+Math.max() > Math.min();
 ```
 
 ```js
