@@ -2259,6 +2259,14 @@ arr.hasOwnProperty(1); // => ?
 ### Date
 
 ```js
+new Date(undefined);
+```
+
+```js
+new Date(null);
+```
+
+```js
 '2016/12/31' == new Date('2016/12/31');
 ```
 
@@ -2314,13 +2322,15 @@ RegExp.prototype.toString = function() {
 ```
 
 ```js
-class CustomRegExp extends RegExp {
-  constructor() {
-    super();
-  }
-}
+(() => {
+    class CustomRegExp extends RegExp {
+      constructor() {
+        super();
+      }
+    }
 
-new CustomRegExp;
+    return new CustomRegExp;
+})();
 ```
 
 ```js
