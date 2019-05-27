@@ -2233,6 +2233,13 @@ new Array(10).map((el, i) => i + 1);
 ```
 
 ```js
+var bag = new Array(3).fill([]);
+bag[0].push(1);
+bag[1].push(1);
+bag; // => ?
+```
+
+```js
 Array.isArray({
   constructor: Array,
   length: 0,
