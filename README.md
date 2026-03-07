@@ -1,48 +1,74 @@
 ## JavaScript Quiz
 
 ## Table of Contents
+
+### Language Fundamentals
 1. [Labels](#labels)
 1. [Semicolons](#semicolons)
+1. [Template literals](#template-literals)
+1. [Default parameters](#default-parameters)
+1. [Destructuring assignment](#destructuring-assignment)
+
+### Type System & Coercion
 1. [Coercions](#coercions)
 1. [Comparisons](#comparisons)
 1. [Inequalities](#inequalities)
 1. [Calculus](#calculus)
-1. [Conditional statements](#conditional-statements)
-1. [Destructuring assignment](#destructuring-assignment)
-1. [```void``` operator](#void-operator)
 1. [```typeof``` operator](#typeof-operator)
+1. [```instanceof``` operator](#instanceof-operator)
+
+### Operators
 1. [```,``` operator](#comma-operator)
+1. [```void``` operator](#void-operator)
+1. [```delete``` operator](#delete-operator)
+1. [```...``` operator](#spread-operator)
+
+### Control Flow & Error Handling
+1. [Conditional statements](#conditional-statements)
 1. [```try-catch``` statement](#try-catch-statement)
+
+### Scope, Context & Execution
 1. [Hoisting](#hoisting)
 1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
 1. [Context](#context)
-1. [```delete``` operator](#delete-operator)
-1. [```...``` operator](#spread-operator)
-1. [```instanceof``` operator](#instanceof-operator)
-1. [Template literals](#template-literals)
-1. [```Object```](#object)
+
+### Functions & Classes
 1. [```Function```](#function)
-1. [Default parameters](#default-parameters)
 1. [```arguments```](#arguments)
 1. [```class```](#class)
 1. [```GeneratorFunction```](#generator-function)
-1. [```Promise```](#promise)
 1. [```AsyncFunction```](#async-function)
-1. [```Reflect```](#reflect)
-1. [```Proxy```](#proxy)
+
+### Core Language Objects
+1. [```Object```](#object)
 1. [```Array```](#array)
-1. [```Date```](#date)
-1. [```RegExp```](#regexp)
-1. [```Symbol```](#symbol)
 1. [```String```](#string)
 1. [```Number```](#number)
 1. [```Boolean```](#boolean)
+1. [```Symbol```](#symbol)
 1. [```Math```](#math)
-1. [```Window```](#window)
+1. [```Date```](#date)
+1. [```RegExp```](#regexp)
+
+### Meta-Programming
+1. [```Reflect```](#reflect)
+1. [```Proxy```](#proxy)
+
+### Asynchronous JavaScript
+1. [```Promise```](#promise)
 1. [Event loop](#event-loop)
+
+### Browser Environment
+1. [```Window```](#window)
+
+### Dangerous / Legacy Features
 1. [```eval``` method](#eval-method)
 1. [```with``` operator](#with-operator)
+
+### Miscellaneous
 1. [Miscellaneous](#miscellaneous)
+
+---
 
 ### Labels
 
