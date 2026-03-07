@@ -15,7 +15,7 @@
 | **Asynchronous JavaScript** | [`Promise`](#promise) · [Event loop](#event-loop) |
 | **Browser Environment** | [`Window`](#window) |
 | **Dangerous / Legacy Features** | [`eval`](#eval-method) · [`with`](#with-operator) |
-| **Miscellaneous** | [Miscellaneous](#miscellaneous) |
+| **Miscellaneous** | [Brainf_ck](#brainf_ck) |
 
 ---
 
@@ -2827,7 +2827,7 @@ foo.bar;
 
 **[Back to top](#table-of-contents)**
 
-### Miscellaneous
+### Brainf_ck
 
 ```js
 (![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]];
