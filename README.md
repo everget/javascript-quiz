@@ -2,71 +2,20 @@
 
 ## Table of Contents
 
-### Language Fundamentals
-1. [Labels](#labels)
-1. [Semicolons](#semicolons)
-1. [Template literals](#template-literals)
-1. [Default parameters](#default-parameters)
-1. [Destructuring assignment](#destructuring-assignment)
-
-### Type System & Coercion
-1. [Coercions](#coercions)
-1. [Comparisons](#comparisons)
-1. [Inequalities](#inequalities)
-1. [Calculus](#calculus)
-1. [```typeof``` operator](#typeof-operator)
-1. [```instanceof``` operator](#instanceof-operator)
-
-### Operators
-1. [```,``` operator](#comma-operator)
-1. [```void``` operator](#void-operator)
-1. [```delete``` operator](#delete-operator)
-1. [```...``` operator](#spread-operator)
-
-### Control Flow & Error Handling
-1. [Conditional statements](#conditional-statements)
-1. [```try-catch``` statement](#try-catch-statement)
-
-### Scope, Context & Execution
-1. [Hoisting](#hoisting)
-1. [Scopes & Closures & Hoisting](#scopes--closures--hoisting)
-1. [Context](#context)
-
-### Functions & Classes
-1. [```Function```](#function)
-1. [```arguments```](#arguments)
-1. [```class```](#class)
-1. [```GeneratorFunction```](#generator-function)
-1. [```AsyncFunction```](#async-function)
-
-### Core Language Objects
-1. [```Object```](#object)
-1. [```Array```](#array)
-1. [```String```](#string)
-1. [```Number```](#number)
-1. [```Boolean```](#boolean)
-1. [```Symbol```](#symbol)
-1. [```Math```](#math)
-1. [```Date```](#date)
-1. [```RegExp```](#regexp)
-
-### Meta-Programming
-1. [```Reflect```](#reflect)
-1. [```Proxy```](#proxy)
-
-### Asynchronous JavaScript
-1. [```Promise```](#promise)
-1. [Event loop](#event-loop)
-
-### Browser Environment
-1. [```Window```](#window)
-
-### Dangerous / Legacy Features
-1. [```eval``` method](#eval-method)
-1. [```with``` operator](#with-operator)
-
-### Miscellaneous
-1. [Miscellaneous](#miscellaneous)
+| Category | Topics |
+|---|---|
+| **Language Fundamentals** | [Labels](#labels) · [Semicolons](#semicolons) · [Template literals](#template-literals) · [Default parameters](#default-parameters) · [Destructuring assignment](#destructuring-assignment) |
+| **Type System & Coercion** | [Coercions](#coercions) · [Comparisons](#comparisons) · [Inequalities](#inequalities) · [Calculus](#calculus) · [`typeof`](#typeof-operator) · [`instanceof`](#instanceof-operator) |
+| **Operators** | [`,` operator](#comma-operator) · [`void`](#void-operator) · [`delete`](#delete-operator) · [`...` (spread)](#spread-operator) |
+| **Control Flow & Error Handling** | [Conditional statements](#conditional-statements) · [`try-catch`](#try-catch-statement) |
+| **Scope, Context & Execution** | [Hoisting](#hoisting) · [Scopes & Closures & Hoisting](#scopes--closures--hoisting) · [Context](#context) |
+| **Functions & Classes** | [`Function`](#function) · [`arguments`](#arguments) · [`class`](#class) · [`GeneratorFunction`](#generator-function) · [`AsyncFunction`](#async-function) |
+| **Core Language Objects** | [`Object`](#object) · [`Array`](#array) · [`String`](#string) · [`Number`](#number) · [`Boolean`](#boolean) · [`Symbol`](#symbol) · [`Math`](#math) · [`Date`](#date) · [`RegExp`](#regexp) |
+| **Meta-Programming** | [`Reflect`](#reflect) · [`Proxy`](#proxy) |
+| **Asynchronous JavaScript** | [`Promise`](#promise) · [Event loop](#event-loop) |
+| **Browser Environment** | [`Window`](#window) |
+| **Dangerous / Legacy Features** | [`eval`](#eval-method) · [`with`](#with-operator) |
+| **Miscellaneous** | [Miscellaneous](#miscellaneous) |
 
 ---
 
