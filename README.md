@@ -1,4 +1,4 @@
-## JavaScript Quiz
+# JavaScript Quiz
 
 ## Table of Contents
 
